@@ -342,5 +342,61 @@ export const Comments = styled.div`
   height: 296px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
-  
+  color: white;
+  ${(props) => props.border==='true'?" border: 1px solid rgba(149, 133, 106, 1)":'border:none'};
+  padding:  0 1.2rem;
+  &>div{
+    margin: 2rem 0 1rem 2rem;
+    text-align: right;
+    font-weight: 500;
+    word-spacing: .1rem;
+    &.date{
+      font-size: .6rem;
+      text-align: left;
+      margin-left: 0;
+      color:rgba(149, 133, 106, 1) ;
+      text-decoration: underline ;
+    }
+  }
+`
+export const Comment_user_info=styled.div`
+  display: flex;
+
+  & > div.info{
+    text-align: right;
+    margin-right: 2rem;
+    line-height: 1.7rem;
+&>h6{
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+    &>span{
+      font-size: .7rem;
+      color: rgba(255, 255, 255, 0.63);
+    }
+}
+`
+export const Comment_profile=styled.div`
+width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  &>img{
+    width: 100%;
+    height: 100%;
+  }
+`
+export const Dott=styled.div`
+&>span{
+  width: 10px;
+  height: 10px;
+  margin: 0 .2rem;
+  border-radius: 50%;
+  background-color:rgba(255, 255, 255, 0.29);
+  display: inline-block;
+  &.this{
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.29);
+  }
+}
 `

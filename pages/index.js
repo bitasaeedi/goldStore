@@ -19,7 +19,7 @@ import {
     See_more_btn,
     Worthiness_container,
     Wrapper,
-    All_comments
+    All_comments, Dott
 } from "@/styled components/Home-style";
 
 import Image from "next/image";
@@ -139,6 +139,10 @@ export default function Home() {
                     <All_comments>
                         <Home_Comments/>
                     </All_comments>
+
+                    <Dott>
+                        <span className='this'></span><span></span><span></span><span ></span>
+                    </Dott>
                 </Comments_container>
             </Wrapper>
 
