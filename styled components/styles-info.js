@@ -28,7 +28,10 @@ export let colors = {
             items:'#241204',
             assortment_title: 'rgba(149, 133, 106, 0.84)',
             comments:"rgba(52, 31, 15, 0.5)",
-
+        },
+        product:{
+            middle_section:'#1F1E1D',
+            left_item:'rgba(46, 44, 43, 1)',
         }
     }
 }

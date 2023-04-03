@@ -16,6 +16,10 @@ export const Header_container = styled.header`
 `
 
 export const Header_items = styled.div`
+  &>a{
+    text-decoration: none;
+    color: ${colors.texts.header};
+  }
   color: ${colors.texts.header};
   font-weight: 400;
   padding: 1rem 0 0;
