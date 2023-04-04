@@ -106,11 +106,12 @@ export const Login_image = styled.div`
 `
 ////////////////varification/////////
 export const Varification_form = styled.div`
-  width: 50%;
+  width: 53%;
   margin: 4rem 0 ;
   text-align: center;
   &>div{
     margin: 0 8rem 1.7rem;
+    direction:ltr;
     & > h6 {
       color: rgba(255, 255, 255, 0.75);
       font-size: 1.2rem;
@@ -134,10 +135,29 @@ export const Varification_form = styled.div`
  
 `
 export const Squares_container = styled.div`
+  &>div{
     display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-  width: 57%;
+    justify-content: center;
+    margin: 0 auto;
+    width: 60%;
+    
+  }
+  &>div>input.input{
+    margin: 0rem .6rem;
+    color: rgba(255, 255, 255, 0.72);
+    text-align: center;
+    font-size: 1.8rem;
+    background-color: transparent;
+    width: 72px;
+    height: 72px;
+    border-radius: 15px;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 5px 5px #2B2726;
+    &:focus{
+      border: 1px solid rgba(212, 175, 55, 0.39);
+    }
+  }
 `
 export const Square = styled.input`
   color: rgba(255, 255, 255, 0.72);

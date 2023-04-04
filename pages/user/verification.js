@@ -1,13 +1,18 @@
 import {
-    Btn_detail,
     Login_container,
-    Login_image, Square, Squares_container, Varification_btn,
+    Login_image, Squares_container, Varification_btn,
     Varification_form,
     Wrapper
 } from "@/styled components/login-style";
 import Image from "next/image";
-
+import AuthCode from "react-auth-code-input";
+import {useState} from "react";
 function Login() {
+    let[code,setCode]=useState('');
+    function handleOnChange(res){
+        setCode(res)
+        console.log(res)
+    }
     return <>
         <Wrapper>
             <Login_container>
@@ -20,10 +25,12 @@ function Login() {
                         <div className='gold'>ویرایش شماره</div>
                     </div>
                     <Squares_container>
-                        <Square/>
-                        <Square/>
-                        <Square/>
-                        <Square/>
+                        <AuthCode
+                            onChange={handleOnChange}
+                            length={4}
+                            containerClassName='container'
+                            inputClassName='input'
+                        />
                     </Squares_container>
 
                     <Varification_btn>
