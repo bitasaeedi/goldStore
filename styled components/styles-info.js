@@ -19,6 +19,9 @@ export let colors = {
             worthiness_title:'rgba(149, 133, 106, 0.95)',
             worthiness_icon:'rgba(149, 133, 106, 0.52)',
         },
+        product:{
+            p_tag:'rgba(255, 255, 255, 0.78)',
+        }
 
     },
     background: {
@@ -31,7 +34,8 @@ export let colors = {
         },
         product:{
             middle_section:'#1F1E1D',
-            left_item:'rgba(46, 44, 43, 1)',
+            middle_section_item:'',
+            item:'rgba(46, 44, 43, 1)',
         }
     }
 }

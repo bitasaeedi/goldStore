@@ -77,13 +77,13 @@ export const Play_icon = styled.span`
     left: 38%;
   }
 `
+
 //collection
 export const Home_collection_container = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 2rem 0;
 `
-
 export const Collection_section_R = styled.div`
   width: 49.3%;
   height: 475px;
@@ -167,6 +167,7 @@ export const See_more_btn = styled.span`
   right: ${(props) => (props.dir === 'left' ? '2.5rem' : '1.5rem')};
   cursor: pointer;
 `
+
 //assortment
 export const Assortment_container = styled.div`
   margin: 9rem auto 6rem;
@@ -248,6 +249,7 @@ export const Assortment_item = styled.div`
     font-size: .7rem;
   }
 `
+
 //compliment
 export const Compliment_container = styled.div`
   display: flex;
@@ -271,6 +273,7 @@ export const Compliment_container = styled.div`
     }
   }
 `
+
 //worthiness
 export const Worthiness_container = styled.div`
   text-align: center;
@@ -308,6 +311,7 @@ export const Worthiness_item = styled.div`
     left: 3rem;
   }
 `
+
 //comments
 export const Comments_container = styled.div`
   height: 640px;
@@ -335,7 +339,6 @@ export const All_comments = styled.div`
   justify-content: space-between;
   margin: 0 2rem;
 `
-
 export const Comments = styled.div`
   background-color: ${colors.background.home.comments};
   width: 378px;

@@ -10,12 +10,14 @@ export const Products = styled.div`
   width: 100%;
   height: 700px;
 `
+
 export const Product_title = styled.div`
   color: white;
   font-size: 1.2rem;
   font-weight: 500;
   margin-bottom: 2rem;
 `
+
 export const Product_container = styled.div`
   width: 100%;
   display: flex;
@@ -26,6 +28,7 @@ export const Product_container = styled.div`
   }
 
 `
+
 export const Right_section = styled.div`
   width: 29.5%;
   border: 1px solid rgba(72, 72, 72, 1);
@@ -34,11 +37,67 @@ export const Right_section = styled.div`
 export const Middle_section = styled.div`
   width: 39.5%;
   background-color: ${colors.background.product.middle_section};
-  &>h4{
+
+  & > h4 {
     color: rgba(255, 255, 255, 0.82);
-    font-size: 1.8rem;
+    font-size: 1.75rem;
     word-spacing: .1rem;
-    margin: 3rem 2rem 1rem;
+    margin: 3rem 2rem 0;
+    font-weight: 700;
+  }
+
+  & > div.stars {
+    direction: ltr;
+    margin: 0 2rem 6.5rem;
+
+    & > span {
+      color: white;
+      float: right;
+      font-size: .75rem;
+      direction: rtl;
+      position: relative;
+      top: .6rem;
+      right: 1rem;
+      font-weight: 300;
+
+      &.number {
+        padding-left: .2rem;
+      }
+    }
+
+    & > div {
+      float: right;
+    }
+  }
+
+  & > p.description {
+    color: ${colors.texts.product.p_tag};
+    margin: 0 1.1rem 1.5rem;
+    font-size: .9rem;
+    font-weight: 400;
+    word-spacing: .1rem;
+    line-height: 1.7rem;
+  }
+
+ 
+`
+export const Middle_product_info = styled.div`
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: space-between;
+  margin: 1rem 1.2rem;
+  
+  & > div>div.info_title {
+    color: white;
+    margin: 1rem 0 .4rem;
+  }
+
+  & >div>div.info {
+    background-color: ${colors.background.product.item};
+    width: 150px;
+    height: 45px;
+    border-radius: 5px;
+    
   }
 `
 
@@ -79,7 +138,7 @@ export const Left_section = styled.div`
     & > input {
       width: 100%;
       border: none;
-      background-color: ${colors.background.product.left_item};
+      background-color: ${colors.background.product.item};
       border-radius: 5px;
       height: 50px;
       color: #FFFFFF;
@@ -137,10 +196,11 @@ export const Button1 = styled.div`
   font-weight: 700;
 `
 export const Button2 = styled.div`
-    display: flex;
+  display: flex;
   justify-content: space-between;
   margin-top: .8rem;
-  &>div{
+
+  & > div {
     border: 1px solid #95856A;
     color: white;
     width: 48%;
@@ -150,6 +210,6 @@ export const Button2 = styled.div`
     font-weight: 500;
     font-size: .9rem;
   }
- 
-  
+
+
 `

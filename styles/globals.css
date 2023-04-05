@@ -1,5 +1,10 @@
 @font-face {
   font-family: estedad;
+  font-weight: 200;
+  src: url('fonts/Estedad-Extralight.woff2')format('woff2');
+}
+@font-face {
+  font-family: estedad;
   font-weight: 300;
   src: url('fonts/Estedad-Thin.woff2')format('woff2');
 }
