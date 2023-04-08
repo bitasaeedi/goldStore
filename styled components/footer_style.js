@@ -12,9 +12,8 @@ export const Footer_container = styled.footer`
 padding-left: 3rem;
 `
 export const Footer_section = styled.div`
-//border: 1px solid white;
-`
 
+`
 
 export const Footer_title = styled.h2`
   color: ${colors.texts.footer_title};

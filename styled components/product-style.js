@@ -90,9 +90,11 @@ export const Middle_product_info = styled.div`
   & > div>div.info_title {
     color: white;
     margin: 1rem 0 .4rem;
+    font-size: .9rem;
   }
 
   & >div>div.info {
+    margin-bottom: 1rem;
     background-color: ${colors.background.product.item};
     width: 150px;
     height: 45px;

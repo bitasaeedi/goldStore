@@ -32,11 +32,13 @@ export const Login_input_title = styled.div`
   margin-bottom: .4rem;
 `
 export const Login_input = styled.div`
+  position: relative;
   & > input {
+    border: none;
+   padding-left: 2rem;
     width: 100%;
     background-color: transparent;
     outline: none;
-    border: none;
     color: rgba(255, 255, 255, 0.82);
     padding-bottom: .4rem;
     border-bottom: 3px solid rgba(62, 62, 62, 1);
@@ -55,6 +57,13 @@ export const Login_input = styled.div`
       font-weight: 800;
       font-size: 1.1rem;
     }
+  }
+  &>span{
+    position: absolute;
+    left: .5rem;  top:.9rem;
+    font-size: 20px;
+    color: #776A57;
+    cursor: pointer;
   }
 `
 export const Forget_password = styled.div`

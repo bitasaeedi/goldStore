@@ -10,6 +10,7 @@ import {
 import Image from "next/image";
 import React from 'react';
 import ReactStars from 'react-stars'
+import SWIPER from "@/components/swiper";
 function Product() {
     return <>
         <Wrapper>
@@ -18,7 +19,9 @@ function Product() {
 
                 <Product_container>
 
-                    <Right_section></Right_section>
+                    <Right_section>
+
+                    </Right_section>
                     {/*middle*/}
                     <Middle_section>
                         <h4>انگشتر طلا طرح گل</h4>
@@ -26,7 +29,9 @@ function Product() {
                             <ReactStars
                                 count={5}
                                 size={23}
-                                color2={'#ffd700'} />
+                                color2={'#ffd700'}
+                            value={3}
+                            edit={false}/>
                         <span className='number'>222</span><span> نظر</span></div>
                         <p className='description'>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
                             گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطر آنچنان که لازم است و

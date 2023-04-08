@@ -9,8 +9,13 @@ import {
     Wrapper
 } from "@/styled components/login-style";
 import Image from "next/image";
-
+import 'material-icons/iconfont/material-icons.css'
+import {useState} from "react";
 function Signup() {
+    let[visibility,setVisibility]=useState(false);
+    function handlePassword(){
+        setVisibility(!visibility);
+    }
     return <>
         <Wrapper>
             <Login_container>
@@ -24,7 +29,8 @@ function Signup() {
 
                     <div>
                         <Login_input_title>رمز ورود</Login_input_title>
-                        <Login_input><input type='password' placeholder='رمز را وارد کنید'/></Login_input>
+                        <Login_input><input type={visibility?'text':'password'} placeholder='رمز را وارد کنید'/>
+                            <span className="material-icons-outlined" onClick={handlePassword}>{visibility?'visibility_off':'visibility'}</span></Login_input>
 
                     </div>
 

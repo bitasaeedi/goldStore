@@ -21,6 +21,13 @@ export let colors = {
         },
         product:{
             p_tag:'rgba(255, 255, 255, 0.78)',
+        },
+        category:{
+            white1:'rgba(255, 255, 255, 0.65)',
+            white2:'rgba(255, 255, 255)',
+            white3:'rgba(255, 255, 255, 0.82)',
+            border1:'',
+            gold:'rgba(149, 133, 106, 1)',
         }
 
     },

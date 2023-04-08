@@ -11,6 +11,7 @@
   "dependencies": {
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
+    "material-icons": "^1.13.4",
     "next": "13.2.4",
     "react": "18.2.0",
     "react-auth-code-input": "^3.2.1",
@@ -18,5 +19,8 @@
     "react-stars": "^2.2.5",
     "styled-components": "^5.3.9",
     "swiper": "^9.1.1"
+  },
+  "devDependencies": {
+    "@zeit/next-css": "^1.0.1"
   }
 }
