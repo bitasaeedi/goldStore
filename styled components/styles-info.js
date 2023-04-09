@@ -29,6 +29,11 @@ export let colors = {
             border1:'rgba(255, 255, 255, 0.29)',
             border2:'rgba(255, 255, 255, 0.42)',
             gold:'rgba(149, 133, 106, 1)',
+        },
+        checkout:{
+            white1:'rgba(255, 255, 255)',
+            white2:'rgba(255, 255, 255, 0.70)',
+            border:'rgba(149, 133, 106, 0.52)'
         }
     },
     background: {

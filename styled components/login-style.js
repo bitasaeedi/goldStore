@@ -92,7 +92,8 @@ export const Login_btn = styled.div`
 export const Btn_detail = styled.div`
   position: absolute;
   top: 4.5rem;
-  left: 5rem;
+  width: 100%;
+  text-align: center;
   color: rgba(255, 255, 255, 0.62);
   font-size: .9rem;
   cursor: pointer;
