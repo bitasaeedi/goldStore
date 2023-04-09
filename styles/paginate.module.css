@@ -1,0 +1,23 @@
+.paginationContainer{
+    margin: 5rem 2rem 1rem;
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    direction: ltr;
+}
+.pageItem{
+    color: white;
+    border: 1px solid rgba(149, 133, 106, 0.62);
+    width: 50px;height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding: .4rem 0;
+    margin: 0 .5rem;
+    cursor: pointer;
+}
+.active{
+    background-color: rgba(149, 133, 106, 0.52);
+    border: none;
+}

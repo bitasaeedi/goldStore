@@ -189,7 +189,7 @@ export const Varification_btn=styled.div`
   border: 1px solid #37332D;
   padding:.8rem 2rem;
   border-radius: 20px;
-  margin:4.5rem auto 1rem;
+  margin:4.5rem auto 1.5rem;
   color: #95856A;
   font-size: 1rem;
   font-weight: 700;
@@ -199,7 +199,7 @@ export const Varification_btn=styled.div`
     color: #95856A;
     font-size: .7rem;
     border-bottom: 1px solid #95856A;
-    bottom: -1.7rem;
+    bottom: -1.8rem;
     left: 5.5rem;
     position: absolute;
     cursor: pointer;
@@ -207,8 +207,8 @@ export const Varification_btn=styled.div`
  &>span.time{
    color: rgba(255,255,255,.70);
    position: absolute;
-   bottom:-1.7rem;
+   bottom:-2rem;
    font-size: .8rem;
-   right: 5rem;
+   right: 5.2rem;
  }
 `

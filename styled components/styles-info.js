@@ -23,13 +23,13 @@ export let colors = {
             p_tag:'rgba(255, 255, 255, 0.78)',
         },
         category:{
-            white1:'rgba(255, 255, 255, 0.65)',
-            white2:'rgba(255, 255, 255)',
-            white3:'rgba(255, 255, 255, 0.82)',
-            border1:'',
+            white1:'rgba(255, 255, 255)',
+            white2:'rgba(255, 255, 255, 0.82)',
+            white3:'rgba(255, 255, 255, 0.65)',
+            border1:'rgba(255, 255, 255, 0.29)',
+            border2:'rgba(255, 255, 255, 0.42)',
             gold:'rgba(149, 133, 106, 1)',
         }
-
     },
     background: {
         header_icon: '#292929',

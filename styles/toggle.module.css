@@ -1,0 +1,17 @@
+.customtoggle>div:hover{
+   background-color: white;
+}
+.customtoggle>div:first-child{
+    border: 1px solid rgba(149, 133, 106, 0.82) !important;
+    height: 20px;
+    background-color: transparent !important;
+}
+.customtoggle>div:last-of-type{
+    border: 1px solid rgba(149, 133, 106, 0.82) !important;
+    height: 12px;width: 12px;
+    background-color:rgba(149, 133, 106, 0.82);
+    position: absolute;
+    top: .25rem;
+    margin: 0 .25rem;
+    box-shadow: none;
+}
