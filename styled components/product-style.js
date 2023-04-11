@@ -5,19 +5,16 @@ export const Wrapper = styled.div`
   max-width: 1300px;
   margin: 0 auto;
 `
-
 export const Products = styled.div`
   width: 100%;
   height: 700px;
 `
-
 export const Product_title = styled.div`
   color: white;
   font-size: 1.2rem;
   font-weight: 500;
   margin-bottom: 2rem;
 `
-
 export const Product_container = styled.div`
   width: 100%;
   display: flex;
@@ -28,12 +25,10 @@ export const Product_container = styled.div`
   }
 
 `
-
 export const Right_section = styled.div`
   width: 29.5%;
   border: 1px solid rgba(72, 72, 72, 1);
 `
-
 export const Middle_section = styled.div`
   width: 39.5%;
   background-color: ${colors.background.product.middle_section};
@@ -102,7 +97,6 @@ export const Middle_product_info = styled.div`
     
   }
 `
-
 export const Left_section = styled.div`
   width: 29.5%;
   border: 1px solid rgba(72, 72, 72, 1);

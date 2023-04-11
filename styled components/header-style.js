@@ -32,11 +32,15 @@ export const Header_items = styled.div`
 export const Header_icon = styled.div`
   width: 55px;
   height: 55px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  
   background-color: ${colors.background.header_icon};
   border-radius: 5px;
   margin-${(props) => (props.margin==='left' ? 'left' : 'right')}:3rem;
   cursor: pointer;
+  &>a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;width: 100%;
+  }
 `

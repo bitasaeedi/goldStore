@@ -34,6 +34,12 @@ export let colors = {
             white1:'rgba(255, 255, 255)',
             white2:'rgba(255, 255, 255, 0.70)',
             border:'rgba(149, 133, 106, 0.52)'
+        },
+        profile:{
+            white1:'rgba(255, 255, 255)',
+            white2:'rgba(255, 255, 255, 0.75)',
+            white3:'rgba(255, 255, 255, 0.42)',
+            golden:'rgba(149, 133, 106, 0.7)'
         }
     },
     background: {
