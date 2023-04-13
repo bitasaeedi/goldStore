@@ -1,7 +1,8 @@
 import {Category_item} from "@/styled components/category-style";
 import Image from "next/image";
 
-function CategoryItem() {
+
+function CategoryItem({list}) {
     let items = [
         {
             image: require('@/public/c1.png'),
@@ -126,7 +127,7 @@ function CategoryItem() {
     ]
     return (
         <>
-            {items.map((item, index) => {
+            {list.map((item, index) => {
                 return <Category_item key={index}>
                     <Image src={item.image} alt='item' width='' height=''/>
                     <h6 className='title'>{item.title}</h6>

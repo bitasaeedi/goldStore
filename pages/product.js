@@ -8,13 +8,16 @@ import {
     Wrapper
 } from '@/styled components/product-style'
 import Image from "next/image";
-import React from 'react';
+import React, {useState} from 'react';
 import ReactStars from 'react-stars'
 import SWIPER from "@/components/swiper";
+import Payment from "@/components/payment";
 function Product() {
+    let [isOpen,setIsOpen]=useState(false)
     return <>
         <Wrapper>
             <Products>
+                <Payment isopen={isOpen}/>
                 <Product_title>{'خانه > زیورآلات > انگشتر'}</Product_title>
 
                 <Product_container>
@@ -78,9 +81,9 @@ function Product() {
                             <div>تعداد :</div>
                             <div><span className='left'>+</span>2<span className='right'>-</span></div>
                         </Amount>
-                        <Button1>خرید مستقیم</Button1>
+                        <Button1 >خرید مستقیم</Button1>
                         <Button2>
-                            <div>خرید مستقیم</div>
+                            <div onClick={()=>{setIsOpen(true)}}>خرید مستقیم</div>
                             <div>خرید مستقیم</div>
                         </Button2>
                     </Left_section>

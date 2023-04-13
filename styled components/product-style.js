@@ -190,12 +190,13 @@ export const Button1 = styled.div`
   padding: .9rem 0;
   border-radius: 5px;
   font-weight: 700;
+  cursor: pointer;
 `
 export const Button2 = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: .8rem;
-
+cursor: pointer;
   & > div {
     border: 1px solid #95856A;
     color: white;

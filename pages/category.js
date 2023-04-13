@@ -13,6 +13,7 @@ import CategoryFilter from "@/components/category_filter";
 import CategoryItem from "@/components/Category_Item";
 import ReactPaginate from 'react-paginate';
 import style from '@/styles/paginate.module.css'
+import {category_items} from "@/pages/api/lists";
 function Category() {
     function handlePaginate(){
 
@@ -67,7 +68,7 @@ function Category() {
                     <div>برترین ها</div>
                 </Category_main_filters>
                 <Category_items>
-                    <CategoryItem/>
+                    <CategoryItem list={category_items}/>
                 </Category_items>
                 <ReactPaginate
                     nextLabel=">"

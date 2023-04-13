@@ -17,7 +17,7 @@ function Header() {
 
                         <Header_items><Link href={'/user/profile'}>ایتم اول</Link></Header_items>
                         <Header_items><Link href={'/'}>ایتم دوم</Link></Header_items>
-                        <Header_items><Link href={'/'}>خرید طلای آب شده</Link> </Header_items>
+                        <Header_items><Link href={'/Payment'}>خرید طلای آب شده</Link> </Header_items>
                         <Header_items>ایتم چهارم</Header_items>
 
                         <Header_icon margin={'right'}><Link href={'/checkout'}><Image src={require('@/public/header-Buy-icon.svg')} alt="buy" width="" height=""/></Link></Header_icon>

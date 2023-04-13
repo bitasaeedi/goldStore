@@ -54,6 +54,7 @@ export let colors = {
             middle_section:'#1F1E1D',
             middle_section_item:'',
             item:'rgba(46, 44, 43, 1)',
-        }
+        },
+        payment:'51493D',
     }
 }

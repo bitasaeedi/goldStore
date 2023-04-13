@@ -15,12 +15,14 @@ export const Profile_container = styled.div`
   display: flex;
   justify-content: space-between;
 `
-export const Profile_sidebar = styled.div`
+
+export const Profile_Navbar = styled.div`
   width: 30%;
   border: 1px solid ${colors.texts.profile.white3};
   border-radius: 7px;
+  height: fit-content;
 `
-export const Profile_sidebar_top = styled.div`
+export const Profile_Navbar_top = styled.div`
   padding: 1.5rem 1.3rem .8rem;
   border: .5px solid rgba(255, 255, 255, 0.22);
 
@@ -91,12 +93,14 @@ export const Profile_sidebar_top = styled.div`
     }
   }
 `
-export const Profile_sidebar_bottom = styled.div`
+export const Profile_Navbar_bottom = styled.div`
   & > div.menuitem {
     margin: 1rem 0 .5rem  ;
     padding: .7rem 2.5rem 1rem;
     display: flex;
-    & > div {
+    
+    & > a {
+      text-decoration: none;
       font-weight: 500;
       word-spacing: .1rem;
       padding-right: 1rem;
@@ -159,4 +163,13 @@ export const Profile_input = styled.div`
       font-family: estedad, serif;
     }
   }
+`
+
+export const Profile_favorite_list=styled.div`
+  margin-top: 3rem;
+    display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border: 1px solid ${colors.texts.profile.white3};
+  width: 64%;
+  
 `

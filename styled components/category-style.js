@@ -113,11 +113,12 @@ export const Category_items = styled.div`
   border: 1px solid ${colors.texts.category.border2};
   border-right: 0;border-bottom: 0;
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr ;
 `
 
 export const Category_item = styled.div`
   height: 365px;
+ 
   border: 1px solid ${colors.texts.category.border2};
   border-top: 0;
   border-left: 0;
