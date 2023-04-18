@@ -7,7 +7,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 `
 export const Ba = styled.div`
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.6);
   height: 100vh;
   position: absolute;
   top: 0;
@@ -19,7 +19,7 @@ export const Card_container = styled.div`
   box-shadow: 1px 1px 10px 2px #262424;
   background-color: #1F1E1D;
   width: 950px;
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   top: 5rem;
@@ -126,9 +126,9 @@ export const Payment_container = styled.div`
 
   & > img {
     width: 43%;
-  height: auto;
+    height: auto;
   }
- 
+
 `
 export const Payment_info = styled.div`
   width: 50%;
@@ -139,22 +139,67 @@ export const Payment_info = styled.div`
     width: fit-content;
     margin: 0 auto;
     line-height: 2.3rem;
+
     & > div {
       font-size: .7rem;
     }
-    &>h6{
+
+    & > h6 {
       font-size: .85rem;
       font-weight: 600;
     }
   }
-    &>p{
-      font-size: .85rem;
-      text-align: center;
-      margin-top: 3rem;
-    }
-  &>div.price{
+
+  & > p {
+    font-size: .85rem;
     text-align: center;
-    margin: 5rem 0 2rem;
+    margin-top: 3rem;
   }
-  
+
+  & > div.price {
+    text-align: center;
+    margin: 2rem 0 1.5rem;
+  }
+
+  & > div.range_input {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+
+    & > div.value {
+      background-color: rgba(81, 73, 61, 0.72);
+      text-align: center;
+      padding: .3rem 1.8rem;
+      border-radius: 5px;
+    }
+
+    & > div.customSlider {
+      width: 70%;
+      margin:.3rem auto 0;
+      & > div.customSlider-track {
+        border-radius: 5px;
+        top: 4px;
+        height: 4px;
+        background:black;
+      }
+
+      & > div.customSlider-track.customSlider-track-0 {
+        /* color of the track before the thumb */
+        background: rgba(81, 73, 61, 1);
+      }
+      &>div.customSlider-thumb {
+        cursor: pointer;
+        background:rgba(81, 73, 61, 1);
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        outline: none;
+      }
+
+      &>div.customSlider-thumb:hover {
+        box-shadow: 0 0 0 1px rgba(81, 73, 61, 1);
+      }
+    }
+
+  }
 `

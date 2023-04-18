@@ -14,10 +14,13 @@ import SWIPER from "@/components/swiper";
 import Payment from "@/components/payment";
 function Product() {
     let [isOpen,setIsOpen]=useState(false)
+   function handlePayment(){
+        setIsOpen(!isOpen);
+    }
     return <>
         <Wrapper>
             <Products>
-                <Payment isopen={isOpen}/>
+                <Payment isopen={isOpen} handleisopen={handlePayment}/>
                 <Product_title>{'خانه > زیورآلات > انگشتر'}</Product_title>
 
                 <Product_container>
@@ -83,7 +86,7 @@ function Product() {
                         </Amount>
                         <Button1 >خرید مستقیم</Button1>
                         <Button2>
-                            <div onClick={()=>{setIsOpen(true)}}>خرید مستقیم</div>
+                            <div onClick={handlePayment}>خرید مستقیم</div>
                             <div>خرید مستقیم</div>
                         </Button2>
                     </Left_section>

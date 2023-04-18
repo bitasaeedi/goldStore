@@ -1,0 +1,36 @@
+
+.customSlider {
+    /* max width of your slider */
+    max-width: 300px;
+    /* Optional: Only If you want to center your slider in the page */
+    margin: auto;
+}
+
+.customSliderTrack{
+    /* Top value to align your track to the center of your thumb */
+    top: 8px;
+    /* thickness of the track */
+    height: 4px;
+    /* default color of your track */
+    background: #7b5454;
+}
+
+.customSliderTrack.customSliderTrack-0 {
+    /* color of the track before the thumb */
+    background: #230a0a;
+}
+.customSliderThumb {
+    cursor: pointer;
+    /*color for the thumb */
+    background: blue;
+    /* shape of the thumb: circle */
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    /* remove default outline when selected */
+    outline: none;
+}
+
+.customSliderThumb:hover {
+    box-shadow: 0 0 0 8px red;
+}

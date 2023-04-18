@@ -3,13 +3,13 @@ import {colors} from "@/styled components/styles-info";
 
 export const Wrapper = styled.div`
   max-width: 1330px;
-  margin: 20rem auto 0;
+  margin: 17rem auto 1rem;
 `
 export const Footer_container = styled.footer`
+ 
   display: flex;
   justify-content: space-between;
- 
-padding-left: 3rem;
+padding-left: 2rem;
 `
 export const Footer_section = styled.div`
 `
@@ -47,4 +47,29 @@ export const Submit_btn=styled.button`
   background-color: ${colors.background.footer_item};
   margin-right: 1rem;
   font-size: 1rem;
+`
+export const Trust_symble=styled.div`
+  display: flex;
+
+  & > img {
+    width: 100px;
+    height: 100px;
+    border: 1px solid rgba(93, 87, 87, 0.76);
+    padding: .5rem .6rem;
+    margin: 0 .4rem;
+    border-radius: 10px;
+  }
+  
+`
+export const Social_media=styled.div`
+margin-top: 2rem;
+  &>div{
+   
+  }
+  &>div>img{
+    
+    width: 20px;
+    height: 20px;
+    margin: 0 1rem;
+  }
 `
