@@ -14,6 +14,7 @@ import SWIPER from "@/components/swiper";
 import Payment from "@/components/payment";
 function Product() {
     let [isOpen,setIsOpen]=useState(false)
+    let [amount,setAmount]=useState(2);
    function handlePayment(){
         setIsOpen(!isOpen);
     }
@@ -26,7 +27,7 @@ function Product() {
                 <Product_container>
 
                     <Right_section>
-
+                        <SWIPER/>
                     </Right_section>
                     {/*middle*/}
                     <Middle_section>
@@ -82,7 +83,7 @@ function Product() {
                             <Image src={require('@/public/more.svg')} alt="icon" width="" height=""/></div>
                         <Amount>
                             <div>تعداد :</div>
-                            <div><span className='left'>+</span>2<span className='right'>-</span></div>
+                            <div><span className='left' onClick={()=>{setAmount(amount+1)}}>+</span>{amount}<span className='right'  onClick={()=>{amount>1?setAmount(amount-1):null}}>-</span></div>
                         </Amount>
                         <Button1 >خرید مستقیم</Button1>
                         <Button2>

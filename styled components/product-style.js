@@ -1,6 +1,5 @@
-import styled from "styled-components";
+import styled, { css } from 'styled-components';
 import {colors} from "@/styled components/styles-info";
-
 export const Wrapper = styled.div`
   max-width: 1300px;
   margin: 0 auto;
@@ -26,11 +25,15 @@ export const Product_container = styled.div`
 
 `
 export const Right_section = styled.div`
-  width: 29.5%;
-  border: 1px solid rgba(72, 72, 72, 1);
+  width: 31.5%;
+ //&>div>div.swiper-button-prev::after{
+ //  width: 20px!important;
+ //  height: 20px!important;
+ //}
+ 
 `
 export const Middle_section = styled.div`
-  width: 39.5%;
+  width: 39%;
   background-color: ${colors.background.product.middle_section};
 
   & > h4 {
@@ -98,7 +101,7 @@ export const Middle_product_info = styled.div`
   }
 `
 export const Left_section = styled.div`
-  width: 29.5%;
+  width: 28%;
   border: 1px solid rgba(72, 72, 72, 1);
   padding: 3rem 1.5rem;
 
@@ -174,10 +177,12 @@ export const Amount = styled.div`
 
       &.right {
         margin-right: .5rem;
+        cursor: pointer;
       }
 
       &.left {
         margin-left: .5rem;
+        cursor: pointer;
       }
     }
   }
@@ -210,3 +215,9 @@ cursor: pointer;
 
 
 `
+
+const responsiveStyles = css`
+  @media (max-width: 768px) {
+    
+  }
+`;

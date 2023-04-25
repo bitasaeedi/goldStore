@@ -1,25 +1,24 @@
 import Head from 'next/head'
 import {
+    All_comments,
     Assortment_container,
     Assortment_Header,
     Assortment_items_container,
     Assortment_title,
-    Top_section,
-    Worthiness_item_container,
     Bottom_section,
     Collection_section_L,
-    Collection_section_R,
-    Home_video,
-    Home_video_container,
-    Top_section_items,
     Comments_container,
     Compliment_container,
+    Dott,
     Home_collection_container,
+    Home_video,
+    Home_video_container,
     Play_icon,
     See_more_btn,
+    Top_section_items,
     Worthiness_container,
-    Wrapper,
-    All_comments, Dott
+    Worthiness_item_container,
+    Wrapper
 } from "@/styled components/Home-style";
 
 import Image from "next/image";
@@ -43,8 +42,8 @@ export default function Home() {
                     <Image src={require('@/public/home1.png')} alt="video" width="" height=""/>
                     <Home_video>
                         <Play_icon><Image src={require('@/public/play icon.svg')} alt={'play'} width="29" height="35"/></Play_icon>
-                        <h6>دایموند اولین فروشگاه</h6>
-                        <div> دایموند اولین فروشگاه انلاین حوزه طلا می باشد که به شما اجازه می دهد در لحظه طلای مورد نظر
+                        <h6>فروشگاه طلای تو</h6>
+                        <div> طلای تو اولین فروشگاه انلاین حوزه طلا می باشد که به شما اجازه می دهد در لحظه طلای مورد نظر
                             رابرای خود سفارش دهید
                         </div>
                         <button>شروع خرید جواهرات</button>
@@ -54,25 +53,21 @@ export default function Home() {
 
                 {/*collection*/}
                 <Home_collection_container>
-                    <Collection_section_R>
 
-                        <Top_section>
-                            <Top_section_items dir={'right'}> <Image src={require('@/public/Home2.png')} alt={'play'}
-                                                                     width="" height=""/>
-                                <div>انگشتر های زنانه</div>
-                                <See_more_btn dir={'right'}>{'مشاهده >'}</See_more_btn>
-                            </Top_section_items>
-                            <Top_section_items dir={'left'}>
-                                <div>خرید طلای آب شده</div>
-                                <See_more_btn dir={'right'}>{'مشاهده >'}</See_more_btn>
-                            </Top_section_items>
-                        </Top_section>
+                    <Top_section_items dir={'right'}> <Image src={require('@/public/Home2.png')} alt={'play'} width=""  height=""/>
+                        <div>انگشتر های زنانه</div>
+                        <See_more_btn dir={'right'}>{'مشاهده >'}</See_more_btn>
+                    </Top_section_items>
 
-                        <Bottom_section>
-                            <Image src={require('@/public/Home4.png')} alt={'play'} width="" height=""/>
-                        </Bottom_section>
+                    <Top_section_items dir={'left'}>
+                        <div>خرید طلای آب شده</div>
+                        <See_more_btn dir={'right'}>{'مشاهده >'}</See_more_btn>
+                    </Top_section_items>
 
-                    </Collection_section_R>
+
+                    <Bottom_section>
+                        <Image src={require('@/public/Home4.png')} alt={'play'} width="" height=""/>
+                    </Bottom_section>
 
                     <Collection_section_L>
                         <Image src={require('@/public/Home3.png')} alt={'play'} width="" height=""/>
@@ -85,6 +80,37 @@ export default function Home() {
                         <See_more_btn dir={'left'}>{'مشاهده >'}</See_more_btn>
                     </Collection_section_L>
 
+                    {/*<Collection_section_R>*/}
+
+                    {/*    <Top_section>*/}
+                    {/*        <Top_section_items dir={'right'}> <Image src={require('@/public/Home2.png')} alt={'play'}*/}
+                    {/*                                                 width="" height=""/>*/}
+                    {/*            <div>انگشتر های زنانه</div>*/}
+                    {/*            <See_more_btn dir={'right'}>{'مشاهده >'}</See_more_btn>*/}
+                    {/*        </Top_section_items>*/}
+                    {/*        <Top_section_items dir={'left'}>*/}
+                    {/*            <div>خرید طلای آب شده</div>*/}
+                    {/*            <See_more_btn dir={'right'}>{'مشاهده >'}</See_more_btn>*/}
+                    {/*        </Top_section_items>*/}
+                    {/*    </Top_section>*/}
+
+                    {/*    <Bottom_section>*/}
+                    {/*        <Image src={require('@/public/Home4.png')} alt={'play'} width="" height=""/>*/}
+                    {/*    </Bottom_section>*/}
+
+                    {/*</Collection_section_R>*/}
+
+                    {/*<Collection_section_L>*/}
+                    {/*    <Image src={require('@/public/Home3.png')} alt={'play'} width="" height=""/>*/}
+                    {/*    <div>*/}
+                    {/*        <span>کالکشن </span>*/}
+                    {/*        حلقه های <br/>*/}
+                    {/*        زنانه و<br/>*/}
+                    {/*        مردانه*/}
+                    {/*    </div>*/}
+                    {/*    <See_more_btn dir={'left'}>{'مشاهده >'}</See_more_btn>*/}
+                    {/*</Collection_section_L>*/}
+
                 </Home_collection_container>
 
                 {/*assortment*/}
@@ -96,8 +122,7 @@ export default function Home() {
                             <div className={'active'}>برترین ها</div>
                             <div>برترین ها</div>
                             <div>برترین ها</div>
-                            <div>برترین ها</div>
-                            <div>برترین ها</div>
+
                         </Assortment_title>
 
                         <div>مشاهده ی بیشتر <h3>{'>'}</h3></div>
@@ -141,7 +166,7 @@ export default function Home() {
                     </All_comments>
 
                     <Dott>
-                        <span className='this'></span><span></span><span></span><span ></span>
+                        <span className='this'></span><span></span><span></span><span></span>
                     </Dott>
                 </Comments_container>
             </Wrapper>
