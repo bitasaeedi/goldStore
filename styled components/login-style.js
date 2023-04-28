@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
-  max-width: 1300px;
-  margin: 0 auto;
-`
 export const Login_container = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 6rem 2rem 0rem;
+  margin: 6rem 2rem 0;
+  @media(max-width: 500px){
+    flex-direction: column-reverse;
+  }
 `
 export const Login_form = styled.div`
   width: 29%;
@@ -23,13 +22,23 @@ export const Login_form = styled.div`
     color: rgba(255, 255, 255, 0.82);
     margin-bottom: 4rem;
   }
-
+  @media(max-width: 500px){
+    width:100%;
+   margin: 0 auto;
+    &>h6{
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+  }
 `
-
 export const Login_input_title = styled.div`
   color: rgba(149, 133, 106, 1);
   font-weight: 700;
   margin-bottom: .4rem;
+  @media(max-width: 500px){
+    font-weight: 700;
+    font-size: 1rem;
+  }
 `
 export const Login_input = styled.div`
   position: relative;
@@ -65,6 +74,14 @@ export const Login_input = styled.div`
     color: #776A57;
     cursor: pointer;
   }
+  @media(max-width: 500px){
+    &>input{
+      margin-bottom: 2rem;
+      &::placeholder{
+        font-size: 1rem;
+      }
+    }
+  }
 `
 export const Forget_password = styled.div`
   font-size: .8rem;
@@ -77,6 +94,10 @@ export const Forget_password = styled.div`
   left: 0;
   position: absolute;
   cursor: pointer;
+  @media(max-width: 500px){
+    bottom: .3rem;
+    font-size: .75rem;
+  }
 `
 export const Login_btn = styled.div`
   color: #95856A;
@@ -88,6 +109,9 @@ export const Login_btn = styled.div`
   font-weight: 700;
   font-size: 1.2rem;
   cursor: pointer;
+  @media(max-width: 500px){
+    margin: 3rem auto 0;
+  }
 `
 export const Btn_detail = styled.div`
   position: absolute;
@@ -112,6 +136,11 @@ export const Login_image = styled.div`
   & > img {
     width: 100%;
     height: 100%;
+  }
+  @media(max-width: 500px){
+  width: 65%;
+    margin: 0 2rem 1.5rem 0;
+    height: 220px;
   }
 `
 ////////////////varification/////////
@@ -142,7 +171,17 @@ export const Varification_form = styled.div`
       }
     }
   }
- 
+  @media(max-width: 500px){
+    width: 100%;
+    margin: 2rem auto;
+    &>div{
+      margin: 0 0 2rem;
+      &>div{
+        width: 80%;
+        word-spacing: .12rem;
+      }
+    }
+  }
 `
 export const Squares_container = styled.div`
   &>div{
@@ -150,10 +189,9 @@ export const Squares_container = styled.div`
     justify-content: center;
     margin: 0 auto;
     width: 60%;
-    
   }
   &>div>input.input{
-    margin: 0rem .6rem;
+    margin: 0 .6rem;
     color: rgba(255, 255, 255, 0.72);
     text-align: center;
     font-size: 1.8rem;
@@ -166,6 +204,12 @@ export const Squares_container = styled.div`
     box-shadow: 0 0 5px 5px #2B2726;
     &:focus{
       border: 1px solid rgba(212, 175, 55, 0.39);
+    }
+  }
+  @media(max-width: 500px){
+    &>div>input.input{
+      -webkit-appearance: none;
+      box-shadow: 0 0 5px 4px #2B2726;
     }
   }
 `
@@ -212,4 +256,15 @@ export const Varification_btn=styled.div`
    font-size: .8rem;
    right: 5.2rem;
  }
+  @media(max-width: 500px){
+    &>div.btn{
+      margin: 2rem auto 1.5rem;
+    }
+    &>span.underline{
+      left: 3rem;
+    }
+    &>span.time{
+      right: 3.2rem;
+    }
+  }
 `

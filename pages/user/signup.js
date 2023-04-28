@@ -17,7 +17,6 @@ function Signup() {
         setVisibility(!visibility);
     }
     return <>
-        <Wrapper>
             <Login_container>
 
                 <Login_form>
@@ -48,7 +47,7 @@ function Signup() {
                 </Login_image>
 
             </Login_container>
-        </Wrapper>
+
     </>
 }
 

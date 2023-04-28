@@ -42,6 +42,9 @@ function Checkout() {
                             <button>ادامه</button>
                         </Buy_btn>
                     </Checkout_left_section>
+                    <Buy_btn className='responsive_btn'>
+                        <button className='responsive_btn'>ادامه</button>
+                    </Buy_btn>
                 </Checkout_container>
             </Checkout_wrapper>
         </>

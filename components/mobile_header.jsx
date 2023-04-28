@@ -12,8 +12,8 @@ function MobileHeader() {
                 </div>
                 <div className={'left_side'}>
                     <Header_icon margin={'left'}><Link href={'/category'}>
-                    <Image src={require('@/public/header-Search-icon.svg')} alt="buy" width="24"
-                        height="24"/></Link></Header_icon>
+                    <Image src={require('@/public/header-Search-icon.svg')} alt="buy" width=""
+                        height=""/></Link></Header_icon>
                     <Header_icon margin={'right'}><Link href={'/checkout'}>
                         <Image src={require('@/public/header-Buy-icon.svg')} alt="buy" width="" height=""/></Link></Header_icon>
                 </div>

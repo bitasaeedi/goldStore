@@ -4,15 +4,16 @@ import {colors} from "@/styled components/styles-info";
 export const Header_container = styled.header`
   display: flex;
   justify-content: space-between;
+  
   height: 68px;
   align-items: center;
   padding-top: .5rem;
   margin: 1rem 0 2.5rem;
   @media (max-width: 768px) {
     display: none;
+    
   }
 `
-
 export const Header_items = styled.div`
   & > a {
     text-decoration: none;
@@ -45,8 +46,11 @@ export const Header_icon = styled.div`
     height: 100%;
     width: 100%;
   }
+  @media(max-width: 500px){
+    width: 45px;
+    height: 45px;
+  }
 `
-
 
 ////////////////////////////mobile header
 export const Mobile_header_container = styled.div`
@@ -58,23 +62,27 @@ export const Mobile_header_container = styled.div`
   z-index: 2;
   width: 100%;
 
-  & > div.right_side > span{
+  & > div.right_side > span {
     font-size: 2.2rem;
-  top:1.5rem;
+    top: 1rem;
     right: .5rem;
-    position:absolute;
-    color: #95856A;
-    
+    position: absolute;
+    color: #71644c;
+
   }
+
   & > div.right_side > img:last-of-type {
-   margin-top:.5rem ;
-    margin-right: 1.2rem;
+    margin-top: .4rem;
+    margin-right: 2rem;
+    width: 130px;
+    height: 50px;
   }
-  
-  &>div.left_side{
+
+  & > div.left_side {
     display: flex;
-    &>div{
-     margin: 1rem .5rem 1rem 1rem;
+
+    & > div {
+      margin: .5rem 0 0 .8rem;
     }
   }
 

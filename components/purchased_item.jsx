@@ -25,7 +25,7 @@ function PurchasedItem() {
         {items.map((item, index) => {
             return <Purchased_item key={index}>
                 <Image src={item.image} alt={'image'} width='' height=''/>
-                <div>
+                <div className='info'>
                     <div className="title">{item.title}</div>
                     <div className='price'>{item.price} تومان</div>
                     <div className='delete_btn'>حذف از سبد خرید</div>

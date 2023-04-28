@@ -1,0 +1,29 @@
+.MySwiper {
+    width: 100%;
+    height: 370px;
+}
+@media (max-width: 500px) {
+    .MySwiper {
+        height: 340px;
+    }
+}
+.MySwiper > div:first-child > div >div{
+
+}
+
+.MySwiper > div:last-of-type {
+    display: inline-block;
+
+}
+
+.MySwiper > div:last-of-type > span {
+    background-color: #95856A;
+
+}
+
+.swiperPaginationBullet {
+    background-color: #219048;
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+}

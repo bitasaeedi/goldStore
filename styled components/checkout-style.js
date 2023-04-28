@@ -6,7 +6,7 @@ export const Checkout_wrapper = styled.div`
   max-width: 990px;
 `
 export const Path = styled.div`
-  margin: 0 2rem 3rem;
+  margin: 0 2rem ;
 
   & > h4 {
     color: ${colors.texts.checkout.white1};
@@ -18,15 +18,33 @@ export const Path = styled.div`
     font-size: .7rem;
     color: ${colors.texts.checkout.white2};
   }
+
+  @media (max-width: 500px) {
+    & > h4 {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  }
 `
 export const Checkout_container = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-top: 3rem;
+  @media (max-width: 500px) {
+    display: block;
+    position: relative;
+    margin-top: 2rem;
+  }
 `
 export const Checkout_right_section = styled.div`
   width: 60%;
   border: 1px solid ${colors.texts.checkout.border};
   padding: 3rem 3rem 1rem;
+  @media(max-width: 500px){
+    width: 92%;
+    margin: 0 auto 3rem;
+    padding: 2rem 2rem 1rem;
+  }
 `
 export const Purchased_item = styled.div`
   display: flex;
@@ -62,6 +80,22 @@ export const Purchased_item = styled.div`
     width: fit-content;
     cursor: pointer;
   }
+  @media(max-width: 500px){
+    & > div > div.title{
+      font-weight: 500;
+      font-size: .7rem;
+    }
+    &>div.info{
+      width: 40%;
+      padding-right: 1rem;
+      text-align: center;
+    }
+    &>img{
+      height: 130px;
+     padding-left: 1rem;
+      padding-top: 1.5rem;
+    }
+  }
 `
 export const Amount = styled.div`
   margin-top: 1.5rem;
@@ -73,30 +107,42 @@ export const Amount = styled.div`
   color: rgba(149, 133, 106, 0.72);
   font-size: 1.1rem;
   font-weight: 500;
-  &>div{
+
+  & > div {
     cursor: pointer;
   }
-  &>div.number{
+
+  & > div.number {
     cursor: unset;
     color: white;
   }
-  
+@media(max-width: 500px){
+  width: 42px;
+font-weight: 600;
+}
 `
 export const Checkout_left_section = styled.div`
   width: 37%;
   border: 1px solid ${colors.texts.checkout.border};
   padding: 3.5rem 1.5rem 2rem;
   height: fit-content;
+
   & > div.item {
     display: flex;
     justify-content: space-between;
     color: ${colors.texts.checkout.white2};
     margin-bottom: 1.8rem;
   }
+  @media(max-width: 500px){
+    width: 92%;
+    margin: 0 auto 3rem;
+  }
 `
 export const Buy_btn = styled.div`
   padding: 4rem 1rem 0;
-
+  &.responsive_btn{
+    display: none;
+  }
   & > div {
     color: ${colors.texts.checkout.white2};
     display: flex;
@@ -117,5 +163,25 @@ export const Buy_btn = styled.div`
     font-weight: 700;
     font-size: 1.3rem;
     font-family: estedad, serif;
+   
+  }
+ 
+  @media (max-width: 500px) {
+    padding-top: 2rem;
+    & > button {
+      display: none;
+
+      &.responsive_btn {
+        width: 82%;
+        display: block;
+        height: 65px;
+        margin: 0;
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 5%;
+        background-color: rgb(124, 109, 90);
+      }
+    }
   }
 `

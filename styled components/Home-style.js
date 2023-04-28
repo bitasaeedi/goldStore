@@ -19,6 +19,9 @@ export const Home_video_container = styled.div`
     width: 100%;
     height: 100%;
   }
+  @media(max-width: 500px){
+    height: 420px;
+  }
 `
 export const Home_video = styled.div`
   width: 100%;
@@ -28,19 +31,12 @@ export const Home_video = styled.div`
   top: 0;
   text-align: center;
   padding-top: 5rem;
-  @media (max-width: 500px) {
-    padding-top: 6rem;
-  }
 
   & > h6 {
     color: ${colors.texts.home.video_title};
     font-weight: 500;
     font-size: 2.2rem;
     padding-top: 1rem;
-    @media (max-width: 500px) {
-      padding-top: 0;
-      font-size: 2.1rem;
-    }
   }
 
   & > div {
@@ -51,7 +47,8 @@ export const Home_video = styled.div`
     margin: 0 auto;
     padding-top: .4rem;
     @media (max-width: 500px) {
-      width: 61%;
+      width: 70%;
+      font-size: .9rem;
     }
   }
 
@@ -66,15 +63,32 @@ export const Home_video = styled.div`
     padding: .4rem .5rem;
     font-family: estedad, serif;
     margin: 2.5rem auto 1.7rem;
-    @media (max-width: 768px) {
-      margin: 1rem auto ;
-    }
   }
 
   & > span {
     color: ${colors.texts.home.video_golden};
     font-weight: 700;
     font-size: .95rem;
+  }
+  @media (max-width: 500px) {
+    padding-top: 6rem;
+    &>h6{
+      padding-top: 0;
+      font-size: 1.7rem;
+    }
+    &>div{
+      width: 70%;
+      font-size: .9rem;
+    }
+    &>button{
+      margin: 1rem auto .7rem;
+      font-size: .8rem;
+      padding: .4rem .5rem;
+      border: .01rem solid #EDEDED;
+    }
+    &>span{
+      font-size: .8rem;
+    }
   }
 
 `
@@ -91,6 +105,16 @@ export const Play_icon = styled.span`
     top: 35%;
     left: 38%;
   }
+  @media(max-width: 500px){
+    width: 80px;
+    height: 80px;
+    & > img {
+      top: 28%;
+      left: 38%;
+      width: 25px;
+    }
+  }
+  
 `
 
 //collection
@@ -103,7 +127,7 @@ export const Home_collection_container = styled.div`
   @media (max-width: 500px) {
     margin: 3rem 1rem 0; 
     grid-template-columns:1fr 1fr;
-    grid-template-rows: 227px 228px;
+    grid-template-rows: 200px 200px;
   }
 
 `
@@ -136,15 +160,20 @@ export const Top_section_items = styled.div`
     position: absolute;
     bottom: ${(props) => (props.dir === 'left' ? '6rem' : '3rem')};
     right: ${(props) => (props.dir === 'left' ? '3rem' : '1.5rem')};
-    @media (max-width: 500px) {
-     right: 1rem;
-      font-size: ${(props) => (props.dir === 'left' ? '1.4rem' : '1.1rem')};
-    }
   }
 
   & > img {
     width: 100%;
     height: 100%;
+  }
+  @media(max-width: 500px){
+    height: 200px;
+    &>div{
+      right: 1.2rem;
+      bottom: ${(props) => (props.dir === 'left' ? '5rem' : '3rem')};
+      font-size: ${(props) => (props.dir === 'left' ? '1.1rem' : '1rem')};
+      font-weight: ${(props) => (props.dir === 'left' ? '600' : '400')};
+    }
   }
 `
 export const Bottom_section = styled.div`
@@ -156,9 +185,10 @@ export const Bottom_section = styled.div`
     grid-row: 2;
     grid-column: 1/2;
     width: 100%;
+    height: 200px;
   }
   & > img {
-   
+   border-radius: 10px;
     width: 100%;
     height: 100%;
   }
@@ -197,9 +227,11 @@ export const Collection_section_L = styled.div`
   @media (max-width: 500px) {
     grid-row: 1;
     grid-column: 1/2;
+    height: 200px;
     &>div{
       top: 3rem;
-      font-size: 1.3rem;
+      right: 1rem;
+      font-size: .95rem;
     }
   }
 `
@@ -210,13 +242,17 @@ export const See_more_btn = styled.span`
   bottom: ${(props) => (props.dir === 'left' ? '1.7rem' : '.7rem')};
   right: ${(props) => (props.dir === 'left' ? '2.5rem' : '1.5rem')};
   cursor: pointer;
+  @media(max-width: 500px){
+    font-size: .9rem;
+    right: ${(props) => (props.dir === 'left' ? '1rem' : '1.3rem')};
+  }
 `
 
 //assortment
 export const Assortment_container = styled.div`
   margin: 9rem auto 6rem;
   @media (max-width: 500px) {
-    margin: 7rem auto 3rem;
+    margin: 7rem auto 1rem;
   }
 `
 export const Assortment_Header = styled.div`
@@ -233,9 +269,9 @@ export const Assortment_Header = styled.div`
     }
   }
   @media (max-width: 500px) {
-    margin: 0 .8rem 2rem;
+    margin: 0 .8rem 1.5rem;
     &>div{
-      font-size: .7rem;
+      font-size: .6rem;
       font-weight: 700;
     }
   }
@@ -244,8 +280,6 @@ export const Assortment_title = styled.div`
   display: flex;
   width: 38%;
   justify-content: space-between;
-  
-
   & > div {
     font-size: 20px;
     font-weight: 600;
@@ -260,11 +294,13 @@ export const Assortment_title = styled.div`
     }
   }
   @media (max-width: 500px) {
-    width:65%;
+    width:55%;
+    
     &>div{
-      font-size: 1rem;
+      font-size: .8rem;
       &.active{
-        padding: .31rem 1.5rem;
+        padding: .2rem 1rem;
+        margin-top: .3rem;
       }
     }
   }
@@ -276,6 +312,8 @@ export const Assortment_items_container = styled.div`
   margin: 0 1.7rem 2rem;
   @media (max-width: 500px) {
     grid-template-columns: auto auto ;
+    margin: 0 1.3rem 2rem;
+    gap: 20px 20px;
   }
 `
 export const Assortment_item = styled.div`
@@ -315,6 +353,9 @@ export const Assortment_item = styled.div`
     color: ${colors.texts.home.assortment2};
     font-size: .7rem;
   }
+  @media(max-width: 500px){
+    height: 290px;
+  }
 `
 
 //compliment
@@ -344,8 +385,8 @@ export const Compliment_container = styled.div`
     display: block;
     
     &>div.text{
-      margin: 4rem auto 0;
-      width: 92%;
+      margin: 1rem auto 0;
+      width: 95%;
       font-size: .9rem;
     }
   }
@@ -357,14 +398,14 @@ export const Worthiness_container = styled.div`
   margin: 10rem auto 15rem;
   width: 100%;
   @media (max-width: 500px) {
-    margin: 7rem auto 10rem;
+    margin: 6rem auto 10rem;
   }
   & > h6 {
     color: ${colors.texts.home.worthiness_title};
     font-size: 1.5rem;
     font-weight: 500;
     word-spacing: .1rem;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
   }
 `
 export const Worthiness_item_container = styled.div`
@@ -376,7 +417,7 @@ export const Worthiness_item_container = styled.div`
     grid-template-areas: 'top-right top-left'
   'bottom-right bottom-left';
     margin: 0 1rem;
-    gap: 1.5rem;
+    gap: 1rem;
     &>div{
       width: 100%!important;
     }
@@ -399,19 +440,27 @@ export const Worthiness_item = styled.div`
     top: 1rem;
     left: 3rem;
   }
+  @media(max-width: 500px){
+    &>div {
+      font-size: .8rem;
+      margin: 4rem 2rem 2rem;
+    }
+    &>img{
+      width: 22px;
+      left: 2rem;
+    }
+  }
 `
 
 //comments
 export const Comments_container = styled.div`
-  height: 640px;
+  
   width: 100%;
   margin: 0 auto;
   background-color: ${colors.background.home.items};
   color: white;
   text-align: center;
-@media(max-width: 500px){
-  display: none;
-}
+
   & > h6 {
     padding: 2rem 0 .5rem;
     font-size: 1.6rem;
@@ -424,6 +473,17 @@ export const Comments_container = styled.div`
     font-size: 1rem;
     margin-bottom: 4rem;
   }
+  @media(max-width: 500px){
+ width: 92%;
+    height: auto;
+    & > h6{
+      font-size: 1.2rem;
+    }
+    &>div{
+      font-size: .9rem;
+      margin-bottom: 2rem;
+    }
+  }
 `
 export const All_comments = styled.div`
   display: flex;
@@ -431,14 +491,13 @@ export const All_comments = styled.div`
   margin: 0 2rem;
 `
 export const Comments = styled.div`
-  background-color: ${colors.background.home.comments};
-  width: 30.6%;
-  height: 296px;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: rgba(52, 31, 15, 0.5);
+  width: 100%;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   color: white;
   ${(props) => props.border === 'true' ? " border: 1px solid rgba(149, 133, 106, 1)" : 'border:none'};
-  padding: 0 1.2rem;
+  padding: .1rem 1.2rem;
 
   & > div {
     margin: 2rem 0 1rem 2rem;
@@ -454,6 +513,7 @@ export const Comments = styled.div`
       text-decoration: underline;
     }
   }
+  
 `
 export const Comment_user_info = styled.div`
   display: flex;
@@ -473,6 +533,21 @@ export const Comment_user_info = styled.div`
       color: rgba(255, 255, 255, 0.63);
     }
   }
+  @media(max-width: 500px){
+    & > div.info{
+      margin-right: .7rem;
+      line-height: 1.5rem;
+      & > h6 {
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+      & > span {
+        font-size: .7rem!important;
+      line-height: .8rem;
+        display: inline-block;
+      }
+    }
+  }
 `
 export const Comment_profile = styled.div`
   width: 60px;
@@ -483,6 +558,10 @@ export const Comment_profile = styled.div`
   & > img {
     width: 100%;
     height: 100%;
+  }
+  @media(max-width: 500px){
+    width: 40px;
+    height: 40px;
   }
 `
 export const Dott = styled.div`
@@ -499,6 +578,9 @@ export const Dott = styled.div`
       border: 2px solid rgba(255, 255, 255, 0.29);
     }
   }
+  @media(max-width: 500px){
+   display: none;
+  }
 `
 const responsiveStyles = css`
   @media (max-width: 768px) {
@@ -511,3 +593,17 @@ const responsiveStyles = css`
     }
   }
 `;
+export const Responsive_comments=styled.div`
+  display: none;
+  @media(max-width: 500px){
+    display: block;
+  }
+`
+export const Responsive_comments_text=styled.div`
+  font-size: .5rem;
+  line-height: 1.1rem;
+  &>div.date{
+    font-size: .5rem;
+    margin-top: .5rem;
+  }
+`

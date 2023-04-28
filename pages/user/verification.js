@@ -4,6 +4,7 @@ import {
     Varification_form,
     Wrapper
 } from "@/styled components/login-style";
+import Head from 'next/head'
 import Image from "next/image";
 import AuthCode from "react-auth-code-input";
 import {useState} from "react";
@@ -14,7 +15,9 @@ function Login() {
         console.log(res)
     }
     return <>
-        <Wrapper>
+        <Head>
+            <meta name="format-detection" content="telephone=no"/>
+        </Head>
             <Login_container>
 
                 <Varification_form>
@@ -46,7 +49,6 @@ function Login() {
                 </Login_image>
 
             </Login_container>
-        </Wrapper>
     </>
 }
 

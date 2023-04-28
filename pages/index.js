@@ -13,7 +13,7 @@ import {
     Home_collection_container,
     Home_video,
     Home_video_container,
-    Play_icon,
+    Play_icon, Responsive_comments,
     See_more_btn,
     Top_section_items,
     Worthiness_container,
@@ -25,6 +25,7 @@ import Image from "next/image";
 import Home_assortment_items from "@/components/Home_assortment_items";
 import Home_worthiness_item from "@/components/Home_worthiness_item";
 import Home_Comments from "@/components/Home_Comments";
+import CommentSlider from "@/components/comment-slider";
 
 export default function Home() {
     return (
@@ -164,10 +165,13 @@ export default function Home() {
                     <All_comments>
                         <Home_Comments/>
                     </All_comments>
+                    {/*<Responsive_comments>*/}
+                    {/*    <CommentSlider/>*/}
+                    {/*</Responsive_comments>*/}
 
-                    <Dott>
-                        <span className='this'></span><span></span><span></span><span></span>
-                    </Dott>
+                    {/*<Dott>*/}
+                    {/*    <span className='this'></span><span></span><span></span><span></span>*/}
+                    {/*</Dott>*/}
                 </Comments_container>
             </Wrapper>
 

@@ -9,6 +9,7 @@ export const Footer_container = styled.footer`
   justify-content: space-between;
   padding-left: 2rem;
   @media (max-width: 500px) {
+    margin-top: 10rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
@@ -25,13 +26,20 @@ export const Footer_title = styled.h2`
   color: ${colors.texts.footer_title};
   font-weight: 400;
   padding-bottom: 1.5rem;
-
+@media(max-width: 500px){
+  font-size: 1rem;
+  padding-bottom: .8rem;
+}
 `
 export const Footer_item = styled.div`
   color: ${colors.texts.footer_item};
   font-weight: 400;
   font-size: .9rem;
   line-height: 2.5rem;
+  @media(max-width: 500px){
+    font-size: .8rem;
+    line-height: 2rem;
+  }
 `
 export const Email_section = styled.div`
   margin-top: 6.5rem;
