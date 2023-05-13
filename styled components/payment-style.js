@@ -88,7 +88,6 @@ export const Infos = styled.div`
   justify-content: space-between;
   font-size: .9rem;
 `
-
 export const Installment_table = styled.div`
   background-color: #252423;
   width: 65%;
@@ -119,6 +118,7 @@ export const Installment_Btn = styled.div`
   cursor: pointer;
   border-radius: 7px;
 `
+
 export const Payment_container = styled.div`
   display: flex;
   justify-content: space-between;
@@ -165,41 +165,75 @@ export const Payment_info = styled.div`
     display: flex;
     justify-content: space-between;
     margin-top: 2rem;
+    position: relative;
+    padding-bottom: .2rem;
 
     & > div.value {
       background-color: rgba(81, 73, 61, 0.72);
       text-align: center;
-      padding: .3rem 1.8rem;
+      padding: .3rem .4rem;
       border-radius: 5px;
+
+
+      & > input {
+        width: 50px;
+        height: 100%;
+        background-color: transparent;
+        border: 0;
+        outline: none;
+        text-align: center;
+        color: white;
+
+        &::placeholder {
+          color: white;
+        }
+      }
     }
 
     & > div.customSlider {
       width: 70%;
-      margin:.3rem auto 0;
+      margin: .3rem auto 0;
+
       & > div.customSlider-track {
         border-radius: 5px;
         top: 4px;
         height: 4px;
-        background:black;
+        background: black;
       }
 
       & > div.customSlider-track.customSlider-track-0 {
         /* color of the track before the thumb */
         background: rgba(81, 73, 61, 1);
       }
-      &>div.customSlider-thumb {
+
+      & > div.customSlider-thumb {
         cursor: pointer;
-        background:rgba(81, 73, 61, 1);
+        background: rgba(81, 73, 61, 1);
         width: 12px;
         height: 12px;
         border-radius: 50%;
         outline: none;
       }
 
-      &>div.customSlider-thumb:hover {
+      & > div.customSlider-thumb:hover {
         box-shadow: 0 0 0 1px rgba(81, 73, 61, 1);
       }
     }
 
+    & > span.range-value-r {
+      position: absolute;
+      font-size: .9rem;
+      bottom: 0;
+      right: 1.3rem;
+      padding-top: .2rem;
+    }
+
+    & > span.range-value-l {
+      position: absolute;
+      font-size: .9rem;
+      bottom: 0;
+      left: 5.8rem;
+      padding-top: .2rem;
+    }
   }
 `

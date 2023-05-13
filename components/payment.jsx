@@ -12,6 +12,7 @@ import Image from "next/image";
 
 function Payments(props) {
     let [type,setType]=useState('installment');
+
     return (
         <>
             <GlobalStyle  isopen={props.isopen}/>
@@ -27,6 +28,7 @@ function Payments(props) {
     );
 }
 function Installment(props){
+
     return <> <Installment_container>
         <Infos>
             <div>گرم پرداخت شده:</div>
@@ -52,10 +54,11 @@ function Installment(props){
         <Installment_Btn><div onClick={props.handleIsOpen}>پرداخت قسط بعد</div></Installment_Btn>
     </>
 }
+import style from '@/styles/range.module.css';
 function PAYMENT(props){
-    let [value,setValue]=useState(0);
+    let [rangeValue,setRangeValue]=useState(1);
     const handleChange = (e) => {
-        setValue(e.target.value);
+        setRangeValue(e.target.value);
     };
     return<>
         <Payment_container>
@@ -68,15 +71,21 @@ function PAYMENT(props){
                 </div>
                 <p>حداقل گرم برای قست اول را تعیین کنید</p>
                 <div className='range_input'>
+                    <span className='range-value-r'>10</span>
                     <ReactSlider
                         className="customSlider"
                         trackClassName="customSlider-track"
-                        thumbClassName="customSlider-thumb"
-                        max={20}
+                        thumbClassName={style.customSliderThumb}
+                        max={10}
                         min={0}
-                        value={5}
+                        value={rangeValue}
+                        renderThumb={(props, state) => <div style={{color:"blue"}} {...props}>{state.valueNow}</div>}
+                        onChange={(value, index) => setRangeValue(value)}
                     />
-                    <div className='value'>2.9</div>
+                    <span className='range-value-l'>0</span>
+                    <div className='value'>
+                        <input  placeholder={rangeValue} onChange={handleChange} value={rangeValue}/>
+                    </div>
                 </div>
                 <div className={"price"}>قیمت قست اول: 500000 تومان </div>
                 <Installment_Btn><div onClick={props.handleIsOpen}>پرداخت قسط اول</div></Installment_Btn>

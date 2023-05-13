@@ -16,7 +16,7 @@ function Header() {
 
                 <Image src={require('@/public/header-icon.svg')} alt="logo" width="178" height="65"/>
 
-                <Header_items><Link href={'/user/profile'}>ایتم اول</Link></Header_items>
+                <Header_items><Link href={'/profile/info'}>ایتم اول</Link></Header_items>
                 <Header_items><Link href={'/'}>ایتم دوم</Link></Header_items>
                 <Header_items><Link href={'/swiper'}>خرید طلای آب شده</Link> </Header_items>
                 <Header_items>ایتم چهارم</Header_items>

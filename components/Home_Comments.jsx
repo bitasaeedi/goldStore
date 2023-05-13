@@ -4,7 +4,8 @@ import {Swiper, SwiperSlide} from "swiper/react";
 import {Pagination} from "swiper";
 import React from "react";
 import style from '@/styles/commentslider.module.css';
-
+import SwiperCore, { Autoplay } from 'swiper';
+SwiperCore.use([Autoplay]);
 function Home_Comments(props) {
     // const Swiper = new Swiper('.MySwiper', {
     //     // Default parameters
@@ -88,6 +89,9 @@ function Home_Comments(props) {
         {/*})}*/}
 
         <Swiper
+            onSwiper={(sl)=>{
+                console.log(sl)
+            }}
             slidesPerView={3}
             spaceBetween={30}
             pagination={{
@@ -103,7 +107,9 @@ function Home_Comments(props) {
             }}
 
             modules={[Pagination]}
+            autoplay={{ delay: 3000 }}
             className={style.MySwiper}
+
         >
             {comments.map((comment, index) => {
                 return <SwiperSlide key={index}>

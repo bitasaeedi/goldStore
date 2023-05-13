@@ -1,8 +1,6 @@
 
 .customSlider {
-    /* max width of your slider */
     max-width: 300px;
-    /* Optional: Only If you want to center your slider in the page */
     margin: auto;
 }
 
@@ -22,15 +20,15 @@
 .customSliderThumb {
     cursor: pointer;
     /*color for the thumb */
-    background: blue;
-    /* shape of the thumb: circle */
-    width: 20px;
-    height: 20px;
+    background: #51493D;
+    width: 15px;
+    height: 13px;
     border-radius: 100%;
-    /* remove default outline when selected */
+padding-top: .7rem;
     outline: none;
+    font-size: .9rem;
 }
 
 .customSliderThumb:hover {
-    box-shadow: 0 0 0 8px red;
+    box-shadow: 0 0 0 1px #51493D;
 }

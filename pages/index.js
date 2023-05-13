@@ -37,7 +37,7 @@ export default function Home() {
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
             </Head>
 
-            <Wrapper>
+
                 {/*video*/}
                 <Home_video_container>
                     <Image src={require('@/public/home1.png')} alt="video" width="" height=""/>
@@ -173,8 +173,6 @@ export default function Home() {
                     {/*    <span className='this'></span><span></span><span></span><span></span>*/}
                     {/*</Dott>*/}
                 </Comments_container>
-            </Wrapper>
-
         </>
     )
 }

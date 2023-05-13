@@ -1,11 +1,13 @@
 import {Profile_Navbar, Profile_Navbar_top, Profile_Navbar_bottom} from "@/styled components/profile-style";
 import Image from "next/image";
 import Link from "next/link";
-
+import { useRouter } from "next/router";
 function ProfileNavbar(props) {
+    const router = useRouter();
+    console.log(router.pathname)
     return (
        <>
-           <Profile_Navbar>
+           <Profile_Navbar navbarClicked={props.navbarClicked}>
 
                <Profile_Navbar_top>
                    <div className='person_info'>
@@ -29,11 +31,11 @@ function ProfileNavbar(props) {
                </Profile_Navbar_top>
 
                <Profile_Navbar_bottom>
-                   <div className="menuitem choosen">
+                   <div className={router.pathname === "/profile/info" ? "menuitem choosen" : "menuitem"}  onClick={props.handleNavbar}>
                        <Image src={require('@/public/user.svg')} alt={'profile'} width='' height=''/>
-                       <Link href={'/'}>حساب کاربری</Link>
+                       <Link href={'/profile/info'}>حساب کاربری</Link>
                    </div>
-                   <div className="menuitem">
+                   <div className={router.pathname === "/profile/favorite" ? "menuitem choosen" : "menuitem"} onClick={props.handleNavbar}>
                        <Image src={require('@/public/heart.svg')} alt={'profile'} width='' height=''/>
                        <Link href='/profile/favorite'>علاقه مندی ها</Link>
                    </div>

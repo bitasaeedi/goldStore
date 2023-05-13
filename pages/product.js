@@ -3,9 +3,8 @@ import {
     Left_section, Middle_product_info,
     Middle_section,
     Product_container,
-    Product_title, Products,
+    Product_title, Products, Responsive_btn, Responsive_info,
     Right_section,
-    Wrapper
 } from '@/styled components/product-style'
 import Image from "next/image";
 import React, {useState} from 'react';
@@ -19,7 +18,7 @@ function Product() {
         setIsOpen(!isOpen);
     }
     return <>
-        <Wrapper>
+
             <Products>
                 <Payment isopen={isOpen} handleisopen={handlePayment}/>
                 <Product_title>{'خانه > زیورآلات > انگشتر'}</Product_title>
@@ -44,6 +43,19 @@ function Product() {
                             گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطر آنچنان که لازم است و
                             برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبودابزارهای کاربردی
                             می باشد.</p>
+                        <Responsive_info>
+                            <h5>قیمت : 2,290,000 تومان</h5>
+                            <h6>رنگ <span></span></h6>
+                            <div className='input'><input placeholder='زرد'/>
+                                <Image src={require('@/public/more.svg')} alt="icon" width="" height=""/></div>
+                            <h6>عیار</h6>
+                            <div className='input'><input placeholder='123456'/>
+                                <Image src={require('@/public/more.svg')} alt="icon" width="" height=""/></div>
+                            <Amount>
+                                <div>تعداد :</div>
+                                <div><span className='left' onClick={()=>{setAmount(amount+1)}}>+</span>{amount}<span className='right'  onClick={()=>{amount>1?setAmount(amount-1):null}}>-</span></div>
+                            </Amount>
+                        </Responsive_info>
                         <Middle_product_info>
                             <div>
                                 <div className="info_title">وزن : </div>
@@ -70,6 +82,13 @@ function Product() {
                                 <div className="info"></div>
                             </div>
                         </Middle_product_info>
+                        <Responsive_btn>
+                            <Button1 >خرید مستقیم</Button1>
+                            <Button2>
+                                <div onClick={handlePayment}>خرید مستقیم</div>
+                                <div>خرید مستقیم</div>
+                            </Button2>
+                        </Responsive_btn>
                     </Middle_section>
 
                     {/*left*/}
@@ -94,7 +113,7 @@ function Product() {
 
                 </Product_container>
             </Products>
-        </Wrapper>
+
     </>
 }
 

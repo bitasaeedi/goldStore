@@ -21,3 +21,16 @@
     background-color: rgba(149, 133, 106, 0.52);
     border: none;
 }
+@media(max-width:500px){
+    .paginationContainer{
+        margin: 4rem auto 0;
+        padding-left: 0;
+        width: 93%;
+    }
+    .pageItem{
+        width: 40px;height: 40px;
+        font-size: 1.1rem;
+        padding: .2rem 0;
+        margin: 0 .4rem;
+    }
+}

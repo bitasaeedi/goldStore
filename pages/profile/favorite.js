@@ -3,8 +3,13 @@ import {ProFile, Profile_container, Profile_favorite_list} from "@/styled compon
 import ProfileInfo from "@/components/Profile_info";
 import CategoryItem from "@/components/Category_Item";
 import {favorite_list} from "@/pages/api/lists";
+import {useState} from "react";
 
-function Favorite(props) {
+function Favorite(){
+    let [navbarClicked,setNavbarClicked]=useState(false);
+    function handleNavbar(){
+        setNavbarClicked(!navbarClicked);
+    }
     return (
         <>
             <ProFile>
@@ -12,10 +17,10 @@ function Favorite(props) {
                 <Profile_container>
 
                     {/* sidebar*/}
-                    <ProfileNavbar/>
+                    <ProfileNavbar navbarClicked={navbarClicked} handleNavbar={handleNavbar}/>
 
                     {/* favorite list*/}
-                    <Profile_favorite_list>
+                    <Profile_favorite_list navbarClicked={navbarClicked}>
                         <CategoryItem list={favorite_list}/>
                     </Profile_favorite_list>
 

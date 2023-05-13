@@ -24,10 +24,10 @@ export default function SWIPER() {
                 thumbs={{ swiper: thumbsSwiper }}
                 modules={[FreeMode, Navigation]}
                 className={styles.mySwiper2}
-                onSwiper={(w)=>{
-                    console.log("swiper",w)
-                    w.slideTo(4);
-                }}
+                // onSwiper={(w)=>{
+                //     console.log("swiper",w)
+                //     w.slideTo(4);
+                // }}
             >
                 <SwiperSlide>
                     <Image src={require('@/public/product.png')} alt={'play'} width="" height=""/>

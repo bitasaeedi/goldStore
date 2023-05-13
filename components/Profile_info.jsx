@@ -4,8 +4,6 @@ import Image from "next/image";
 function ProfileInfo(props) {
     return (
         <>
-            <Profile_input_list>
-
                 <Profile_input>
                     <h6>نام</h6>
                     <div>
@@ -69,8 +67,6 @@ function ProfileInfo(props) {
                         <Image src={require('@/public/edit.svg')}alt='edit' width='' height=''/>
                     </div>
                 </Profile_input>
-
-            </Profile_input_list>
         </>
     );
 }

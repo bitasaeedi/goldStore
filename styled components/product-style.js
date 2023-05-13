@@ -1,18 +1,26 @@
 import styled, { css } from 'styled-components';
 import {colors} from "@/styled components/styles-info";
-export const Wrapper = styled.div`
-  max-width: 1300px;
-  margin: 0 auto;
-`
+
 export const Products = styled.div`
   width: 100%;
   height: 700px;
+  @media (max-width: 500px) {
+    display: block;
+    margin: 5rem auto;
+    height: unset;
+  }
 `
 export const Product_title = styled.div`
   color: white;
   font-size: 1.2rem;
   font-weight: 500;
   margin-bottom: 2rem;
+  @media (max-width: 500px) {
+    font-size: 1rem;
+    padding-right: 1rem;
+    margin-bottom:1.3rem ;
+    font-weight: 400;
+  }
 `
 export const Product_container = styled.div`
   width: 100%;
@@ -20,16 +28,21 @@ export const Product_container = styled.div`
   justify-content: space-between;
 
   & > div {
-    height: 600px;
+    height: 590px;
   }
-
+  @media (max-width: 500px) {
+display: block;
+    & > div {
+      height: auto;
+    }
+  }
 `
 export const Right_section = styled.div`
   width: 31.5%;
- //&>div>div.swiper-button-prev::after{
- //  width: 20px!important;
- //  height: 20px!important;
- //}
+  @media (max-width: 500px) {
+    width: 93%;
+    margin: 0 auto;
+  }
  
 `
 export const Middle_section = styled.div`
@@ -77,7 +90,22 @@ export const Middle_section = styled.div`
     line-height: 1.7rem;
   }
 
- 
+  @media (max-width: 500px) {
+    width: 93%;
+    margin: 0 auto ;
+    padding-bottom: 1rem;
+    &>h4{
+      font-size: 1.2rem;
+      padding-top: 2rem;
+    }
+    &>div.stars{
+      margin-bottom: 4rem;
+    }
+    & > p.description{
+      font-size: .75rem;
+      margin-bottom: 1rem;
+    }
+  }
 `
 export const Middle_product_info = styled.div`
   display: grid;
@@ -97,7 +125,83 @@ export const Middle_product_info = styled.div`
     width: 150px;
     height: 45px;
     border-radius: 5px;
-    
+  }
+  @media (max-width: 500px){
+    justify-content: unset;
+    gap: 0 25px;
+    & >div>div.info {
+      width: 100%;
+      height: 45px;
+      border-radius: 5px;
+    }
+  }
+`
+export const Responsive_info=styled.div`
+  display: none;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(97, 96, 96, 0.74);
+  border-bottom: 1px solid rgba(97, 96, 96, 0.74);
+  padding: 1.5rem 0;
+
+  & > h5 {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 2.4rem;
+    margin-right: .7rem;
+  }
+
+  & > h6 {
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-right: .7rem;
+
+    & > span {
+      margin-right: .5rem;
+      display: inline-block;
+      background-color: rgba(211, 128, 54, 1);
+      width: 10px;
+      height: 10px;
+      border-radius: 100%;
+    }
+  }
+
+  & > div.input {
+    margin: 1rem .7rem 1.5rem;
+    color: white;
+    position: relative;
+
+    & > input {
+      width: 100%;
+      border: none;
+      background-color: ${colors.background.product.item};
+      border-radius: 5px;
+      height: 45px;
+      color: #FFFFFF;
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 0 1rem;
+      outline: none;
+    }
+
+    & > img {
+      position: absolute;
+      left: .8rem;
+      top: 1.4rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    display: block;
+  }
+`
+export const Responsive_btn=styled.div`
+  display: none;
+ width: 90%;
+  margin: 2rem auto 1rem;
+  @media(max-width: 500px){
+    display: block;
   }
 `
 export const Left_section = styled.div`
@@ -153,6 +257,9 @@ export const Left_section = styled.div`
       top: 1.4rem;
     }
   }
+  @media(max-width: 500px){
+    display: none;
+  }
 `
 export const Amount = styled.div`
   margin: 3.5rem 0 .5rem;
@@ -186,6 +293,9 @@ export const Amount = styled.div`
       }
     }
   }
+ @media(max-width: 500px){
+   padding: 0 1rem;
+ }
 `
 export const Button1 = styled.div`
   width: 100%;
@@ -215,9 +325,3 @@ cursor: pointer;
 
 
 `
-
-const responsiveStyles = css`
-  @media (max-width: 768px) {
-    
-  }
-`;
