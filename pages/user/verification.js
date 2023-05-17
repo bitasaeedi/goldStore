@@ -33,6 +33,7 @@ function Login() {
                             length={4}
                             containerClassName='container'
                             inputClassName='input'
+                            allowedCharacters="numeric"
                         />
                     </Squares_container>
 

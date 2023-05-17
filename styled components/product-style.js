@@ -39,6 +39,7 @@ display: block;
 `
 export const Right_section = styled.div`
   width: 31.5%;
+  direction: ltr;
   @media (max-width: 500px) {
     width: 93%;
     margin: 0 auto;

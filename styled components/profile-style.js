@@ -143,19 +143,21 @@ export const Profile_Navbar_bottom = styled.div`
   }
 `
 export const Profile_input_list_container=styled.div`
+  width: 53.5%;
+  margin-top: 3rem;
+  margin-left: 6rem;
+  @media(max-width: 500px){
   color: rgba(255, 255, 255, 0.79);
 
   & > span {
     margin: 0 1rem;
     cursor: pointer;
     display: ${(props) => props.navbarClicked === true ? "unset" : 'none'};
-  }
+  }}
 `
 export const Profile_input_list = styled.div`
  
-  width: 53.5%;
-  margin-top: 3rem;
-  margin-left: 6rem;
+  width: 100%;
   display: grid;
   grid-template-columns: auto auto ;
   justify-content: space-between;

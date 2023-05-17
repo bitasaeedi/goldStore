@@ -1,22 +1,28 @@
-.mySwiper{
-width: 96%;
+.mySwiper {
+    width: 96%;
     margin: 0 auto;
     height: 85px;
 }
 
 .mySwiper img {
-width: 85px;
+    width: 100%;
+    height: 100%;
     border: 1px solid rgba(72, 72, 72, 1);
+    border-radius: 5px;
 
 }
-.mySwiper2{
+
+.mySwiper2 {
     width: 100%;
     direction: ltr;
     height: 420px;
     margin-bottom: 2.5rem;
     border: 1px solid rgba(72, 72, 72, 1);
+    border-radius: 5px;
 }
-.mySwiper2 img{
+
+.mySwiper2 img {
     width: 100%;
     height: 100%;
+
 }

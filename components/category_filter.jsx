@@ -1,4 +1,4 @@
-import {Category_filters_item, TOGGLE} from "@/styled components/category-style";
+import {Category_filters_item} from "@/styled components/category-style";
 import 'material-icons/iconfont/material-icons.css';
 import Toggle from 'react-toggle';
 import 'react-toggle/style.css'

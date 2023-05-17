@@ -9,7 +9,7 @@ import { FreeMode, Navigation, Thumbs } from "swiper";
 import Image from "next/image";
 
 export default function SWIPER() {
-    const [thumbsSwiper, setThumbsSwiper] = useState({});
+    const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
     return (
         <>
@@ -22,7 +22,7 @@ export default function SWIPER() {
                 spaceBetween={10}
                 navigation={true}
                 thumbs={{ swiper: thumbsSwiper }}
-                modules={[FreeMode, Navigation]}
+                modules={[FreeMode, Navigation, Thumbs]}
                 className={styles.mySwiper2}
                 // onSwiper={(w)=>{
                 //     console.log("swiper",w)
@@ -33,16 +33,16 @@ export default function SWIPER() {
                     <Image src={require('@/public/product.png')} alt={'play'} width="" height=""/>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Image src={require('@/public/Home2.png')} alt={'play'} width="" height=""/>
+                    <Image src={require('@/public/p1.png')} alt={'play'} width="" height=""/>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Image src={require('@/public/Home2.png')} alt={'play'} width="" height=""/>
+                    <Image src={require('@/public/pro4.jpg')} alt={'play'} width="" height=""/>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Image src={require('@/public/Home2.png')} alt={'play'} width="" height=""/>
+                    <Image src={require('@/public/p3.png')} alt={'play'} width="" height=""/>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Image src={require('@/public/Home2.png')} alt={'play'} width="" height=""/>
+                    <Image src={require('@/public/p4.png')} alt={'play'} width="" height=""/>
                 </SwiperSlide>
                 <SwiperSlide>
                     <Image src={require('@/public/Home2.png')} alt={'play'} width="" height=""/>
@@ -68,26 +68,26 @@ export default function SWIPER() {
                 }}
                 onSwiper={setThumbsSwiper}
                 spaceBetween={10}
-                navigation={true}
-                thumbs={{ swiper: thumbsSwiper }}
                 slidesPerView={4}
-                // modules={[FreeMode, Navigation, Thumbs]}
+                freeMode={true}
+                watchSlidesProgress={true}
+                modules={[FreeMode, Navigation, Thumbs]}
                 className={styles.mySwiper}
             >
+                <SwiperSlide>
+                    <Image src={require('@/public/product.png')} alt={'play'} width="" height=""/>
+                </SwiperSlide>
                 <SwiperSlide>
                     <Image src={require('@/public/p1.png')} alt={'play'} width="" height=""/>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Image src={require('@/public/p2.png')} alt={'play'} width="" height=""/>
+                    <Image src={require('@/public/pro4.jpg')} alt={'play'} width="" height=""/>
                 </SwiperSlide>
                 <SwiperSlide>
                     <Image src={require('@/public/p3.png')} alt={'play'} width="" height=""/>
                 </SwiperSlide>
                 <SwiperSlide>
                     <Image src={require('@/public/p4.png')} alt={'play'} width="" height=""/>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Image src={require('@/public/Home2.png')} alt={'play'} width="" height=""/>
                 </SwiperSlide>
                 <SwiperSlide>
                     <Image src={require('@/public/Home2.png')} alt={'play'} width="" height=""/>
