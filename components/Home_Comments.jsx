@@ -113,7 +113,8 @@ function Home_Comments(props) {
         >
             {comments.map((comment, index) => {
                 return <SwiperSlide key={index}>
-                    <Comments key={index} border={index === 1 ? 'true' : 'false'}>
+                    {({isNext})=>(
+                    <Comments key={index} border={isNext ? 'true' : 'false'}>
                         <Comment_user_info>
                             <Comment_profile>
                                 <Image src={comment.img} alt={'play'} width="" height=""/>
@@ -126,6 +127,7 @@ function Home_Comments(props) {
                         <div>{comment.text}</div>
                         <div className='date'>{comment.date}</div>
                     </Comments>
+                    )}
                 </SwiperSlide>
             })}
         </Swiper>

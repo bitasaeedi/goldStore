@@ -37,8 +37,8 @@ function Category() {
     return <>
 
         <GlobalStyle Display={showFilters}/>
-        <Category_menu_bottom_container isopen={showFilters}  onClick={()=>{
-            console.log('clicked')}}>
+
+        <Category_menu_bottom_container isopen={showFilters}  onClick={()=>{setShowFilters(false)}}>
         </Category_menu_bottom_container>
         <Path>
             <span>فروشگاه دایموند {' > '}</span>

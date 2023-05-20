@@ -20,7 +20,7 @@ export const Home_video_container = styled.div`
     height: 100%;
   }
   @media(max-width: 500px){
-    height: 420px;
+    height: 410px;
   }
 `
 export const Home_video = styled.div`
@@ -46,12 +46,9 @@ export const Home_video = styled.div`
     width: 41%;
     margin: 0 auto;
     padding-top: .4rem;
-    @media (max-width: 500px) {
-      width: 70%;
-      font-size: .9rem;
-    }
+    
   }
-
+  
   & > button {
     display: block;
     background-color: unset;
@@ -74,14 +71,14 @@ export const Home_video = styled.div`
     padding-top: 6rem;
     &>h6{
       padding-top: 0;
-      font-size: 1.7rem;
+      font-size: 1.5rem;
     }
     &>div{
       width: 70%;
       font-size: .9rem;
     }
     &>button{
-      margin: 1rem auto .7rem;
+      margin: 1rem auto .4rem;
       font-size: .8rem;
       padding: .4rem .5rem;
       border: .01rem solid #EDEDED;
@@ -513,6 +510,13 @@ export const Comments = styled.div`
       text-decoration: underline;
     }
   }
+  @media(max-width: 500px){
+    border: 1px solid rgba(149, 133, 106, 1);
+    padding-bottom: 1rem;
+    & > div {
+      margin: 1.2rem 0 0 2rem;
+    }
+  }
   
 `
 export const Comment_user_info = styled.div`
@@ -536,9 +540,9 @@ export const Comment_user_info = styled.div`
   @media(max-width: 500px){
     & > div.info{
       margin-right: .7rem;
-      line-height: 1.5rem;
+      line-height: 1.3rem;
       & > h6 {
-        font-size: 1.2rem;
+        font-size: 1.15rem;
         font-weight: 500;
       }
       & > span {
@@ -582,17 +586,6 @@ export const Dott = styled.div`
    display: none;
   }
 `
-const responsiveStyles = css`
-  @media (max-width: 768px) {
-    .Play_icon {
-      display: none;
-    }
-
-    h1 {
-      font-size: 18px;
-    }
-  }
-`;
 export const Responsive_comments=styled.div`
   display: none;
   @media(max-width: 500px){

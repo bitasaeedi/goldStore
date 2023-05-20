@@ -86,7 +86,6 @@ export const Search_items = styled.div`
 `
 export const Category_menu_bottom_container=styled.div`
   display: none;
-  pointer-events: none;
   &>div{
     width: 100%;
     height: 100%;
@@ -121,11 +120,15 @@ export const Category_menu_bottom = styled.div`
     left: 0;
     width: 100%;
     margin: 0 auto;
-    transition: transform 0.5s ease-out;
+    transition: transform .8s ease-out;
     transform:  ${(props) => (props.Display === false ? 'translateY(100%)' : 'translateY(0%)')};
     z-index: 4;
     box-shadow: 0 0 20px 4px #2c2b2b;
     border-bottom: none;
+    height: 80%;
+    overflow: scroll;
+    border-bottom-left-radius: unset;
+    border-bottom-right-radius: unset;
     & > h4 {
       margin-bottom: 2rem;
     }

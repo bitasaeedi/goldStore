@@ -33,12 +33,11 @@ export const Header_items = styled.div`
 export const Header_icon = styled.div`
   width: 55px;
   height: 55px;
-
+position: relative;
   background-color: ${colors.background.header_icon};
   border-radius: 5px;
   margin-${(props) => (props.margin === 'left' ? 'left' : 'right')}: 3rem;
   cursor: pointer;
-
   & > a {
     display: flex;
     justify-content: center;
@@ -49,9 +48,50 @@ export const Header_icon = styled.div`
   @media(max-width: 500px){
     width: 45px;
     height: 45px;
+    &>a{
+    position: relative;
+    z-index: 30;
+    }
+  }
+ 
+`
+export const Search_bar=styled.div`
+  background-color: ${colors.background.header_icon};
+  width: 300px;
+  height: 46px;
+  position: absolute;
+  bottom: -3.7rem;
+  right: 0;
+  border-radius: 10px;
+  display: flex;
+  padding: 0 .7rem;
+  transition: transform 0.5s ease-out;
+  transform:  ${(props) => (props.showSearchBar===true ? 'translateX(0%)' : 'translateX(200%)')};
+  z-index: 5;
+  & > span {
+    color: #928a80;
+    font-size: 1rem;
+    padding-top: .9rem;
+    z-index: 1002;
+  }
+
+  & > input {
+    width: 100%;
+    height: 100%;
+    background-color: unset;
+    border: 0;
+    outline: none;
+    font-size: 1rem;
+    color: #aba296;
+  }
+  @media(max-width: 500px){
+    transition: opacity 0.5s ease-out;
+    transform:  unset;
+   left: 0;right: unset;
+    opacity:  ${(props) => (props.showSearchBar===true ? '1': '0')};
+   
   }
 `
-
 ////////////////////////////mobile header
 export const Mobile_header_container = styled.div`
   display: none;

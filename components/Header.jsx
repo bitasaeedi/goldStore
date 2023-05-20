@@ -1,14 +1,23 @@
 import Image from "next/image";
-import {Header_container, Header_icon, Header_items} from '@/styled components/header-style'
+import {Header_container, Header_icon, Header_items, Search_bar} from '@/styled components/header-style'
 import Link from "next/link";
+import 'material-icons/iconfont/material-icons.css';
+import {useState} from "react";
 
 function Header() {
+    let [showSearchBar,setShowSearchBar]=useState(false);
     return (
         <>
             <Header_container>
-                <Header_icon margin={'left'}><Link href={'/category'}><Image
-                    src={require('@/public/header-Search-icon.svg')} alt="buy" width="24"
-                    height="24"/></Link></Header_icon>
+                <Header_icon margin={'left'}><Link href={''} onClick={()=>{setShowSearchBar(true)}}>
+
+                    <Image src={require('@/public/header-Search-icon.svg')} alt="buy" width="24"
+                              height="24"/></Link>
+                    <Search_bar showSearchBar={showSearchBar}>
+                        <input type='text' placeholder='جستجو...'/>
+                        <span className="material-icons-outlined" onClick={()=>{setShowSearchBar(false)}}>close</span>
+                    </Search_bar>
+                </Header_icon>
                 <Header_items><Link href={'/product'}>ایتم اول</Link></Header_items>
                 <Header_items><Link href={'/user/login'}>ایتم دوم</Link></Header_items>
                 <Header_items><Link href={'/user/signup'}>ایتم سوم</Link></Header_items>
