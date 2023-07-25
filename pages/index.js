@@ -13,7 +13,7 @@ import {
     Home_collection_container,
     Home_video,
     Home_video_container,
-    Play_icon, Responsive_comments,
+    Play_icon,
     See_more_btn,
     Top_section_items,
     Worthiness_container,
@@ -165,9 +165,7 @@ export default function Home() {
                     <All_comments>
                         <Home_Comments/>
                     </All_comments>
-                    {/*<Responsive_comments>*/}
-                    {/*    <CommentSlider/>*/}
-                    {/*</Responsive_comments>*/}
+
 
                     {/*<Dott>*/}
                     {/*    <span className='this'></span><span></span><span></span><span></span>*/}

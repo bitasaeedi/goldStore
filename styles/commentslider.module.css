@@ -4,7 +4,7 @@
 }
 @media (max-width: 500px) {
     .MySwiper {
-        height: 340px;
+        height: 310px;
     }
 }
 .MySwiper > div:first-child > div >div{

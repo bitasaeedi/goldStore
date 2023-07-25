@@ -154,17 +154,20 @@ export const Profile_input_list_container=styled.div`
     cursor: pointer;
     display: ${(props) => props.navbarClicked === true ? "unset" : 'none'};
   }}
+  @media(max-width: 500px){
+    width: 93%;
+    margin: 0 ;
+  }
 `
 export const Profile_input_list = styled.div`
- 
   width: 100%;
   display: grid;
   grid-template-columns: auto auto ;
   justify-content: space-between;
   @media(max-width: 500px){
-    width: 93%;
+    width: 100%;
     margin:2rem  1rem 0;
-    gap: 0 10px;
+    gap: 0 15px;
     display: ${(props) => props.navbarClicked === true ? "grid" : 'none'};
     justify-content: space-around;
   }
@@ -204,11 +207,10 @@ export const Profile_input = styled.div`
       padding: 0 .5rem .8rem;
     }
     &>div{
-      height: 50px;
+      height: 60px;
       & > input {
         width: 90%;
-      max-width: 130px;
-       
+       font-size: .9rem;
     }
     }
   }

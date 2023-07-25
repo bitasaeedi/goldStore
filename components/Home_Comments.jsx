@@ -2,7 +2,6 @@ import {Comment_profile, Comment_user_info, Comments} from "@/styled components/
 import Image from "next/image";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Pagination} from "swiper";
-import React from "react";
 import style from '@/styles/commentslider.module.css';
 import SwiperCore, { Autoplay } from 'swiper';
 SwiperCore.use([Autoplay]);
@@ -89,9 +88,6 @@ function Home_Comments(props) {
         {/*})}*/}
 
         <Swiper
-            onSwiper={(sl)=>{
-                console.log(sl)
-            }}
             slidesPerView={3}
             spaceBetween={30}
             pagination={{

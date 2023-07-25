@@ -3,13 +3,18 @@ import Link from "next/link";
 import Image from "next/image";
 import 'material-icons/iconfont/material-icons.css';
 import {useState} from "react";
+import MobileMenu from "@/components/mobile_Menu";
 function MobileHeader() {
     let [showSearchBar,setShowSearchBar]=useState(false);
+    let [showMenu,setShowMenu]=useState(false);
+    function handleShowMenu(){
+        setShowMenu(!showMenu)
+    }
     return (
         <>
             <Mobile_header_container >
                 <div className='right_side' >
-                    <span className={"material-icons"} >menu</span>
+                    <span className={"material-icons"} onClick={handleShowMenu}>menu</span>
                     <Image src={require('@/public/header-icon.svg')} alt="logo" width="" height=""/>
                 </div>
                 <div className={'left_side'}>
@@ -26,6 +31,7 @@ function MobileHeader() {
                 </div>
 
             </Mobile_header_container>
+            <MobileMenu showmenu={showMenu} handleShowMenu={handleShowMenu}/>
         </>
     );
 }
