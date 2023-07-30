@@ -2,18 +2,70 @@ import {
     Login_container,
     Login_image, Squares_container, Varification_btn,
     Varification_form,
-    Wrapper
 } from "@/styled components/login-style";
 import Head from 'next/head'
 import Image from "next/image";
 import AuthCode from "react-auth-code-input";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import axios from "@/pages/api/axios";
+import { useTimer } from 'react-timer-hook';
+import { useRouter } from 'next/router';
 function Login() {
-    let[code,setCode]=useState('');
+
+    const router = useRouter();
+//timer
+    const expiryTimestamp = new Date();
+    expiryTimestamp.setSeconds(expiryTimestamp.getSeconds() + 120);
+    const {seconds, minutes, start, pause, resume, restart}
+        = useTimer({ expiryTimestamp, onExpire: () => console.warn('onExpire called') });
+//save input code
+    let[Code,setCode]=useState('');
     function handleOnChange(res){
         setCode(res)
-        console.log(res)
     }
+    //check code
+
+    async function handleSubmit(){
+        try {
+            const response = await axios.post('/user/signup/verification',
+                {phoneNumber:router.query.phoneNumber,
+                    code:Code,
+                    password:router.query.password},
+                {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function (response) {
+                console.log(response)
+                if(response.status===200){
+                    localStorage.setItem('accessToken', response.data.accessToken);
+                    localStorage.setItem('refreshToken', response.data.refreshToken);
+                    router.push('/');
+                }
+            });
+        } catch (error) {
+            console.error('Error:', error.message);
+        }
+    }
+    async function HandleResendCode(){
+        try {
+            const response = await axios.post('/user/signup',
+                {phoneNumber:router.query.phoneNumber},
+                {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+        } catch (error) {
+            console.log('Error:', error.message,error);
+        }
+        const time = new Date();
+        time.setSeconds(time.getSeconds() + 120);
+        restart(time)
+    }
+
+
     return <>
         <Head>
             <meta name="format-detection" content="telephone=no"/>
@@ -30,7 +82,7 @@ function Login() {
                     <Squares_container>
                         <AuthCode
                             onChange={handleOnChange}
-                            length={4}
+                            length={5}
                             containerClassName='container'
                             inputClassName='input'
                             allowedCharacters="numeric"
@@ -38,10 +90,9 @@ function Login() {
                     </Squares_container>
 
                     <Varification_btn>
-                        <div className='btn'>تایید و ادامه</div>
-                        <span className='time'>0:59</span>
-                        <span className="underline">ارسال مجدد کد</span>
-
+                        <div className='btn' onClick={handleSubmit}>تایید و ادامه</div>
+                        <span className='time'>{minutes}:{seconds}</span>
+                        <span className="underline" onClick={HandleResendCode}>ارسال مجدد کد</span>
                     </Varification_btn>
                 </Varification_form>
 

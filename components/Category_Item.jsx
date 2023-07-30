@@ -1,8 +1,12 @@
 import {Category_item} from "@/styled components/category-style";
 import Image from "next/image";
+import {useEffect, useState} from "react";
+import axios from "axios";
+import { useRouter } from 'next/router';
 
 
-function CategoryItem({list}) {
+function CategoryItem({list,price}) {
+    const router = useRouter();
     let items = [
         {
             image: require('@/public/c1.png'),
@@ -125,14 +129,28 @@ function CategoryItem({list}) {
             price2: '2,200,000 تومان'
         },
     ]
+
+    function handleClick(item){
+        console.log("product",item)
+        router.push({
+            pathname: `/product/${item.id}`,
+            query: {
+               product:JSON.stringify(item)
+            }
+        }, `/product/${item.id}`);
+    }
+
+    console.log(list)
     return (
         <>
             {list.map((item, index) => {
-                return <Category_item key={index}>
-                    <Image src={item.image} alt='item' width='' height=''/>
+                let amount=price*item.weight*(1+item.wage);
+                let amountWithDiscount=amount*(1-item.discount)
+                return <Category_item key={index} onClick={()=>handleClick(item)}>
+                    <Image src={ require('@/public/c4.png')} alt='item' width='' height=''/>
                     <h6 className='title'>{item.title}</h6>
-                    <s className='price1'>{item.price1}</s>
-                    <div className='price2'>{item.price2}</div>
+                    <s className='price1'>{amount}</s>
+                    <div className='price2'>{Math.round(amountWithDiscount*100)/100}</div>
                     <div className='info'><span className='material-icons'>star</span>
                     <div>3.2</div> <div>(222نظر)</div>
                     </div>

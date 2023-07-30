@@ -1,29 +1,64 @@
-import {
-    Category_container,
-    Category_items,
-    Category_main, Category_main_filters,
-    Category_menu,
-    Category_menu_bottom, Category_menu_bottom_container,
-    Category_menu_top, Category_responsive_menu, GlobalStyle,
-    Path,
-    Search_items
-} from "@/styled components/category-style";
+import {Category_container, Category_items, Category_main, Category_main_filters, Category_menu, Category_menu_bottom, Category_menu_bottom_container,
+    Category_menu_top, Category_responsive_menu, GlobalStyle, Path, Search_items} from "@/styled components/category-style";
 import 'material-icons/iconfont/material-icons.css';
 import Image from "next/image";
 import CategoryFilter from "@/components/category_filter";
 import CategoryItem from "@/components/Category_Item";
 import ReactPaginate from 'react-paginate';
 import style from '@/styles/paginate.module.css'
-import {category_items} from "@/pages/api/lists";
-import {useState} from "react";
-import {log} from "next/dist/server/typescript/utils";
+import {useEffect, useState} from "react";
+import axios from "axios";
+
 function Category() {
     let [showFilters,setShowFilters]=useState(false);
     let [showRelated,setShowRelated]=useState(false);
+    const [products,setProducts]=useState();
+    let[currentPrice,setCurrentPrice]=useState();
+    let[currentPage,setCurrentPage]=useState(1);
+    let [pageCount,setPageCount]=useState()
 
-    function handlePaginate(){
+    useEffect(()=>{
+        //get all product
+        try {
+            const response =  axios.get(`http://91.107.160.88:3001/v1/product?size=20&page=${currentPage}`
+                ,{
+                    headers: {
+                        'access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmY5M2RjNDlmM2FjNDMwODdkMmY3N' +
+                            'iIsImlhdCI6MTY5MDI3NzQzOSwiZXhwIjoxNjkzODc3NDM5fQ.1x1GjSsc5-mOXMbZ2suHf04-_0N31wATGUasoB3qs-M'
+                    }
+                }
+            ).then(function (response) {
+                    console.log(response)
+                    setProducts(response.data)
+                }
+            );
+        } catch (error) {
+            console.error('Error:', error.message);
+        }
+         //current price of gold
+        try {
+            const response =  axios.get(`http://91.107.160.88:3001/v1/goldPriceInfo`
+                ,{
+                    headers: {
+                        'access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmY5M2RjNDlmM2FjNDMwODdkMmY3N' +
+                            'iIsImlhdCI6MTY5MDI3NzQzOSwiZXhwIjoxNjkzODc3NDM5fQ.1x1GjSsc5-mOXMbZ2suHf04-_0N31wATGUasoB3qs-M'
+                    }
+                }
+            ).then(function (response) {
+                    console.log(response.data.buyQuotation)
+                    setCurrentPrice(response.data.buyQuotation)
+                }
+            );
+        } catch (error) {
+            console.error('Error:', error.message);
+        }
+    },[currentPage])
 
+    function handlePaginate({selected}){
+        console.log(selected)
+        setCurrentPage(selected+1)
     }
+
     function handleFilters(){
         setShowFilters(!showFilters);
         setShowRelated(false);
@@ -33,6 +68,8 @@ function Category() {
         setShowRelated(!showRelated)
         setShowFilters(false);
     }
+
+
 
     return <>
 
@@ -100,7 +137,7 @@ function Category() {
                     <div>برترین ها</div>
                 </Category_main_filters>
                 <Category_items>
-                    <CategoryItem list={category_items}/>
+                    {products?<CategoryItem list={products} price={currentPrice}/>:null}
                 </Category_items>
                 <ReactPaginate
                     nextLabel=">"
@@ -130,3 +167,53 @@ function Category() {
 }
 
 export default Category;
+
+
+
+
+
+// export async function getServerSideProps() {
+//     let products=[];
+//
+//         try {
+//             const response = axios.get(`/product?size=20&page=1`
+//                 ,{
+//                     headers: {
+//                         'access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmY5M2RjNDlmM2FjNDMwODdkMmY3N' +
+//                             'iIsImlhdCI6MTY5MDI3NzQzOSwiZXhwIjoxNjkzODc3NDM5fQ.1x1GjSsc5-mOXMbZ2suHf04-_0N31wATGUasoB3qs-M'
+//                     }
+//                 }
+//             ).then(function (response) {
+//                     console.log(response.data)
+//                     products=response.data;
+//                 return {
+//                     props: { items: products},
+//                 };
+//                 }
+//             );
+//         } catch (error) {
+//             console.error('Error:', error.message);
+//         }
+//
+//     return {
+//         props: { items: products},
+//     };
+// }
+// async function getAllProduct() {
+//     try {
+//         const response = await axios.get(`http://91.107.160.88:3001/v1/product?size=20&page=1`
+//             ,{
+//                 headers: {
+//                     'access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmY5M2RjNDlmM2FjNDMwODdkMmY3N' +
+//                         'iIsImlhdCI6MTY5MDI3NzQzOSwiZXhwIjoxNjkzODc3NDM5fQ.1x1GjSsc5-mOXMbZ2suHf04-_0N31wATGUasoB3qs-M'
+//                 }
+//             }
+//         ).then(function (response) {
+//                 console.log(response.data)
+//                 setProducts(response.data)
+//             }
+//         );
+//     } catch (error) {
+//         console.error('Error:', error.message);
+//     }
+// }

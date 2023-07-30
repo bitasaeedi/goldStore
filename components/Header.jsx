@@ -18,7 +18,7 @@ function Header() {
                         <span className="material-icons-outlined" onClick={()=>{setShowSearchBar(false)}}>close</span>
                     </Search_bar>
                 </Header_icon>
-                <Header_items><Link href={'/product'}>ایتم اول</Link></Header_items>
+                <Header_items><Link href={'/product/1'}>ایتم اول</Link></Header_items>
                 <Header_items><Link href={'/user/login'}>ایتم دوم</Link></Header_items>
                 <Header_items><Link href={'/user/signup'}>ایتم سوم</Link></Header_items>
                 <Header_items><Link href={'/user/verification'}>ایتم چهارم</Link></Header_items>
