@@ -173,11 +173,14 @@ export const Category_main_filters = styled.div`
   color: ${colors.texts.category.white3};
   display: flex;
   justify-content: space-between;
-  width: 55%;
+  width: 40%;
   font-size: 1.2rem;
   font-weight: 500;
   margin-bottom: 2.5rem;
   margin-right: 2rem;
+  &>div{
+    cursor: pointer;
+  }
   @media (max-width: 500px) {
     width: 98%;
     margin: 0 auto 2.5rem;

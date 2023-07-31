@@ -133,11 +133,11 @@ function CategoryItem({list,price}) {
     function handleClick(item){
         console.log("product",item)
         router.push({
-            pathname: `/product/${item.id}`,
+            pathname: `/product/${item._id.$oid}`,
             query: {
                product:JSON.stringify(item)
             }
-        }, `/product/${item.id}`);
+        }, `/product/${item._id.$oid}`);
     }
 
     console.log(list)

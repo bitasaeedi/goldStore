@@ -280,7 +280,7 @@ export const Assortment_title = styled.div`
   & > div {
     font-size: 20px;
     font-weight: 600;
-
+    cursor: pointer;
     &.active {
       position: relative;
       bottom: 7px;
@@ -288,6 +288,7 @@ export const Assortment_title = styled.div`
       background-color: ${colors.background.home.assortment_title};
       border-radius: 91px;
       color: black;
+      
     }
   }
   @media (max-width: 500px) {

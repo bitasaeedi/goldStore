@@ -13,7 +13,6 @@ function CategoryFilter() {
         {title: 'محدوده قیمت', toggle: false},
         {title: 'نوع خرید', toggle: false},
         {title: 'رنگ', toggle: false},
-        {title: 'نگین دار یا بی نگین', toggle: false},
     ]
 
     function handleToggle() {

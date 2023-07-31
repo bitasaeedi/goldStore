@@ -16,19 +16,24 @@ function Category() {
     let[currentPrice,setCurrentPrice]=useState();
     let[currentPage,setCurrentPage]=useState(1);
     let [pageCount,setPageCount]=useState()
+    let [cat,setCat]=useState('');
+    let[assortmentType,setAssortmentType]=useState('');
+
 
     useEffect(()=>{
         //get all product
         try {
-            const response =  axios.get(`http://91.107.160.88:3001/v1/product?size=20&page=${currentPage}`
+            const response =  axios.get(`http://91.107.160.88:3001/v1/filter?size=20&page=${currentPage}${cat}${assortmentType}`
                 ,{
                     headers: {
                         'access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmY5M2RjNDlmM2FjNDMwODdkMmY3N' +
-                            'iIsImlhdCI6MTY5MDI3NzQzOSwiZXhwIjoxNjkzODc3NDM5fQ.1x1GjSsc5-mOXMbZ2suHf04-_0N31wATGUasoB3qs-M'
+                            'iIsImlhdCI6MTY5MDI3NzQzOSwiZXhwIjoxNjkzODc3NDM5fQ.1x1GjSsc5-mOXMbZ2suHf04-_0N31wATGUasoB3qs-M',
+                        'Content-Type': 'application/json'
+                        ,'Access-Control-Expose-Headers': 'count'
                     }
                 }
             ).then(function (response) {
-                    console.log(response)
+                    console.log(response.headers['count'])
                     setProducts(response.data)
                 }
             );
@@ -52,7 +57,7 @@ function Category() {
         } catch (error) {
             console.error('Error:', error.message);
         }
-    },[currentPage])
+    },[currentPage,cat,assortmentType])
 
     function handlePaginate({selected}){
         console.log(selected)
@@ -69,7 +74,11 @@ function Category() {
         setShowFilters(false);
     }
 
-
+//handle filter by category
+    async function handleCategory(type){
+        setCat(`&cat=${type}`)
+        console.log(`&cat=${type}`)
+    }
 
     return <>
 
@@ -97,22 +106,22 @@ function Category() {
 
                 <Category_menu_top>
                     <h4>جستجوهای مرتبط</h4>
-                    <Search_items>
+                    <Search_items onClick={()=>handleCategory('bracelet')}>
                         <Image src={require('@/public/Search.svg')} alt={'search'} width='' height=''/>
                         <div>دستبند طرح پروانه</div>
                         <span>{'>'}</span>
                     </Search_items>
-                    <Search_items>
+                    <Search_items onClick={()=>handleCategory('ring')}>
                         <Image src={require('@/public/Search.svg')} alt={'search'} width='' height=''/>
                         <div>انگشتر طرح گل</div>
                         <span>{'>'}</span>
                     </Search_items>
-                    <Search_items>
+                    <Search_items onClick={()=>handleCategory('earrings')}>
                         <Image src={require('@/public/Search.svg')} alt={'search'} width='' height=''/>
                         <div>دستبند طلا</div>
                         <span>{'>'}</span>
                     </Search_items>
-                    <Search_items>
+                    <Search_items onClick={()=>handleCategory('Necklaces')}>
                         <Image src={require('@/public/Search.svg')} alt={'search'} width='' height=''/>
                         <div>گردنبند</div>
                         <span>{'>'}</span>
@@ -130,11 +139,9 @@ function Category() {
 
             <Category_main dis={showFilters===true?".3":"1"}>
                 <Category_main_filters Display={showRelated===false?'none':'flex'}>
-                    <div>برترین ها</div>
-                    <div>برترین ها</div>
-                    <div>برترین ها</div>
-                    <div>برترین ها</div>
-                    <div>برترین ها</div>
+                    <div onClick={()=>setAssortmentType('&sort=cheapest')}>ارزان ترین ها</div>
+                    <div onClick={()=>setAssortmentType('&sort=newest')}>جدیدترین ها</div>
+                    <div onClick={()=>setAssortmentType('&sort=sell')}>پرفروش ترین ها</div>
                 </Category_main_filters>
                 <Category_items>
                     {products?<CategoryItem list={products} price={currentPrice}/>:null}

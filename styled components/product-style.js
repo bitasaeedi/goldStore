@@ -49,6 +49,9 @@ export const Right_section = styled.div`
 export const Middle_section = styled.div`
   width: 39%;
   background-color: ${colors.background.product.middle_section};
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   & > h4 {
     color: rgba(255, 255, 255, 0.82);
@@ -60,7 +63,7 @@ export const Middle_section = styled.div`
 
   & > div.stars {
     direction: ltr;
-    margin: 0 2rem 6.5rem;
+    margin: 0 2rem 4rem;
 
     & > span {
       color: white;
@@ -113,7 +116,6 @@ export const Middle_product_info = styled.div`
   grid-template-columns: auto auto auto;
   justify-content: space-between;
   margin: 1rem 1.2rem;
-  
   & > div>div.info_title {
     color: white;
     margin: 1rem 0 .4rem;

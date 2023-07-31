@@ -26,8 +26,10 @@ import Home_assortment_items from "@/components/Home_assortment_items";
 import Home_worthiness_item from "@/components/Home_worthiness_item";
 import Home_Comments from "@/components/Home_Comments";
 import CommentSlider from "@/components/comment-slider";
+import {useState} from "react";
 
 export default function Home() {
+    let[assortmentType,setAssortmentType]=useState('newest');
     return (
         <>
             {/* Head */}
@@ -120,18 +122,18 @@ export default function Home() {
                     <Assortment_Header>
 
                         <Assortment_title>
-                            <div className={'active'}>برترین ها</div>
-                            <div>برترین ها</div>
-                            <div>برترین ها</div>
-
+                            <div className={assortmentType==='newest'?'active':null} onClick={()=>setAssortmentType('newest')}>جدیدترین ها</div>
+                            <div className={assortmentType==='cheapest'?'active':null} onClick={()=>setAssortmentType('cheapest')}>ارزان ترین ها</div>
+                            <div className={assortmentType==='sell'?'active':null} onClick={()=>setAssortmentType('sell')}>پر فروش ترین ها</div>
                         </Assortment_title>
 
                         <div>مشاهده ی بیشتر <h3>{'>'}</h3></div>
                     </Assortment_Header>
 
                     <Assortment_items_container>
-                        <Home_assortment_items/>
+                        <Home_assortment_items type={assortmentType}/>
                     </Assortment_items_container>
+
                 </Assortment_container>
 
                 {/*compliment*/}

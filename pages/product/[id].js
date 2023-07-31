@@ -23,11 +23,10 @@ import {log} from "next/dist/server/typescript/utils";
 
 function Id() {
     const router = useRouter()
-    const item = JSON.parse(router.query.product);
+    let[item,setItem]=useState(JSON.parse(router.query.product))
     const [product,setProduct]=useState();
     let [isOpen, setIsOpen] = useState(false)
-    let [amount, setAmount] = useState(2);
-
+    let [amount, setAmount] = useState(1);
     function handlePayment() {
         setIsOpen(!isOpen);
     }
@@ -57,6 +56,32 @@ function Id() {
             }
         }
     }
+    //خرید مستقیم
+    async function handleDirectPurchase(){
+
+        try {
+            const response = await axios.post('http://91.107.160.88:3001/v1/buyProduct',
+                [{ productId:"64c64f9105f07bfecd6b97dc",
+                    variantId: 1,
+                    count: amount}],
+                {
+                    headers: {
+                        'access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmZhYTMwNGViMDJiNDI0YmU1NTA5My' +
+                            'IsImlhdCI6MTY5MDI4Nzg1NSwiZXhwIjoxNjkzODg3ODU1fQ.WySC-UCpj8abMiiD3vaTA_QU9CrYjgPwy-80sIdCEf8'
+                    }
+                }).then(function (response) {
+                console.log(response)
+
+                if(response.status===200){
+                    alert('خرید انجام شد')
+                }
+            });
+        } catch (error) {
+            console.error('Error:', error);
+            alert(error.response.data.message)
+        }
+    }
+
     async function getProduct() {
         try {
             const response = await axios.get(`http://91.107.160.88:3001/v1/product/64bfb0d44eb02b424be5510e`
@@ -174,8 +199,8 @@ function Id() {
                     </Amount>
                     <Button1 onClick={addToUserCart}>افزودن به سبد خرید</Button1>
                     <Button2>
-                        <div onClick={handlePayment}>خرید مستقیم</div>
-                        <div>خرید مستقیم</div>
+                        <div onClick={handleDirectPurchase} >خرید مستقیم</div>
+                        <div onClick={handlePayment}>خرید قسطی</div>
                     </Button2>
                 </Left_section>
 
