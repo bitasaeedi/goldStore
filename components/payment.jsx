@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
     Ba, Card_container, Card_header,
     GlobalStyle, Infos, Installment_Btn, Installment_container, Installment_table, Payment_container, Payment_info,
@@ -22,7 +22,8 @@ function Payments(props) {
                     <div className="right" onClick={()=>{setType('payment')}}><span>پرداخت</span></div>
                     <div className="left" onClick={()=>{setType('installment')}}><span>قسط ها</span></div>
                 </Card_header>
-                {type==='installment'?<Installment handleIsOpen={props.handleisopen}/>:<PAYMENT  handleIsOpen={props.handleisopen}/>}
+                {type==='installment'?<Installment handleIsOpen={props.handleisopen} item={props.item}/>:
+                    <PAYMENT  handleIsOpen={props.handleisopen}  item={props.item} variant={props.variant}/>}
             </Card_container>
         </>
     );
@@ -55,21 +56,43 @@ function Installment(props){
     </>
 }
 import style from '@/styles/range.module.css';
+import axios from "axios";
 function PAYMENT(props){
     let [rangeValue,setRangeValue]=useState(1);
+    let[price,setPrice]=useState();
     const handleChange = (e) => {
         setRangeValue(e.target.value);
     };
+    useEffect(()=>{
+        try {
+            const response =  axios.get(`http://91.107.160.88:3001/v1/goldPriceInfo`
+                ,  {
+                    headers: {
+                        'access-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmY5M2RjNDlmM2FjNDMwODdkMmY' +
+                            '3NiIsImlhdCI6MTY5MDI3NzQzOSwiZXhwIjoxNjkzODc3NDM5fQ.1x1GjSsc5-mOXMbZ2suHf04-_0N31wATGUasoB3qs-M'
+                    }
+                }
+            ).then(function (response) {
+                    console.log(response.data)
+                setPrice(response.data)
+
+                }
+            );
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    },[])
+
     return<>
         <Payment_container>
             <Image src={require('@/public/payment.png')} width='' height='' alt='img'/>
             <Payment_info>
                 <div className="info_text">
-                    <div>ست دستبند و انگشتر شکوفه ای</div>
-                    <h6>قیمت : 2,250000 تومان</h6>
-                    <div>اجرت: %20 </div>
+                    <div>{props.item.title}</div>
+                    <h6>قیمت : {props.item.finalPrice} تومان</h6>
+                    <div>اجرت: %{props.item.wage*100} </div>
                 </div>
-                <p>حداقل گرم برای قست اول را تعیین کنید</p>
+                <p>حداقل گرم برای قست را تعیین کنید</p>
                 <div className='range_input'>
                     <span className='range-value-r'>10</span>
                     <ReactSlider
@@ -79,6 +102,7 @@ function PAYMENT(props){
                         max={10}
                         min={0}
                         value={rangeValue}
+                        step={.001}
                         renderThumb={(props, state) => <div style={{color:"blue"}} {...props}>{state.valueNow}</div>}
                         onChange={(value, index) => setRangeValue(value)}
                     />
@@ -87,8 +111,8 @@ function PAYMENT(props){
                         <input  placeholder={rangeValue} onChange={handleChange} value={rangeValue}/>
                     </div>
                 </div>
-                <div className={"price"}>قیمت قست اول: 500000 تومان </div>
-                <Installment_Btn><div onClick={props.handleIsOpen}>پرداخت قسط اول</div></Installment_Btn>
+                <div className={"price"} onClick={()=>{}}>قیمت قست: {price?rangeValue*price.buyQuotation:null} تومان </div>
+                <Installment_Btn><div onClick={props.handleIsOpen}>پرداخت قسط</div></Installment_Btn>
             </Payment_info>
         </Payment_container>
     </>

@@ -1,20 +1,18 @@
 import axios from "axios";
-// const accessToken = localStorage.getItem('accessToken');
-
 
 const instance = axios.create({
     baseURL: 'http://91.107.160.88:3001/v1'
 });
-// instance.interceptors.response.use(
-//     response => {
-//         return response;
-//     },
-//     error => {
-//         if(error.response.status === 403){
-//             refreshToken()
-//         }
-//     }
-// );
+instance.interceptors.response.use(
+    response => {
+        return response;
+    },
+    error => {
+        if(error.response=== 403){
+            refreshToken()
+        }
+    }
+);
 // async function refreshToken(){
 //     try {
 //         const response = await axios.post('http://91.107.160.88:3001/v1/userRefreshToken',

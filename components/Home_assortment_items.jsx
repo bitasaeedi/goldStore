@@ -21,11 +21,12 @@ function HomeAssortmentItems({type}) {
     ]
     useEffect(()=>{
         try {
-            const response =  axios.get(`http://91.107.160.88:3001/v1/filter?size=10&page=1&sort=${type}`
+            const response =  axios.get(`http://91.107.160.88:3001/v1/filter/?size=10&page=1&${type}=true`
                 ,{
                     headers: {
                         'access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmY5M2RjNDlmM2FjNDMwODdkMmY3N' +
-                            'iIsImlhdCI6MTY5MDI3NzQzOSwiZXhwIjoxNjkzODc3NDM5fQ.1x1GjSsc5-mOXMbZ2suHf04-_0N31wATGUasoB3qs-M'
+                            'iIsImlhdCI6MTY5MDI3NzQzOSwiZXhwIjoxNjkzODc3NDM5fQ.1x1GjSsc5-mOXMbZ2suHf04-_0N31wATGUasoB3qs-M',
+                        'Content-Type': 'application/json'
                     }
                 }
             ).then(function (response) {

@@ -8,7 +8,7 @@ import styles from "@/styles/swiper.module.css"
 import { FreeMode, Navigation, Thumbs } from "swiper";
 import Image from "next/image";
 
-export default function SWIPER() {
+export default function SWIPER({image}) {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
     return (

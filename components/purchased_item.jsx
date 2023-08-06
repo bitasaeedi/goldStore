@@ -3,108 +3,108 @@ import Image from "next/image";
 import {useState} from "react";
 import axios from "@/pages/api/axios";
 
-function PurchasedItem() {
+function PurchasedItem({products,handleChanges}) {
+    console.log("p",products)
+   async function handleDeleteProduct(item){
+       try {
+           const response = await axios.put(`http://91.107.160.88:3001/v1/removeFromCart`,
+               {
+                   productId:item.productId,
+                   variantId: item.variantId,
+                   count: item.count
+               },{
+                   headers: {
+                       'access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmZiNjQwNGViMDJiNDI0YmU1NT' +
+                           'E2ZiIsImlhdCI6MTY5MDg1MjA1MywiZXhwIjoxNjk0NDUyMDUzfQ.rH8-oQoqTU9LSe8BUk9aeNx2mlSXJyWG2H0P-VfLKdg'
+                   }
+               }
+           ).then(function (response) {
+                   console.log(response.data)
+               handleChanges();
+               }
+           );
+       } catch (error) {
+           console.error('Error:', error);
+       }
+   }
 
-    let items = [
-        {
-            id: 1,
-            image: require('@/public/c5.png'),
-            title: 'ست انگشتر و گردنبند با نگین',
-            price: '1,550,000'
-        },
-        {
-            id: 2,
-            image: require('@/public/c2.png'),
-            title: 'ست انگشتر و گردنبند با نگین',
-            price: '1,550,000'
-        },
-        {
-            id: 3,
-            image: require('@/public/c7.png'),
-            title: 'ست انگشتر و گردنبند با نگین',
-            price: '1,550,000'
-        }
-    ]
-
-    function handleItems(products) {
-
-    }
-
+    console.log(products)
     return <>
-        {items.map((item, index) => {
+        {products?products.products.map((item, index) => {
             return <Purchased_item key={index}>
-                <Image src={item.image} alt={'image'} width='' height=''/>
+                <Image src={require('@/public/c7.png')} alt={'image'} width='' height=''/>
                 <div className='info'>
                     <div className="title">{item.title}</div>
-                    <div className='price'>{item.price} تومان</div>
-                    <div className='delete_btn'>حذف از سبد خرید</div>
+                    <div className='price'>{item.totalPrice} تومان</div>
+                    <div className='delete_btn' onClick={()=>handleDeleteProduct(item)}>حذف از سبد خرید</div>
                 </div>
-                <AMOUNT id={item.id} setItems={items}/>
+                <AMOUNT item={item} setItems={handleChanges}/>
             </Purchased_item>
-        })}
+        }):null}
 
     </>
 }
 
 export default PurchasedItem;
 
-function AMOUNT({id, items}) {
+function AMOUNT({item,setItems}) {
 
-    let [amount, setAmount] = useState(1);
+    let [amount, setAmount] = useState(item.count);
 
     async function addToCart() {
         try {
             const response = await axios.put(`http://91.107.160.88:3001/v1/addToCart`,
                 {
-                    productId:'',
-                    variantId: 1,
+                    productId:item.productId,
+                    variantId: item.variantId,
                     count: 1
                 }
                 ,{
                     headers: {
-                        'access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YzUwNWMzM2Q1N2EzNjI4NTc1MTBj' +
-                            'ZCIsImlhdCI6MTY5MDcyMDcxMCwiZXhwIjoxNjk0MzIwNzEwfQ.fc9nyWMy-dYn2OnSt-E76T2a-njIUGhCC5J8t7U0Vjc'
+                        'access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmZiNjQwNGViMDJiNDI0YmU1NT' +
+                            'E2ZiIsImlhdCI6MTY5MDg1MjA1MywiZXhwIjoxNjk0NDUyMDUzfQ.rH8-oQoqTU9LSe8BUk9aeNx2mlSXJyWG2H0P-VfLKdg'
                     }
                 }
             ).then(function (response) {
                     console.log(response)
+                setAmount(amount +1)
                 }
             );
         } catch (error) {
-            console.error('Error:', error.message);
-            if (error.response.data.code) {
+            console.error('Error:', error);
+            if (error.response.data.code===400) {
                 alert('تعداد محصول کافی نیست')
             }
         }
     }
 
-    async function removeFromCart({products}) {
-
+    async function removeFromCart() {
         try {
-            const response = await axios.put(`/removeFromCart`,
+            const response = await axios.put(`http://91.107.160.88:3001/v1/removeFromCart`,
                 {
-                    productId: "64bff816c265a808a3c3a336",
-                    variantId: 1,
+                    productId:item.productId,
+                    variantId: item.variantId,
                     count: 1
                 },{
                     headers: {
-                        'access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YzUwNWMzM2Q1N2EzNjI4NTc1MTBj' +
-                            'ZCIsImlhdCI6MTY5MDcyMDcxMCwiZXhwIjoxNjk0MzIwNzEwfQ.fc9nyWMy-dYn2OnSt-E76T2a-njIUGhCC5J8t7U0Vjc'
+                        'access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmZiNjQwNGViMDJiNDI0YmU1NT' +
+                            'E2ZiIsImlhdCI6MTY5MDg1MjA1MywiZXhwIjoxNjk0NDUyMDUzfQ.rH8-oQoqTU9LSe8BUk9aeNx2mlSXJyWG2H0P-VfLKdg'
                     }
                 }
             ).then(function (response) {
                     console.log(response.data)
+                    // setItems(response.data)
                     setAmount(amount - 1)
                 }
             );
         } catch (error) {
-            console.error('Error:', error.message);
+            console.error('Error:', error);
         }
     }
 
     return <Amount>
         <div onClick={addToCart}>+</div>
         <div className='number'>{amount}</div>
-        <div onClick={removeFromCart}>-</div>
+        <div onClick={amount>1?removeFromCart:null}>-</div>
     </Amount>
 }

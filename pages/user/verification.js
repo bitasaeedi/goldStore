@@ -1,15 +1,14 @@
-import {
-    Login_container,
-    Login_image, Squares_container, Varification_btn,
-    Varification_form,
+import {Login_container, Login_image, Squares_container, Varification_btn, Varification_form,
 } from "@/styled components/login-style";
 import Head from 'next/head'
 import Image from "next/image";
 import AuthCode from "react-auth-code-input";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import axios from "@/pages/api/axios";
 import { useTimer } from 'react-timer-hook';
 import { useRouter } from 'next/router';
+import {Toast} from "@/components/toast";
+import {ToastContainer} from "react-toastify";
 function Login() {
 
     const router = useRouter();
@@ -34,10 +33,10 @@ function Login() {
                 {
                     headers: {
                         'Content-Type': 'application/json'
-                    }
-                }).then(function (response) {
-                console.log(response)
+                    }}
+                ).then(function (response) {
                 if(response.status===200){
+                    Toast('حساب شما ساخته شد',true)
                     localStorage.setItem('accessToken', response.data.accessToken);
                     localStorage.setItem('refreshToken', response.data.refreshToken);
                     router.push('/');
@@ -45,6 +44,9 @@ function Login() {
             });
         } catch (error) {
             console.error('Error:', error.message);
+            if(error.response){
+                Toast(error.response.data.message,false)
+            }
         }
     }
     async function HandleResendCode(){
@@ -67,6 +69,7 @@ function Login() {
 
 
     return <>
+        <ToastContainer />
         <Head>
             <meta name="format-detection" content="telephone=no"/>
         </Head>
@@ -75,7 +78,7 @@ function Login() {
                 <Varification_form>
                     <div>
                         <h6>کد پیامک شده را وارد کنید</h6>
-                        <div>کد تاییدی به شماره   09123456789 ارسال شد
+                        <div>کد تاییدی به شماره   {router.query.phoneNumber} ارسال شد
                             لطفا ان را در باکس زیر وارد کنید</div>
                         <div className='gold'>ویرایش شماره</div>
                     </div>

@@ -1,81 +1,92 @@
-import {Category_container, Category_items, Category_main, Category_main_filters, Category_menu, Category_menu_bottom, Category_menu_bottom_container,
-    Category_menu_top, Category_responsive_menu, GlobalStyle, Path, Search_items} from "@/styled components/category-style";
+import {Category_container, Category_filters_item, Category_items, Category_main,
+    Category_main_filters, Category_menu, Category_menu_bottom,
+    Category_menu_bottom_container, Category_menu_top, Category_responsive_menu, GlobalStyle, Path, Search_items
+} from "@/styled components/category-style";
 import 'material-icons/iconfont/material-icons.css';
+import styles from '@/styles/toggle.module.css'
 import Image from "next/image";
-import CategoryFilter from "@/components/category_filter";
 import CategoryItem from "@/components/Category_Item";
 import ReactPaginate from 'react-paginate';
 import style from '@/styles/paginate.module.css'
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
-
+import {useRouter} from "next/router";
+import 'react-toggle/style.css'
+import Toggle from "react-toggle";
+import InputRange from "react-input-range";
+import 'react-input-range/lib/css/index.css'
 function Category() {
-    let [showFilters,setShowFilters]=useState(false);
-    let [showRelated,setShowRelated]=useState(false);
-    const [products,setProducts]=useState();
-    let[currentPrice,setCurrentPrice]=useState();
-    let[currentPage,setCurrentPage]=useState(1);
-    let [pageCount,setPageCount]=useState()
-    let [cat,setCat]=useState('');
-    let[assortmentType,setAssortmentType]=useState('');
+    const router = useRouter();
+    let [showFilters, setShowFilters] = useState(false);
+    let [showRelated, setShowRelated] = useState(false);
+    let [products, setProducts] = useState();
+    let [currentPage, setCurrentPage] = useState(1);
+    let [pageCount, setPageCount] = useState()
+    let [cat, setCat] = useState('');
+    let [assortmentType, setAssortmentType] = useState('');
+    let [rangeValue,setRangeValue]=useState({value:{min:1 , max:5},text:''});
+    let [installment, setInstallment] = useState(false)
+    let [url, setUrl] = useState(`http://91.107.160.88:3001/v1/filter/?size=20&page=${currentPage}${cat}${assortmentType}&installment=${installment}&${rangeValue.text}`);
 
-
-    useEffect(()=>{
+    let [color, setColor] = useState();
+    useEffect(() => {
+        if (router.query.searchItem) {
+            setUrl(`http://91.107.160.88:3001/v1/search/${router.query.searchItem}?size=20&page=${currentPage}`)
+        } else {
+            setUrl(`http://91.107.160.88:3001/v1/filter/?size=20&page=${currentPage}${cat}${assortmentType}&installment=${installment}&${rangeValue.text}`)
+        }
         //get all product
         try {
-            const response =  axios.get(`http://91.107.160.88:3001/v1/filter?size=20&page=${currentPage}${cat}${assortmentType}`
-                ,{
+            console.log('s', router.query.searchItem, url)
+            const response = axios.get(url
+                , {
                     headers: {
                         'access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmY5M2RjNDlmM2FjNDMwODdkMmY3N' +
                             'iIsImlhdCI6MTY5MDI3NzQzOSwiZXhwIjoxNjkzODc3NDM5fQ.1x1GjSsc5-mOXMbZ2suHf04-_0N31wATGUasoB3qs-M',
                         'Content-Type': 'application/json'
-                        ,'Access-Control-Expose-Headers': 'count'
                     }
                 }
             ).then(function (response) {
-                    console.log(response.headers['count'])
+                    console.log(response)
                     setProducts(response.data)
+                    setPageCount(response.headers.count)
                 }
             );
         } catch (error) {
             console.error('Error:', error.message);
         }
-         //current price of gold
-        try {
-            const response =  axios.get(`http://91.107.160.88:3001/v1/goldPriceInfo`
-                ,{
-                    headers: {
-                        'access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmY5M2RjNDlmM2FjNDMwODdkMmY3N' +
-                            'iIsImlhdCI6MTY5MDI3NzQzOSwiZXhwIjoxNjkzODc3NDM5fQ.1x1GjSsc5-mOXMbZ2suHf04-_0N31wATGUasoB3qs-M'
-                    }
-                }
-            ).then(function (response) {
-                    console.log(response.data.buyQuotation)
-                    setCurrentPrice(response.data.buyQuotation)
-                }
-            );
-        } catch (error) {
-            console.error('Error:', error.message);
-        }
-    },[currentPage,cat,assortmentType])
 
-    function handlePaginate({selected}){
+        console.log(rangeValue)
+
+    }, [currentPage, cat, assortmentType, url, installment,rangeValue])
+
+    function handlePaginate({selected}) {
         console.log(selected)
-        setCurrentPage(selected+1)
+        setCurrentPage(selected + 1)
     }
 
-    function handleFilters(){
+    function handleFilters() {
         setShowFilters(!showFilters);
         setShowRelated(false);
         console.log('now')
     }
-    function handleRelated(){
+
+    function handleRelated() {
         setShowRelated(!showRelated)
         setShowFilters(false);
     }
 
+    function handleToggle() {
+        console.log(4)
+    }
+
+    function handleCheckbox(target) {
+
+
+    }
+
 //handle filter by category
-    async function handleCategory(type){
+    async function handleCategory(type) {
         setCat(`&cat=${type}`)
         console.log(`&cat=${type}`)
     }
@@ -84,7 +95,9 @@ function Category() {
 
         <GlobalStyle Display={showFilters}/>
 
-        <Category_menu_bottom_container isopen={showFilters}  onClick={()=>{setShowFilters(false)}}>
+        <Category_menu_bottom_container isopen={showFilters} onClick={() => {
+            setShowFilters(false)
+        }}>
         </Category_menu_bottom_container>
         <Path>
             <span>فروشگاه دایموند {' > '}</span>
@@ -93,7 +106,7 @@ function Category() {
         </Path>
         <Category_container>
 
-            <Category_responsive_menu >
+            <Category_responsive_menu>
                 <div onClick={handleFilters}>فیلترها
                     <span className="material-icons-outlined">expand_more</span>
                 </div>
@@ -106,52 +119,86 @@ function Category() {
 
                 <Category_menu_top>
                     <h4>جستجوهای مرتبط</h4>
-                    <Search_items onClick={()=>handleCategory('bracelet')}>
+                    <Search_items onClick={() => handleCategory('wristband')}>
                         <Image src={require('@/public/Search.svg')} alt={'search'} width='' height=''/>
-                        <div>دستبند طرح پروانه</div>
+                        <div>دستبند</div>
                         <span>{'>'}</span>
                     </Search_items>
-                    <Search_items onClick={()=>handleCategory('ring')}>
+                    <Search_items onClick={() => handleCategory('ring')}>
                         <Image src={require('@/public/Search.svg')} alt={'search'} width='' height=''/>
-                        <div>انگشتر طرح گل</div>
+                        <div>انگشتر</div>
                         <span>{'>'}</span>
                     </Search_items>
-                    <Search_items onClick={()=>handleCategory('earrings')}>
+                    <Search_items onClick={() => handleCategory('earring')}>
                         <Image src={require('@/public/Search.svg')} alt={'search'} width='' height=''/>
-                        <div>دستبند طلا</div>
+                        <div>گوشواره</div>
                         <span>{'>'}</span>
                     </Search_items>
-                    <Search_items onClick={()=>handleCategory('Necklaces')}>
+                    <Search_items onClick={() => handleCategory('Necklace')}>
                         <Image src={require('@/public/Search.svg')} alt={'search'} width='' height=''/>
                         <div>گردنبند</div>
                         <span>{'>'}</span>
                     </Search_items>
                 </Category_menu_top>
 
-                <Category_menu_bottom Display={showFilters} >
+                <Category_menu_bottom Display={showFilters}>
+                    <h4>فیلتر ها</h4>
 
-                    <h4 onClick={()=>{
-                        console.log('now')}}>فیلتر ها</h4>
-                    <CategoryFilter/>
+                    <Category_filters_item display>
+                        <div>وزن
+                            <div className={'range'}>
+                                <InputRange
+                                    draggableTrack
+                                    maxValue={10}
+                                    minValue={0}
+                                    onChange={(Value)=>{setRangeValue({value:Value ,text:`weight=${Value.min},${Value.max}`})}}
+                                    value={rangeValue.value}
+                                    formatLabel={value => value.toFixed(2)}
+                                    step={.01}/>
+                            </div>
+                        </div>
+                    </Category_filters_item>
+
+                    <Category_filters_item>
+                        <div>خرید قسطی</div>
+                        <Toggle
+                            className={styles.customtoggle}
+                            icons={false}
+                            onChange={() => setInstallment(!installment)}/>
+                    </Category_filters_item>
+
+                    <Category_filters_item>
+                        <div>محدوده قیمت</div>
+                        <span className="material-icons-outlined">expand_more</span>
+                    </Category_filters_item>
+
+                    <Category_filters_item>
+                        <div>رنگ</div>
+                        <div className={"checkboxs"}>
+                            <span>سفید</span><input type={"checkbox"} id='golden' onChange={handleCheckbox}/>
+                            <span>زرد</span><input type={"checkbox"} id='white'/>
+                        </div>
+                    </Category_filters_item>
+
                 </Category_menu_bottom>
 
             </Category_menu>
 
-            <Category_main dis={showFilters===true?".3":"1"}>
-                <Category_main_filters Display={showRelated===false?'none':'flex'}>
-                    <div onClick={()=>setAssortmentType('&sort=cheapest')}>ارزان ترین ها</div>
-                    <div onClick={()=>setAssortmentType('&sort=newest')}>جدیدترین ها</div>
-                    <div onClick={()=>setAssortmentType('&sort=sell')}>پرفروش ترین ها</div>
+            <Category_main dis={showFilters === true ? ".3" : "1"}>
+                <Category_main_filters Display={showRelated === false ? 'none' : 'flex'}>
+                    <div onClick={() => setAssortmentType('&cheapest=true')}>ارزان ترین ها</div>
+                    <div onClick={() => setAssortmentType('&newest=true')}>جدیدترین ها</div>
+                    <div onClick={() => setAssortmentType('&sell=true')}>پرفروش ترین ها</div>
                 </Category_main_filters>
                 <Category_items>
-                    {products?<CategoryItem list={products} price={currentPrice}/>:null}
+                    {products ? <CategoryItem list={products}/> : null}
                 </Category_items>
                 <ReactPaginate
                     nextLabel=">"
                     onPageChange={handlePaginate}
-                    pageRangeDisplayed='3'
+                    pageRangeDisplayed='2'
                     marginPagesDisplayed='1'
-                    pageCount={9}
+                    pageCount={pageCount / 20}
                     previousLabel="<"
                     containerClassName={style.paginationContainer}
                     pageClassName={style.pageItem}
@@ -174,53 +221,3 @@ function Category() {
 }
 
 export default Category;
-
-
-
-
-
-// export async function getServerSideProps() {
-//     let products=[];
-//
-//         try {
-//             const response = axios.get(`/product?size=20&page=1`
-//                 ,{
-//                     headers: {
-//                         'access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmY5M2RjNDlmM2FjNDMwODdkMmY3N' +
-//                             'iIsImlhdCI6MTY5MDI3NzQzOSwiZXhwIjoxNjkzODc3NDM5fQ.1x1GjSsc5-mOXMbZ2suHf04-_0N31wATGUasoB3qs-M'
-//                     }
-//                 }
-//             ).then(function (response) {
-//                     console.log(response.data)
-//                     products=response.data;
-//                 return {
-//                     props: { items: products},
-//                 };
-//                 }
-//             );
-//         } catch (error) {
-//             console.error('Error:', error.message);
-//         }
-//
-//     return {
-//         props: { items: products},
-//     };
-// }
-// async function getAllProduct() {
-//     try {
-//         const response = await axios.get(`http://91.107.160.88:3001/v1/product?size=20&page=1`
-//             ,{
-//                 headers: {
-//                     'access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmY5M2RjNDlmM2FjNDMwODdkMmY3N' +
-//                         'iIsImlhdCI6MTY5MDI3NzQzOSwiZXhwIjoxNjkzODc3NDM5fQ.1x1GjSsc5-mOXMbZ2suHf04-_0N31wATGUasoB3qs-M'
-//                 }
-//             }
-//         ).then(function (response) {
-//                 console.log(response.data)
-//                 setProducts(response.data)
-//             }
-//         );
-//     } catch (error) {
-//         console.error('Error:', error.message);
-//     }
-// }

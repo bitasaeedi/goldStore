@@ -1,17 +1,13 @@
 import {
-    Btn_detail,
-    Login_btn,
-    Login_container,
-    Login_form,
-    Login_image,
-    Login_input,
-    Login_input_title,
+    Btn_detail, Login_btn, Login_container, Login_form, Login_image, Login_input, Login_input_title,
 } from "@/styled components/login-style";
 import {useRouter} from 'next/router';
 import Image from "next/image";
 import 'material-icons/iconfont/material-icons.css'
 import {useState} from "react";
 import axios from "axios";
+import {Toast} from "@/components/toast";
+import {ToastContainer} from "react-toastify";
 
 function Signup() {
     const router = useRouter();
@@ -31,16 +27,16 @@ function Signup() {
     }
 
     async function handleSignupBtn() {
-        console.log(PhoneNumber)
+
         if (password.length < 8) {
-            alert('تعداد کاراکتز های پسورد کمتر از 8 است.')
+            Toast('رمز باید حدقل 8 کاراکتر داشته باشد',false)
         } else {
             try {
                 const response = await axios.post('http://91.107.160.88:3001/v1/user/signup',
                     {phoneNumber: PhoneNumber},
                 ).then(function (response) {
-
-                    if (response.data.return.status === 200) {
+                    console.log(response)
+                    if (response.status === 200) {
                         router.push({
                             pathname: '/user/verification',
                             query: {
@@ -53,13 +49,16 @@ function Signup() {
                 });
             } catch (error) {
                 console.log('Error:', error);
-               alert('خطا')
+               if(error.response){
+                   Toast(error.response.data.message,false)
+               }
             }
         }
 
     }
 
     return <>
+        <ToastContainer />
         <Login_container>
 
             <Login_form>

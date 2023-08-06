@@ -116,23 +116,28 @@ export const Middle_product_info = styled.div`
   grid-template-columns: auto auto auto;
   justify-content: space-between;
   margin: 1rem 1.2rem;
-  & > div>div.info_title {
+
+  & > div > div.info_title {
     color: white;
     margin: 1rem 0 .4rem;
     font-size: .9rem;
   }
 
-  & >div>div.info {
+  & > div > div.info {
     margin-bottom: 1rem;
     background-color: ${colors.background.product.item};
     width: 150px;
     height: 45px;
     border-radius: 5px;
+    color: rgba(255, 255, 255, 0.85);
+    text-align: center;
+    padding: .5rem 0;
   }
-  @media (max-width: 500px){
+
+  @media (max-width: 500px) {
     justify-content: unset;
     gap: 0 25px;
-    & >div>div.info {
+    & > div > div.info {
       width: 100%;
       height: 45px;
       border-radius: 5px;
@@ -240,7 +245,7 @@ export const Left_section = styled.div`
     margin: 1rem 0 1.5rem;
     color: white;
     position: relative;
-
+    cursor: pointer;
     & > input {
       width: 100%;
       border: none;
@@ -253,8 +258,23 @@ export const Left_section = styled.div`
       padding: 0 1rem;
       outline: none;
     }
+    &>div{
+      position:absolute ;
+      left: 0;
+      width: 100%;
+      font-weight: 600;
+      background-color:${colors.background.product.item};
+      text-align: center;
+      margin: .1rem 0;
+      border-radius: 5px;
+      display: ${(props) => (props.display?'block':'none')};
+      &>div{
+      
+        padding: .5rem 0;
+      }
+    }
 
-    & > img {
+    & >span> img {
       position: absolute;
       left: .8rem;
       top: 1.4rem;

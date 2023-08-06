@@ -1,25 +1,25 @@
-import {
-    Btn_detail,
-    Forget_password, Login_btn,
-    Login_container,
-    Login_form,
-    Login_image,
-    Login_input,
-    Login_input_title,
+import {Btn_detail, Forget_password, Login_btn, Login_container,
+    Login_form, Login_image, Login_input, Login_input_title,
 } from "@/styled components/login-style";
 import Image from "next/image";
 import {useState} from "react";
 import 'material-icons/iconfont/material-icons.css'
-import axios from "@/pages/api/axios";
+import axios from "axios";
 import {useRouter} from "next/router";
+import {Toast} from "@/components/toast";
+import {ToastContainer} from "react-toastify";
+
+
 function Login() {
     const router = useRouter();
     let[PhoneNumber,setPhoneNumber]=useState('');
     let[password,setpassword]=useState('');
     let[visibility,setVisibility]=useState(false);
+
     function handlePassword(){
         setVisibility(!visibility);
     }
+
     function setValue(event){
         if(event.target.name==='phone'){
             setPhoneNumber(event.target.value)
@@ -27,23 +27,37 @@ function Login() {
         else
             setpassword(event.target.value)
     }
+
     async function handleSignBtn(){
-        try {
-            const response = await axios.post('/v1/user/login',
-                {phoneNumber:PhoneNumber,
-                    password:password}
+        // try {
+        if (password.length < 8) {
+            Toast('رمز باید حدقل 8 کاراکتر داشته باشد',false)
+        } else {
+            const res = await axios.post('http://91.107.160.88:3001/v1/user/login',
+                {
+                    phoneNumber:PhoneNumber,
+                    password:password
+                }
             ).then(function (response) {
+                console.log("response: ", response)
                 if(response.status===200){
                     localStorage.setItem('accessToken', response.data.accessToken);
                     localStorage.setItem('refreshToken', response.data.refreshToken);
                     router.push('/');
                 }
-            });
-        } catch (error) {
-            console.error('Error:', error.message);
-        }
+            }).catch(function (error) {
+                    console.error('Error:',error);
+                        Toast(error.response.data.message,false);
+            })}
+        //     console.log("res: ", res)
+        // } catch (error) {
+        //     console.error('Error1:', error);
+        // }
+
     }
+
     return <>
+        <ToastContainer />
 
             <Login_container>
 

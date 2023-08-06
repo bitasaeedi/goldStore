@@ -130,27 +130,27 @@ function CategoryItem({list,price}) {
         },
     ]
 
-    function handleClick(item){
-        console.log("product",item)
+    function handleClick(id){
+        console.log(id)
         router.push({
-            pathname: `/product/${item._id.$oid}`,
+            pathname: `/product/${id}`,
             query: {
-               product:JSON.stringify(item)
+               id:id
             }
-        }, `/product/${item._id.$oid}`);
+        }, `/product/${id}`);
     }
 
-    console.log(list)
+    console.log("l",list)
     return (
         <>
             {list.map((item, index) => {
                 let amount=price*item.weight*(1+item.wage);
                 let amountWithDiscount=amount*(1-item.discount)
-                return <Category_item key={index} onClick={()=>handleClick(item)}>
+                return <Category_item key={index} onClick={()=>handleClick(item.id)}>
                     <Image src={ require('@/public/c4.png')} alt='item' width='' height=''/>
                     <h6 className='title'>{item.title}</h6>
-                    <s className='price1'>{amount}</s>
-                    <div className='price2'>{Math.round(amountWithDiscount*100)/100}</div>
+                    <s className='price1'>{item.totalPrice}</s>
+                    <div className='price2'>{item.finalPrice}</div>
                     <div className='info'><span className='material-icons'>star</span>
                     <div>3.2</div> <div>(222نظر)</div>
                     </div>
