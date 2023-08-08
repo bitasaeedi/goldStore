@@ -33,7 +33,7 @@ function Login() {
         if (password.length < 8) {
             Toast('رمز باید حدقل 8 کاراکتر داشته باشد',false)
         } else {
-            const res = await axios.post('http://91.107.160.88:3001/v1/user/login',
+             axios.post('http://91.107.160.88:3001/v1/user/login',
                 {
                     phoneNumber:PhoneNumber,
                     password:password
@@ -41,19 +41,14 @@ function Login() {
             ).then(function (response) {
                 console.log("response: ", response)
                 if(response.status===200){
-                    localStorage.setItem('accessToken', response.data.accessToken);
-                    localStorage.setItem('refreshToken', response.data.refreshToken);
+                    localStorage.setItem('access-token', response.data.accessToken);
+                    localStorage.setItem('refresh-token', response.data.refreshToken);
                     router.push('/');
                 }
             }).catch(function (error) {
                     console.error('Error:',error);
                         Toast(error.response.data.message,false);
             })}
-        //     console.log("res: ", res)
-        // } catch (error) {
-        //     console.error('Error1:', error);
-        // }
-
     }
 
     return <>

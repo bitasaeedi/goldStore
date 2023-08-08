@@ -4,36 +4,31 @@ import {
 import PurchasedItem from "@/components/purchased_item";
 import axios from "@/pages/api/axios";
 import {useEffect, useState} from "react";
+import {Toast} from "@/components/toast";
 
 function Checkout() {
     let[changes,setChanges]=useState(false)
 
     const [products,setProducts]=useState();
+
     function handleChanges(){
         setChanges(!changes);
     }
+
     let newarray=[];
     useEffect(()=>{
         //get products in cart
-        try {
-            const response =  axios.get(`http://91.107.160.88:3001/v1/cart`,
-                {
-                    headers:{
-                        'access-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmZiNjQwNGViMDJiNDI0YmU1NTE2' +
-                            'ZiIsImlhdCI6MTY5MDg1MjA1MywiZXhwIjoxNjk0NDUyMDUzfQ.rH8-oQoqTU9LSe8BUk9aeNx2mlSXJyWG2H0P-VfLKdg',
-
-                    }
-                }
+            axios.get(`/cart`
             ).then(function (response ) {
-                    console.log(response.data)
+                    console.log(response)
                     setProducts(response.data)
 
                 }
-            );
-        } catch (error) {
-            console.error('Error:', error.message);
-            alert(error.response.message)
-        }
+            ).catch(function (error) {
+                console.error('Error:', error.message);
+                Toast(error.response.data.message,false);
+            });
+
 
     },[changes])
 
@@ -45,24 +40,16 @@ function Checkout() {
     })):[];
 
     async function buyProducts(){
-        try {
-            const response = await axios.post(`http://91.107.160.88:3001/v1/buyProduct`,
-                newarray,
-                {
-                    headers:{
-                        'access-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmZiNjQwNGViMDJiNDI0YmU1NTE2' +
-                            'ZiIsImlhdCI6MTY5MDg1MjA1MywiZXhwIjoxNjk0NDUyMDUzfQ.rH8-oQoqTU9LSe8BUk9aeNx2mlSXJyWG2H0P-VfLKdg',
 
-                    }
-                }
+            await axios.post(`/buyProduct`,
+                newarray
                 ).then(function (response) {
-                    console.log("b",response.data)
+                    console.log(response.data)
                 }
-            );
-        } catch (error) {
-            console.error('Error:', error);
-            alert(error.response.data.message)
-        }
+            ).catch(function (error) {
+                console.error('Error:', error);
+                alert(error.response.data.message)
+            });
     }
 
     return (

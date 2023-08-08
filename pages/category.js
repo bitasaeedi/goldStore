@@ -168,11 +168,6 @@ function Category() {
                     </Category_filters_item>
 
                     <Category_filters_item>
-                        <div>محدوده قیمت</div>
-                        <span className="material-icons-outlined">expand_more</span>
-                    </Category_filters_item>
-
-                    <Category_filters_item>
                         <div>رنگ</div>
                         <div className={"checkboxs"}>
                             <span>سفید</span><input type={"checkbox"} id='golden' onChange={handleCheckbox}/>

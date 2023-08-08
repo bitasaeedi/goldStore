@@ -229,7 +229,6 @@ export const Category_main_filters = styled.div`
   }
 `
 export const Category_items = styled.div`
-  border: 1px solid ${colors.texts.category.border2};
   border-right: 0;
   border-bottom: 0;
   display: grid;
@@ -240,11 +239,10 @@ export const Category_items = styled.div`
 `
 export const Category_item = styled.div`
   height: 365px;
-  border: 1px solid ${colors.texts.category.border2};
-  border-top: 0;
-  border-left: 0;
+  border: .5px solid ${colors.texts.category.border2};
   padding: 1.5rem 1rem .8rem;
   text-align: center;
+  cursor: pointer;
 
   & > img {
     width: 100%;

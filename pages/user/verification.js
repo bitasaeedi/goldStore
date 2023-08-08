@@ -37,8 +37,8 @@ function Login() {
                 ).then(function (response) {
                 if(response.status===200){
                     Toast('حساب شما ساخته شد',true)
-                    localStorage.setItem('accessToken', response.data.accessToken);
-                    localStorage.setItem('refreshToken', response.data.refreshToken);
+                    localStorage.setItem('access-token', response.data.accessToken);
+                    localStorage.setItem('refresh-token', response.data.refreshToken);
                     router.push('/');
                 }
             });

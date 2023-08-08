@@ -40,6 +40,7 @@ export const Checkout_right_section = styled.div`
   width: 60%;
   border: 1px solid ${colors.texts.checkout.border};
   padding: 3rem 3rem 1rem;
+  height: auto;
   @media(max-width: 500px){
     width: 92%;
     margin: 0 auto 3rem;

@@ -2,13 +2,10 @@ import React, {useEffect, useState} from 'react';
 import {
     Ba, Card_container, Card_header,
     GlobalStyle, Infos, Installment_Btn, Installment_container, Installment_table, Payment_container, Payment_info,
-
 } from "@/styled components/payment-style";
 import ReactSlider from "react-slider";
 import RangeStyle from '@/styles/range.module.css'
 import Image from "next/image";
-
-
 
 function Payments(props) {
     let [type,setType]=useState('installment');
@@ -56,31 +53,41 @@ function Installment(props){
     </>
 }
 import style from '@/styles/range.module.css';
-import axios from "axios";
+import axios from "@/pages/api/axios";
+import {Toast} from "@/components/toast";
 function PAYMENT(props){
     let [rangeValue,setRangeValue]=useState(1);
     let[price,setPrice]=useState();
     const handleChange = (e) => {
         setRangeValue(e.target.value);
     };
+    async function handlePay(){
+
+        await axios.post(`/installmentPurchase/64ca1e70c8461c610487b392/1`,
+            {
+                type:'buy-weight',
+                value:rangeValue
+            }
+        ).then(function (response) {
+                console.log(response.data)
+            Toast('پرداخت شد',true)
+                props.handleIsOpen();
+            }
+        ).catch(function (error) {
+            console.error('Error:', error.message);
+            alert(error.response.message)
+        });
+    }
     useEffect(()=>{
-        try {
-            const response =  axios.get(`http://91.107.160.88:3001/v1/goldPriceInfo`
-                ,  {
-                    headers: {
-                        'access-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmY5M2RjNDlmM2FjNDMwODdkMmY' +
-                            '3NiIsImlhdCI6MTY5MDI3NzQzOSwiZXhwIjoxNjkzODc3NDM5fQ.1x1GjSsc5-mOXMbZ2suHf04-_0N31wATGUasoB3qs-M'
-                    }
-                }
+        axios.get(`/goldPriceInfo`
             ).then(function (response) {
                     console.log(response.data)
-                setPrice(response.data)
-
+                     setPrice(response.data)
                 }
-            );
-        } catch (error) {
-            console.error('Error:', error);
-        }
+            ).catch(function (error) {
+                console.error('Error:', error.message);
+            });
+
     },[])
 
     return<>
@@ -112,7 +119,7 @@ function PAYMENT(props){
                     </div>
                 </div>
                 <div className={"price"} onClick={()=>{}}>قیمت قست: {price?rangeValue*price.buyQuotation:null} تومان </div>
-                <Installment_Btn><div onClick={props.handleIsOpen}>پرداخت قسط</div></Installment_Btn>
+                <Installment_Btn><div onClick={handlePay}>پرداخت قسط</div></Installment_Btn>
             </Payment_info>
         </Payment_container>
     </>

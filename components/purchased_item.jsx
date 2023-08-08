@@ -6,26 +6,21 @@ import axios from "@/pages/api/axios";
 function PurchasedItem({products,handleChanges}) {
     console.log("p",products)
    async function handleDeleteProduct(item){
-       try {
-           const response = await axios.put(`http://91.107.160.88:3001/v1/removeFromCart`,
+
+          await axios.put(`/removeFromCart`,
                {
                    productId:item.productId,
                    variantId: item.variantId,
                    count: item.count
-               },{
-                   headers: {
-                       'access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmZiNjQwNGViMDJiNDI0YmU1NT' +
-                           'E2ZiIsImlhdCI6MTY5MDg1MjA1MywiZXhwIjoxNjk0NDUyMDUzfQ.rH8-oQoqTU9LSe8BUk9aeNx2mlSXJyWG2H0P-VfLKdg'
-                   }
                }
            ).then(function (response) {
                    console.log(response.data)
                handleChanges();
                }
-           );
-       } catch (error) {
-           console.error('Error:', error);
-       }
+           ).catch(function (error) {
+              console.error('Error:', error.message);
+              alert(error.response.message)
+          });
    }
 
     console.log(products)
@@ -52,54 +47,40 @@ function AMOUNT({item,setItems}) {
     let [amount, setAmount] = useState(item.count);
 
     async function addToCart() {
-        try {
-            const response = await axios.put(`http://91.107.160.88:3001/v1/addToCart`,
+           await axios.put(`/addToCart`,
                 {
                     productId:item.productId,
                     variantId: item.variantId,
                     count: 1
-                }
-                ,{
-                    headers: {
-                        'access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmZiNjQwNGViMDJiNDI0YmU1NT' +
-                            'E2ZiIsImlhdCI6MTY5MDg1MjA1MywiZXhwIjoxNjk0NDUyMDUzfQ.rH8-oQoqTU9LSe8BUk9aeNx2mlSXJyWG2H0P-VfLKdg'
-                    }
                 }
             ).then(function (response) {
                     console.log(response)
                 setAmount(amount +1)
                 }
-            );
-        } catch (error) {
-            console.error('Error:', error);
-            if (error.response.data.code===400) {
-                alert('تعداد محصول کافی نیست')
-            }
-        }
+            ).catch(function (error) {
+               console.error('Error:', error);
+               if (error.response.data.code===400) {
+                   alert('تعداد محصول کافی نیست')
+               }
+           });
     }
 
     async function removeFromCart() {
-        try {
-            const response = await axios.put(`http://91.107.160.88:3001/v1/removeFromCart`,
+
+            await axios.put(`/removeFromCart`,
                 {
                     productId:item.productId,
                     variantId: item.variantId,
                     count: 1
-                },{
-                    headers: {
-                        'access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmZiNjQwNGViMDJiNDI0YmU1NT' +
-                            'E2ZiIsImlhdCI6MTY5MDg1MjA1MywiZXhwIjoxNjk0NDUyMDUzfQ.rH8-oQoqTU9LSe8BUk9aeNx2mlSXJyWG2H0P-VfLKdg'
-                    }
                 }
             ).then(function (response) {
                     console.log(response.data)
                     // setItems(response.data)
                     setAmount(amount - 1)
                 }
-            );
-        } catch (error) {
-            console.error('Error:', error);
-        }
+            ).catch(function (error) {
+                console.error('Error:', error);
+            });
     }
 
     return <Amount>

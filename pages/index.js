@@ -1,24 +1,8 @@
 import Head from 'next/head'
-import {
-    All_comments,
-    Assortment_container,
-    Assortment_Header,
-    Assortment_items_container,
-    Assortment_title,
-    Bottom_section,
-    Collection_section_L,
-    Comments_container,
-    Compliment_container,
-    Dott,
-    Home_collection_container,
-    Home_video,
-    Home_video_container,
-    Play_icon,
-    See_more_btn,
-    Top_section_items,
-    Worthiness_container,
-    Worthiness_item_container,
-    Wrapper
+import {All_comments, Assortment_container, Assortment_Header,
+    Assortment_items_container, Assortment_title, Bottom_section, Collection_section_L, Comments_container,
+    Compliment_container,Home_collection_container, Home_video, Home_video_container,
+    Play_icon, See_more_btn, Top_section_items, Worthiness_container, Worthiness_item_container,
 } from "@/styled components/Home-style";
 
 import Image from "next/image";
