@@ -53,11 +53,11 @@ export default function Home() {
 
 
                     <Bottom_section>
-                        <Image src={require('@/public/Home4.png')} alt={'play'} width="" height=""/>
+                        <Image src={require('@/public/home4.png')} alt={'play'} width="" height=""/>
                     </Bottom_section>
 
                     <Collection_section_L>
-                        <Image src={require('@/public/Home3.png')} alt={'play'} width="" height=""/>
+                        <Image src={require('@/public/home3.png')} alt={'play'} width="" height=""/>
                         <div>
                             <span>کالکشن </span>
                             حلقه های <br/>
