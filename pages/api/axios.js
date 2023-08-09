@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-    baseURL: 'http://91.107.160.88:3001/v1'
+    baseURL: 'http://talayto.com/v1'
 });
 instance.interceptors.request.use(function (config) {
     console.log('a',config)
