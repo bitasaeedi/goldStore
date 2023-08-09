@@ -69,21 +69,21 @@ function Checkout() {
 
                     {/*left section*/}
                     <Checkout_left_section>
-                        {products?<>  <div className="item">
-                            <div>قیمت کالاها :</div><div>{products.totalPriceOfCart}</div>
+                        <>  <div className="item">
+                            <div>قیمت کالاها :</div>{products?<div>{products.totalPriceOfCart}</div>:0}
                         </div>
                         <div className="item">
-                            <div>مقدار تخفیف :</div><div>{products.discountPrice}</div>
+                            <div>مقدار تخفیف :</div>{products?<div>{products.discountPrice}</div>:0}
                         </div>
                         <div className="item">
-                            <div>هزینه ارسال :</div><div>{products.postPrice}</div>
+                            <div>هزینه ارسال :</div>{products?<div>{products.postPrice}</div>:null}
                         </div>
                         <Buy_btn>
                             <div>
-                                <div>جمع سبد خرید :</div><div>{products.paymentPrice}</div>
+                                <div>جمع سبد خرید :</div>{products?<div>{products.paymentPrice}</div>:null}
                             </div>
                             <button onClick={buyProducts}>ادامه</button>
-                        </Buy_btn></>:null}
+                        </Buy_btn></>
                     </Checkout_left_section>
                     <Buy_btn className='responsive_btn'>
                         <button className='responsive_btn' onClick={buyProducts}>ادامه</button>

@@ -10,7 +10,7 @@ import Image from "next/image";
 
 export default function SWIPER({image}) {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
-
+    console.log(image.thumbnailImage)
     return (
         <>
             <Swiper
@@ -30,13 +30,13 @@ export default function SWIPER({image}) {
                 // }}
             >
                 <SwiperSlide>
-                    <Image src={'@/public/product.png'} alt={'play'} width="404" height="418"/>
+                    <Image src={'http://91.107.160.88:3001/11ede8cb-a150-44d9-951d-c5a38819cd05_home2.png'} alt={'play'} width="40" height="416"/>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Image src={require('@/public/p1.png')} alt={'play'} width="" height=""/>
+                    <Image src={require('@/public/p1.png')} alt={'play'} width="100" height="100"/>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Image src={require('@/public/pro4.jpg')} alt={'play'} width="" height=""/>
+                    <Image src={require('@/public/pro4.jpg')} alt={'play'} width="100" height="100"/>
                 </SwiperSlide>
                 <SwiperSlide>
                     <Image src={require('@/public/p3.png')} alt={'play'} width="" height=""/>
