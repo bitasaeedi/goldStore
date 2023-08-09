@@ -41,7 +41,7 @@ export default function Home() {
                 {/*collection*/}
                 <Home_collection_container>
 
-                    <Top_section_items dir={'right'}> <Image src={require('@/public/Home2.png')} alt={'play'} width=""  height=""/>
+                    <Top_section_items dir={'right'}> <Image src={require('@/public/home2.png')} alt={'play'} width=""  height=""/>
                         <div>انگشتر های زنانه</div>
                         <See_more_btn dir={'right'}>{'مشاهده >'}</See_more_btn>
                     </Top_section_items>
@@ -70,7 +70,7 @@ export default function Home() {
                     {/*<Collection_section_R>*/}
 
                     {/*    <Top_section>*/}
-                    {/*        <Top_section_items dir={'right'}> <Image src={require('@/public/Home2.png')} alt={'play'}*/}
+                    {/*        <Top_section_items dir={'right'}> <Image src={require('@/public/home2.png')} alt={'play'}*/}
                     {/*                                                 width="" height=""/>*/}
                     {/*            <div>انگشتر های زنانه</div>*/}
                     {/*            <See_more_btn dir={'right'}>{'مشاهده >'}</See_more_btn>*/}
