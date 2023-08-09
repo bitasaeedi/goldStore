@@ -39,9 +39,9 @@ function Header() {
                         <span className="material-icons-outlined" onClick={()=>{setShowSearchBar(false)}}>close</span>
                     </Search_bar>
                 </Header_icon>
-                <Header_items><Link href={'http://localhost:3000/login'}>ورود به حساب</Link></Header_items>
-                <Header_items><Link href={'http://localhost:3000/category'}>محصولات</Link></Header_items>
-                <Header_items><Link href={'/user/signup'}>قسطی</Link></Header_items>
+                <Header_items><Link href={'http://talayto.com/login'}>ورود به حساب</Link></Header_items>
+                <Header_items><Link href={'http://talayto.com/category'}>محصولات</Link></Header_items>
+                <Header_items><Link href={'http://talayto.com/category'}>قسطی</Link></Header_items>
                 <Header_items><Link href={'/user/verification'}>ایتم چهارم</Link></Header_items>
 
                 <Image src={require('@/public/header-icon.svg')} alt="logo" width="178" height="65"/>
