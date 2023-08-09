@@ -36,21 +36,22 @@ export const Card_header = styled.div`
     position: absolute;
     text-align: center;
     cursor: pointer;
+    width: 100%;
+    background-color:#51493D ;
 
     & > span {
-
+ 
       position: absolute;
     }
 
   }
 
   & > div.right {
-    border-style: solid;
-    border-color: transparent transparent ${(props) => props.type === 'payment' ? "#51493D" : '#2A2826'} transparent;
-    border-width: 0 0 50px 50px;
-    width: 50%;
+    // border-style: solid;
+    // border-color: transparent transparent ${(props) => props.type === 'payment' ? "#51493D" : '#2A2826'} transparent;
+    // border-width: 0 0 50px 50px;
+    width: 100%;
     right: 0;
-    margin-right: 1.5rem;
     color: ${(props) => props.type === 'payment' ? "white" : 'rgba(255, 255, 255, 0.42)'};
 
     & > span {

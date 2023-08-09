@@ -9,7 +9,7 @@ import CategoryItem from "@/components/Category_Item";
 import ReactPaginate from 'react-paginate';
 import style from '@/styles/paginate.module.css'
 import React, {useEffect, useState} from "react";
-import axios from "axios";
+import axios from "@/pages/api/axios";
 import {useRouter} from "next/router";
 import 'react-toggle/style.css'
 import Toggle from "react-toggle";
@@ -26,26 +26,23 @@ function Category() {
     let [assortmentType, setAssortmentType] = useState('');
     let [rangeValue,setRangeValue]=useState({value:{min:1 , max:5},text:''});
     let [installment, setInstallment] = useState(false)
-    let [url, setUrl] = useState(`http://91.107.160.88:3001/v1/filter/?size=20&page=${currentPage}${cat}${assortmentType}&installment=${installment}&${rangeValue.text}`);
+    let [color, setColor] = useState('');
+    let [white,setWhite]=useState(false);
+    let [golden,setGolden]=useState(false);
+    let [url, setUrl] = useState(`/filter/?size=20&page=${currentPage}${cat}${assortmentType}&installment=${installment}&${rangeValue.text}${color}`);
 
-    let [color, setColor] = useState();
+
     useEffect(() => {
         if (router.query.searchItem) {
-            setUrl(`http://91.107.160.88:3001/v1/search/${router.query.searchItem}?size=20&page=${currentPage}`)
+            setUrl(`/search/${router.query.searchItem}?size=20&page=${currentPage}`)
         } else {
-            setUrl(`http://91.107.160.88:3001/v1/filter/?size=20&page=${currentPage}${cat}${assortmentType}&installment=${installment}&${rangeValue.text}`)
+            setUrl(`/filter/?size=20&page=${currentPage}${cat}${assortmentType}&installment=${installment}&${rangeValue.text}`)
         }
         //get all product
         try {
             console.log('s', router.query.searchItem, url)
-            const response = axios.get(url
-                , {
-                    headers: {
-                        'access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmY5M2RjNDlmM2FjNDMwODdkMmY3N' +
-                            'iIsImlhdCI6MTY5MDI3NzQzOSwiZXhwIjoxNjkzODc3NDM5fQ.1x1GjSsc5-mOXMbZ2suHf04-_0N31wATGUasoB3qs-M',
-                        'Content-Type': 'application/json'
-                    }
-                }
+             axios.get(url
+
             ).then(function (response) {
                     console.log(response)
                     setProducts(response.data)
@@ -81,7 +78,22 @@ function Category() {
     }
 
     function handleCheckbox(target) {
+        if(target.target.id==='golden'){
+            setGolden(true);
+        }
+        else if(target.target.id==='white'){
+            setWhite(true)
+        }
 
+        if(white===golden){
+            setColor('')
+        }
+        else if(white&&!golden){
+            setColor('&color=white')
+        }
+        else if(golden&&!white){
+            setColor('&color=golden')
+        }
 
     }
 

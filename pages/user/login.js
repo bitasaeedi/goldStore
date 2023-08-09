@@ -4,7 +4,7 @@ import {Btn_detail, Forget_password, Login_btn, Login_container,
 import Image from "next/image";
 import {useState} from "react";
 import 'material-icons/iconfont/material-icons.css'
-import axios from "axios";
+import axios from "@/pages/api/axios";
 import {useRouter} from "next/router";
 import {Toast} from "@/components/toast";
 import {ToastContainer} from "react-toastify";
@@ -29,11 +29,10 @@ function Login() {
     }
 
     async function handleSignBtn(){
-        // try {
         if (password.length < 8) {
             Toast('رمز باید حدقل 8 کاراکتر داشته باشد',false)
         } else {
-             axios.post('http://91.107.160.88:3001/v1/user/login',
+             axios.post('/user/login',
                 {
                     phoneNumber:PhoneNumber,
                     password:password

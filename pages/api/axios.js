@@ -5,10 +5,10 @@ const instance = axios.create({
 });
 instance.interceptors.request.use(function (config) {
     console.log('a',config)
-    // if(config.url===('/addToCart'||'/buyProduct'||'/cart'||'/removeFromCart'||`/goldPriceInfo`||'/installmentPurchase/:id/:v')){
+     if(config.url!==('/user/signup'||'/user/signup/verification'||'/user/login')){
     config.headers['access-token'] = localStorage.getItem("access-token");
     config.headers['Content-Type'] = 'application/json';
-// }
+ }
 //     else if(config.url==='/product'){
 //         config.headers['access-token']='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmZlNmNhYzI2NWE4MDhhM2MzYTIwYy' +
 //         'IsImlhdCI6MTY5MDU3Mzc4OSwiZXhwIjoxNjk0MTczNzg5fQ.QuJLCN72McA_cbVYE5CFQ4bTkNL3N6ZRESukU6Go-oc'

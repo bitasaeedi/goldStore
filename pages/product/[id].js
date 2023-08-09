@@ -23,13 +23,7 @@ function Id() {
 
 
     useEffect(() => {
-            AXI.get(`http://91.107.160.88:3001/v1/product/${router.query.id}`
-                , {
-                    headers: {
-                        'access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmZlNmNhYzI2NWE4MDhhM2MzYTIwYy' +
-                            'IsImlhdCI6MTY5MDU3Mzc4OSwiZXhwIjoxNjk0MTczNzg5fQ.QuJLCN72McA_cbVYE5CFQ4bTkNL3N6ZRESukU6Go-oc'
-                    }
-                }
+            axios.get(`/product/${router.query.id}`
             ).then(function (response) {
                     console.log(response.data)
                     setItem(response.data)
@@ -92,7 +86,7 @@ function Id() {
         <ToastContainer/>
         {item ? <Products>
             <Payment isopen={isOpen} handleisopen={handlePayment} item={item} variant={varient}/>
-            <Product_title>{'خانه > زیورآلات > انگشتر'}</Product_title>
+            <Product_title>{'خانه > زیورآلات'}</Product_title>
 
             <Product_container>
                 {/*right*/}

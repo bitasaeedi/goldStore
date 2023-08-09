@@ -25,15 +25,11 @@ function Login() {
     //check code
 
     async function handleSubmit(){
-        try {
-            const response = await axios.post('/user/signup/verification',
+
+          await axios.post('/user/signup/verification',
                 {phoneNumber:router.query.phoneNumber,
                     code:Code,
-                    password:router.query.password},
-                {
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }}
+                    password:router.query.password}
                 ).then(function (response) {
                 if(response.status===200){
                     Toast('حساب شما ساخته شد',true)
@@ -41,23 +37,16 @@ function Login() {
                     localStorage.setItem('refresh-token', response.data.refreshToken);
                     router.push('/');
                 }
-            });
-        } catch (error) {
-            console.error('Error:', error.message);
-            if(error.response){
-                Toast(error.response.data.message,false)
-            }
-        }
+            }).catch(function (error) {
+              console.error('Error:', error.message);
+              Toast(error.response.data.message,false);
+          });
+
     }
     async function HandleResendCode(){
         try {
-            const response = await axios.post('/user/signup',
-                {phoneNumber:router.query.phoneNumber},
-                {
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                });
+            await axios.post('/user/signup',
+                {phoneNumber:router.query.phoneNumber});
 
         } catch (error) {
             console.log('Error:', error.message,error);

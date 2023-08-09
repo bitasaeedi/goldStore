@@ -17,10 +17,9 @@ function Payments(props) {
             <Card_container isopen={props.isopen}>
                 <Card_header type={type}>
                     <div className="right" onClick={()=>{setType('payment')}}><span>پرداخت</span></div>
-                    <div className="left" onClick={()=>{setType('installment')}}><span>قسط ها</span></div>
                 </Card_header>
-                {type==='installment'?<Installment handleIsOpen={props.handleisopen} item={props.item}/>:
-                    <PAYMENT  handleIsOpen={props.handleisopen}  item={props.item} variant={props.variant}/>}
+
+                    <PAYMENT  handleIsOpen={props.handleisopen}  item={props.item} variant={props.variant}/>
             </Card_container>
         </>
     );

@@ -30,7 +30,7 @@ export default function SWIPER({image}) {
                 // }}
             >
                 <SwiperSlide>
-                    <Image src={require('@/public/product.png')} alt={'play'} width="" height=""/>
+                    <Image src={'@/public/product.png'} alt={'play'} width="404" height="418"/>
                 </SwiperSlide>
                 <SwiperSlide>
                     <Image src={require('@/public/p1.png')} alt={'play'} width="" height=""/>

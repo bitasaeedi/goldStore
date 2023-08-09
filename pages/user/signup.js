@@ -5,7 +5,7 @@ import {useRouter} from 'next/router';
 import Image from "next/image";
 import 'material-icons/iconfont/material-icons.css'
 import {useState} from "react";
-import axios from "axios";
+import axios from "@/pages/api/axios";
 import {Toast} from "@/components/toast";
 import {ToastContainer} from "react-toastify";
 
@@ -31,8 +31,7 @@ function Signup() {
         if (password.length < 8) {
             Toast('رمز باید حدقل 8 کاراکتر داشته باشد',false)
         } else {
-            try {
-                const response = await axios.post('http://91.107.160.88:3001/v1/user/signup',
+               await axios.post('/user/signup',
                     {phoneNumber: PhoneNumber},
                 ).then(function (response) {
                     console.log(response)
@@ -46,13 +45,13 @@ function Signup() {
                         }, '/user/verification');
                     }
 
-                });
-            } catch (error) {
-                console.log('Error:', error);
-               if(error.response){
-                   Toast(error.response.data.message,false)
-               }
-            }
+                }).catch(function (error) {
+                   console.log('Error:', error);
+                   if(error.response){
+                       Toast(error.response.data.message,false)
+                   }
+               });
+
         }
 
     }
