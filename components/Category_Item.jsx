@@ -133,7 +133,7 @@ function CategoryItem({list,price}) {
     function handleClick(id){
         console.log(id)
         router.push({
-            pathname: `/product/${id}`,
+            pathname: `http://talayto.com/product/${id}`,
             query: {
                id:id
             }

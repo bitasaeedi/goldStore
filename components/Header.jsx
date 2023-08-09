@@ -51,7 +51,7 @@ function Header() {
                 <Header_items><Link href={'/swiper'}>دستبند</Link> </Header_items>
                 <Header_items>انگشتر</Header_items>
 
-                <Header_icon margin={'right'}><Link href={'/checkout'}><Image
+                <Header_icon margin={'right'}><Link href={'http://talayto.com/checkout'}><Image
                     src={require('@/public/header-Buy-icon.svg')} alt="buy" width="" height=""/></Link></Header_icon>
 
             </Header_container>
