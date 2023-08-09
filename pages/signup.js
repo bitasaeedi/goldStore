@@ -37,7 +37,7 @@ function Signup() {
                     console.log(response)
                     if (response.status === 200) {
                         router.push({
-                            pathname: '/user/verification',
+                            pathname: 'http://talayto.com/verification',
                             query: {
                                 phoneNumber: PhoneNumber
                                 , password: password
@@ -82,7 +82,7 @@ function Signup() {
                 <div>
                     <Login_btn onClick={handleSignupBtn}>ورود</Login_btn>
                     <Btn_detail>حساب کاربری دارید؟<span onClick={() => {
-                        router.push('/user/login')
+                        router.push('http://talayto.com/login')
                     }}>ورود</span></Btn_detail>
                 </div>
 

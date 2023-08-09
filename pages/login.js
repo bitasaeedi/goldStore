@@ -73,7 +73,7 @@ function Login() {
 
                     <div>
                     <Login_btn onClick={handleSignBtn}>ورود</Login_btn>
-                        <Btn_detail>حساب کاربری ندارید؟<span onClick={()=>{router.push('/user/signup')}}>ساخت حساب</span></Btn_detail>
+                        <Btn_detail>حساب کاربری ندارید؟<span onClick={()=>{router.push('http://talayto.com/signup')}}>ساخت حساب</span></Btn_detail>
                     </div>
 
                 </Login_form>
