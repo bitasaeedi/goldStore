@@ -164,7 +164,7 @@ export const Top_section_items = styled.div`
     height: 100%;
   }
   @media(max-width: 500px){
-    height: 200px;
+    height: 190px;
     &>div{
       right: 1.2rem;
       bottom: ${(props) => (props.dir === 'left' ? '5rem' : '3rem')};
@@ -182,7 +182,7 @@ export const Bottom_section = styled.div`
     grid-row: 2;
     grid-column: 1/2;
     width: 100%;
-    height: 200px;
+    height: 190px;
   }
   & > img {
    border-radius: 10px;
@@ -224,7 +224,7 @@ export const Collection_section_L = styled.div`
   @media (max-width: 500px) {
     grid-row: 1;
     grid-column: 1/2;
-    height: 200px;
+    height: 190px;
     &>div{
       top: 3rem;
       right: 1rem;
@@ -249,7 +249,7 @@ export const See_more_btn = styled.span`
 export const Assortment_container = styled.div`
   margin: 9rem auto 6rem;
   @media (max-width: 500px) {
-    margin: 7rem auto 1rem;
+    margin: 4rem auto 1rem;
   }
 `
 export const Assortment_Header = styled.div`
@@ -267,6 +267,7 @@ export const Assortment_Header = styled.div`
   }
   @media (max-width: 500px) {
     margin: 0 .8rem 1.5rem;
+
     &>div{
       font-size: .6rem;
       font-weight: 700;
@@ -292,7 +293,7 @@ export const Assortment_title = styled.div`
     }
   }
   @media (max-width: 500px) {
-    width:55%;
+    width:80%;
     
     &>div{
       font-size: .8rem;

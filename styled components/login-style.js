@@ -6,6 +6,7 @@ export const Login_container = styled.div`
   margin: 6rem 2rem 0;
   @media(max-width: 500px){
     flex-direction: column-reverse;
+  margin-top: 5.5rem;
   }
 `
 export const Login_form = styled.div`
@@ -110,7 +111,7 @@ export const Login_btn = styled.div`
   font-size: 1.2rem;
   cursor: pointer;
   @media(max-width: 500px){
-    margin: 3rem auto 0;
+    margin: 2rem auto 0;
   }
 `
 export const Btn_detail = styled.div`
@@ -208,8 +209,11 @@ export const Squares_container = styled.div`
   }
   @media(max-width: 500px){
     &>div>input.input{
+      width: 60px;
+      height: 60px;
       -webkit-appearance: none;
       box-shadow: 0 0 5px 4px #2B2726;
+      margin: 0 .5rem;
     }
   }
 `

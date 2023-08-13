@@ -4,7 +4,7 @@ const instance = axios.create({
     baseURL: 'http://api.talayto.com/v1'
 });
 instance.interceptors.request.use(function (config) {
-    console.log('a',config)
+    // console.log('a',config)
      if(config.url!==('/user/signup'||'/user/signup/verification'||'/user/login')){
     config.headers['access-token'] = localStorage.getItem("access-token");
     config.headers['Content-Type'] = 'application/json';

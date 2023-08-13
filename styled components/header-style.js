@@ -56,8 +56,8 @@ position: relative;
  
 `
 export const Search_bar=styled.div`
-  background-color: ${colors.background.header_icon};
-  width: 300px;
+  background-color: red;
+  width: 200px;
   height: 46px;
   position: absolute;
   bottom: -3.7rem;

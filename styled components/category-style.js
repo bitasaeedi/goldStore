@@ -130,7 +130,7 @@ export const Category_menu_bottom = styled.div`
     z-index: 4;
     box-shadow: 0 0 20px 4px #2c2b2b;
     border-bottom: none;
-    height: 80%;
+    height: 40%;
     overflow: scroll;
     border-bottom-left-radius: unset;
     border-bottom-right-radius: unset;

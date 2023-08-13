@@ -22,40 +22,36 @@ function Category() {
     let [products, setProducts] = useState();
     let [currentPage, setCurrentPage] = useState(1);
     let [pageCount, setPageCount] = useState()
-    let [cat, setCat] = useState('');
+    let [cat, setCat] = useState(router.query.category?`&cat=${router.query.category}`:'');
     let [assortmentType, setAssortmentType] = useState('');
     let [rangeValue,setRangeValue]=useState({value:{min:1 , max:5},text:''});
-    let [installment, setInstallment] = useState(false)
+    let [installment, setInstallment] = useState('')
     let [color, setColor] = useState('');
     let [white,setWhite]=useState(false);
     let [golden,setGolden]=useState(false);
-    let [url, setUrl] = useState(`/filter/?size=20&page=${currentPage}${cat}${assortmentType}&installment=${installment}&${rangeValue.text}${color}`);
-
+    let [url, setUrl] = useState(`/filter/?size=20&page=${currentPage}${cat}${assortmentType}${installment}${rangeValue.text}${color}`);
+    let[change,setchange]=useState('')
 
     useEffect(() => {
+      setCat(router.query.category?`&cat=${router.query.category}`:'')
+        console.log('cat',cat,url)
+
         if (router.query.searchItem) {
             setUrl(`/search/${router.query.searchItem}?size=20&page=${currentPage}`)
-        } else {
-            setUrl(`/filter/?size=20&page=${currentPage}${cat}${assortmentType}&installment=${installment}&${rangeValue.text}`)
         }
         //get all product
         try {
-            console.log('s', router.query.searchItem, url)
              axios.get(url
-
             ).then(function (response) {
-                    console.log(response)
                     setProducts(response.data)
+                 console.log(response.data)
                     setPageCount(response.headers.count)
                 }
             );
         } catch (error) {
             console.error('Error:', error.message);
         }
-
-        console.log(rangeValue)
-
-    }, [currentPage, cat, assortmentType, url, installment,rangeValue])
+    }, [currentPage, cat, assortmentType, installment,rangeValue,change])
 
     function handlePaginate({selected}) {
         console.log(selected)
@@ -99,8 +95,11 @@ function Category() {
 
 //handle filter by category
     async function handleCategory(type) {
-        setCat(`&cat=${type}`)
-        console.log(`&cat=${type}`)
+        setchange(type);
+        router.push({
+            pathname: `${type}`
+        },  `${type}`);
+
     }
 
     return <>
@@ -163,7 +162,7 @@ function Category() {
                                     draggableTrack
                                     maxValue={10}
                                     minValue={0}
-                                    onChange={(Value)=>{setRangeValue({value:Value ,text:`weight=${Value.min},${Value.max}`})}}
+                                    onChange={(Value)=>{setRangeValue({value:Value ,text:`&weight=${Value.min},${Value.max}`})}}
                                     value={rangeValue.value}
                                     formatLabel={value => value.toFixed(2)}
                                     step={.01}/>
@@ -176,7 +175,7 @@ function Category() {
                         <Toggle
                             className={styles.customtoggle}
                             icons={false}
-                            onChange={() => setInstallment(!installment)}/>
+                            onChange={() => setInstallment(`&installment=${!installment}`)}/>
                     </Category_filters_item>
 
                     <Category_filters_item>

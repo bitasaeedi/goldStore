@@ -21,7 +21,7 @@ function Id() {
     let [amount, setAmount] = useState(1);
     let [varient, setVarient] = useState();
 
-
+    console.log(router.query.id)
     useEffect(() => {
             axios.get(`/product/${router.query.id}`
             ).then(function (response) {

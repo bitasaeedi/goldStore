@@ -111,7 +111,7 @@ export default function Home() {
                             <div className={assortmentType==='sell'?'active':null} onClick={()=>setAssortmentType('sell')}>پر فروش ترین ها</div>
                         </Assortment_title>
 
-                        <div>مشاهده ی بیشتر <h3>{'>'}</h3></div>
+                        {/*<div>مشاهده ی بیشتر <h3>{'>'}</h3></div>*/}
                     </Assortment_Header>
 
                     <Assortment_items_container>

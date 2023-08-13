@@ -1,5 +1,6 @@
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import styled from '@/styles/toast.module.css'
 export function Toast(message,type){
     if(type===true){
         toast.success(message, {
@@ -12,6 +13,7 @@ export function Toast(message,type){
             progress: undefined,
             theme: "colored",
             rtl:true,
+            toastClassName:styled.toast
         });
     }
     else {

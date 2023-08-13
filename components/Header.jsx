@@ -24,6 +24,9 @@ function Header() {
             setShowSearchBar(false);
         }
     }
+    function handleCategory(value){
+
+    }
     return (
         <>
             <Header_container>
@@ -40,16 +43,43 @@ function Header() {
                     </Search_bar>
                 </Header_icon>
                 <Header_items><Link href={'http://talayto.com/login'}>ورود به حساب</Link></Header_items>
-                <Header_items><Link href={'http://talayto.com/category'}>محصولات</Link></Header_items>
+                <Header_items><Link href={'/category'}>محصولات</Link></Header_items>
                 <Header_items><Link href={'http://talayto.com/category'}>قسطی</Link></Header_items>
                 <Header_items><Link href={'/user/verification'}>ایتم چهارم</Link></Header_items>
 
-                <Image src={require('@/public/header-icon.svg')} alt="logo" width="178" height="65"/>
+                <div onClick={()=>{
+                    router.push({
+                        pathname: 'http://talayto.com',
+                        query: {
+                            searchItem:text
+                        }
+                    }, 'http://talayto.com');
+                }}><Image src={require('@/public/header-icon.svg')} alt="logo" width="178" height="65"/></div>
 
-                <Header_items><Link href={'/profile/info'}>گوشواره</Link></Header_items>
-                <Header_items><Link href={'/category'}>گردنبند</Link></Header_items>
-                <Header_items><Link href={'/swiper'}>دستبند</Link> </Header_items>
-                <Header_items>انگشتر</Header_items>
+                <Header_items onClick={()=>{
+                    router.push({
+                        pathname: '/category/earring',
+                    }, '/category/earring');
+                }}>گوشواره</Header_items>
+                <Header_items
+                    onClick={()=>{
+                        router.push({
+                            pathname: '/category/Necklace',
+                        }, '/category/Necklace');
+                    }}
+                >گردنبند</Header_items>
+                <Header_items
+                    onClick={()=>{
+                        router.push({
+                            pathname: '/category/wristband',
+                        }, '/category/wristband');
+                    }}>دستبند</Header_items>
+                <Header_items
+                    onClick={()=>{
+                        router.push({
+                            pathname: '/category/ring',
+                        }, '/category/ring');
+                    }}>انگشتر</Header_items>
 
                 <Header_icon margin={'right'}><Link href={'http://talayto.com/checkout'}><Image
                     src={require('@/public/header-Buy-icon.svg')} alt="buy" width="" height=""/></Link></Header_icon>

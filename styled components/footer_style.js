@@ -74,6 +74,16 @@ export const Trust_symble = styled.div`
     padding: .5rem .6rem;
     margin: 0 .4rem;
     border-radius: 10px;
+
+    @media (max-width: 500px){
+      width: 80px;
+      height: 80px;
+      &>img{
+        width: 80px;
+        height: 80px;
+        border: 10px solid red;
+      }
+    }
   }
 
 `
@@ -90,4 +100,5 @@ export const Social_media = styled.div`
     height: 20px;
     margin: 0 1rem;
   }
+
 `
