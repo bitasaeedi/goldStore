@@ -36,9 +36,11 @@ function Category() {
     useEffect(() => {
 
         // setCat(router.query.category&&router.query.category!=='categories'?`&cat=${router.query.category}`:'');
-        setUrl(`/filter/?size=20&page=${currentPage}${cat}${assortmentType}${installment}${finalRangeValue.text}${color}`)
         if (router.query.searchItem) {
             setUrl(`/search/${router.query.searchItem}?size=20&page=${currentPage}`)
+        }
+        else {
+            setUrl(`/filter/?size=20&page=${currentPage}${cat}${assortmentType}${installment}${finalRangeValue.text}${color}`)
         }
         //get all product
         try {

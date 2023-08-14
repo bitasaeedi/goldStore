@@ -16,11 +16,11 @@ function Header() {
      function handleEnter(event){
         if(event.code==='Enter'){
             router.push({
-                pathname: '/category',
+                pathname: '/category/categories',
                 query: {
                     searchItem:text
                 }
-            }, '/category');
+            }, '/category/categories');
             setShowSearchBar(false);
         }
     }
