@@ -2,7 +2,7 @@ import Image from "next/image";
 import {Header_container, Header_icon, Header_items, Search_bar} from '@/styled components/header-style'
 import Link from "next/link";
 import 'material-icons/iconfont/material-icons.css';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import axios from "axios";
 import {useRouter} from "next/router";
 
@@ -27,6 +27,16 @@ function Header() {
     function handleCategory(value){
 
     }
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    useEffect(() => {
+        try {
+            const accessToken = localStorage.getItem("access-token");
+            setIsLoggedIn(accessToken !== null && accessToken !== undefined);
+        } catch (error) {
+            console.error("Error accessing localStorage:", error);
+        }
+    }, []);
     return (
         <>
             <Header_container>
@@ -42,8 +52,11 @@ function Header() {
                         <span className="material-icons-outlined" onClick={()=>{setShowSearchBar(false)}}>close</span>
                     </Search_bar>
                 </Header_icon>
-                <Header_items><Link href={'http://talayto.com/login'}>ورود به حساب</Link></Header_items>
-                <Header_items><Link href={'/category'}>محصولات</Link></Header_items>
+
+                {  isLoggedIn? <Header_items><Link href={'http://user.talayto.com'}>ورود به پروفایل</Link></Header_items>:
+                    <Header_items><Link href={'http://talayto.com/login'}>ورود به حساب</Link></Header_items>}
+                {/*<Header_items><Link href={'http://talayto.com/login'}>ورود به حساب</Link></Header_items>*/}
+                <Header_items><Link href={'/category/categories'}>محصولات</Link></Header_items>
                 <Header_items><Link href={'http://talayto.com/category'}>قسطی</Link></Header_items>
                 <Header_items><Link href={'/user/verification'}>ایتم چهارم</Link></Header_items>
 
@@ -54,12 +67,12 @@ function Header() {
                             searchItem:text
                         }
                     }, 'http://talayto.com');
-                }}><Image src={require('@/public/header-icon.svg')} alt="logo" width="178" height="65"/></div>
+                }} className={'icon'}><Image src={require('@/public/header-icon.svg')} alt="logo" width="178" height="65"/></div>
 
                 <Header_items onClick={()=>{
                     router.push({
                         pathname: '/category/earring',
-                    }, '/category/earring');
+                    });
                 }}>گوشواره</Header_items>
                 <Header_items
                     onClick={()=>{

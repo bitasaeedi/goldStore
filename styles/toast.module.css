@@ -1,3 +1,6 @@
-.toast{
-color: #7b5454;
+
+@media (max-width: 500px) {
+    .Toast{
+        width: 90% !important;
+    }
 }

@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useRouter } from 'next/router';
 function MobileMenu(props) {
     const router = useRouter();
-    console.log(router.pathname)
     return (
         <>
             <GlobalStyle showmenu={props.showmenu}/>

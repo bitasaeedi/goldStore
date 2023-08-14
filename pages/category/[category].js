@@ -21,26 +21,28 @@ function Category() {
     let [showRelated, setShowRelated] = useState(false);
     let [products, setProducts] = useState();
     let [currentPage, setCurrentPage] = useState(1);
-    let [pageCount, setPageCount] = useState()
-    let [cat, setCat] = useState(router.query.category?`&cat=${router.query.category}`:'');
+    let [pageCount, setPageCount] = useState(0)
+    let [cat, setCat] = useState(router.query.category&&router.query.category!=='categories'?`&cat=${router.query.category}`:'');
     let [assortmentType, setAssortmentType] = useState('');
     let [rangeValue,setRangeValue]=useState({value:{min:1 , max:5},text:''});
+    let [finalRangeValue,setFinalRangeValue]=useState({value:{min:1 , max:5},text:''});
     let [installment, setInstallment] = useState('')
     let [color, setColor] = useState('');
     let [white,setWhite]=useState(false);
     let [golden,setGolden]=useState(false);
-    let [url, setUrl] = useState(`/filter/?size=20&page=${currentPage}${cat}${assortmentType}${installment}${rangeValue.text}${color}`);
-    let[change,setchange]=useState('')
+    let [url, setUrl] = useState(`/filter/?size=20&page=${currentPage}${cat}${assortmentType}${installment}${finalRangeValue.text}${color}`);
+    let[change,setchange]=useState('');
 
     useEffect(() => {
-      setCat(router.query.category?`&cat=${router.query.category}`:'')
-        console.log('cat',cat,url)
 
+        // setCat(router.query.category&&router.query.category!=='categories'?`&cat=${router.query.category}`:'');
+        setUrl(`/filter/?size=20&page=${currentPage}${cat}${assortmentType}${installment}${finalRangeValue.text}${color}`)
         if (router.query.searchItem) {
             setUrl(`/search/${router.query.searchItem}?size=20&page=${currentPage}`)
         }
         //get all product
         try {
+            console.log('cat :',cat,url)
              axios.get(url
             ).then(function (response) {
                     setProducts(response.data)
@@ -51,7 +53,7 @@ function Category() {
         } catch (error) {
             console.error('Error:', error.message);
         }
-    }, [currentPage, cat, assortmentType, installment,rangeValue,change])
+    }, [currentPage,cat ,url, assortmentType, installment,finalRangeValue])
 
     function handlePaginate({selected}) {
         console.log(selected)
@@ -95,7 +97,7 @@ function Category() {
 
 //handle filter by category
     async function handleCategory(type) {
-        setchange(type);
+       setCat(`&cat=${type}`)
         router.push({
             pathname: `${type}`
         },  `${type}`);
@@ -163,6 +165,8 @@ function Category() {
                                     maxValue={10}
                                     minValue={0}
                                     onChange={(Value)=>{setRangeValue({value:Value ,text:`&weight=${Value.min},${Value.max}`})}}
+                                    onChangeComplete={()=>{
+                                        setFinalRangeValue(rangeValue)}}
                                     value={rangeValue.value}
                                     formatLabel={value => value.toFixed(2)}
                                     step={.01}/>

@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
 `
 export const Ba = styled.div`
   background-color: rgba(0, 0, 0, 0.6);
-  height: 100vh;
+  height: 400vh;
   position: absolute;
   top: 0;
   width: 100%;

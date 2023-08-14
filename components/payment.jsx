@@ -73,8 +73,9 @@ function PAYMENT(props){
                 props.handleIsOpen();
             }
         ).catch(function (error) {
-            console.error('Error:', error.message);
-            alert(error.response.message)
+            if (error.response) {
+                Toast(error.response.data.message, false)
+            }
         });
     }
 

@@ -13,7 +13,7 @@ export function Toast(message,type){
             progress: undefined,
             theme: "colored",
             rtl:true,
-            toastClassName:styled.toast
+            toastClassName:styled.Toast
         });
     }
     else {
@@ -27,6 +27,7 @@ export function Toast(message,type){
             progress: undefined,
             theme: "colored",
             rtl:true,
+            className:styled.Toast
         });
     }
 

@@ -9,6 +9,8 @@ export const Header_container = styled.header`
   align-items: center;
   padding-top: .5rem;
   margin: 1rem 0 2.5rem;
+  
+
   @media (max-width: 768px) {
     display: none;
     
@@ -56,7 +58,7 @@ position: relative;
  
 `
 export const Search_bar=styled.div`
-  background-color: red;
+ 
   width: 200px;
   height: 46px;
   position: absolute;

@@ -49,7 +49,6 @@ function Checkout() {
                 Toast(response.data,true)
                 }
             ).catch(function (error) {
-                console.error('Error:', error);
                 Toast(error.response.data.message,false)
             });
     }
