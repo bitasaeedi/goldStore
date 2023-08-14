@@ -19,9 +19,9 @@ export const Background=styled.div`
 export const Menu_container=styled.div`
   display: none;
   background-color: black;
-  width: 75%;
+  width: 63%;
   position: fixed;
-  border-left: 1px solid #6b6969;
+  border-left: .8px solid #727269;
   right: 0;
   top: 0;
   z-index: 2000;
@@ -29,19 +29,21 @@ export const Menu_container=styled.div`
   overflow: scroll;
   transition: transform 0.8s ease-out;
   transform: ${(props) => (props.showmenu === true ? 'translateX(0%)' : 'translateX(200%)')};
-  padding: 3rem ;
-  &>a{
-    color: white;
-    padding: 1.5rem .5rem;
+  padding: 3rem 0rem;
+
+  & > a {
+    color: #b3b3a6;
+    padding: 1.4rem 2.5rem;
     text-decoration: none;
     font-size: 1.2rem;
     font-weight: 500;
     display: none;
-    
+
   }
-  @media(max-width: 500px){
+
+  @media (max-width: 500px) {
     display: unset;
-    &>a{
+    & > a {
       display: block;
     }
   }

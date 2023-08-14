@@ -16,7 +16,7 @@ function Payments(props) {
             <Ba isopen={props.isopen}></Ba>
             <Card_container isopen={props.isopen}>
                 <Card_header type={type}>
-                    <div className="right" onClick={()=>{setType('payment')}}><span>پرداخت</span></div>
+                    <div onClick={()=>{setType('payment')}}>پرداخت</div>
                 </Card_header>
 
                     <PAYMENT  handleIsOpen={props.handleisopen}  item={props.item} variant={props.variant}/>
@@ -77,6 +77,7 @@ function PAYMENT(props){
             alert(error.response.message)
         });
     }
+
     useEffect(()=>{
         axios.get(`/goldPriceInfo`
             ).then(function (response) {

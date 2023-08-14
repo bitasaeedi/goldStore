@@ -42,7 +42,7 @@ export const Right_section = styled.div`
   direction: ltr;
   @media (max-width: 500px) {
     width: 93%;
-    margin: 0 auto;
+    margin: 0 auto 3rem;
   }
  
 `
@@ -99,15 +99,16 @@ export const Middle_section = styled.div`
     margin: 0 auto ;
     padding-bottom: 1rem;
     &>h4{
-      font-size: 1.2rem;
-      padding-top: 2rem;
+      font-size: 1.25rem;
+      padding-top: 0rem;
     }
     &>div.stars{
       margin-bottom: 4rem;
+      display: none;
     }
     & > p.description{
       font-size: .75rem;
-      margin-bottom: 1rem;
+      margin: 1rem 1.1rem 1rem;
     }
   }
 `
@@ -137,6 +138,7 @@ export const Middle_product_info = styled.div`
   @media (max-width: 500px) {
     justify-content: unset;
     gap: 0 25px;
+    grid-template-columns: 1fr 1fr;
     & > div > div.info {
       width: 100%;
       height: 45px;
@@ -179,7 +181,7 @@ export const Responsive_info=styled.div`
     margin: 1rem .7rem 1.5rem;
     color: white;
     position: relative;
-
+    cursor: pointer;
     & > input {
       width: 100%;
       border: none;
@@ -192,14 +194,30 @@ export const Responsive_info=styled.div`
       padding: 0 1rem;
       outline: none;
     }
+    &>div{
+      position:absolute ;
+      left: 0;
+      width: 100%;
+      font-weight: 600;
+      background-color:${colors.background.product.item};
+      text-align: center;
+      margin: .1rem 0;
+      border-radius: 5px;
+      display: ${(props) => (props.display?'block':'none')};
+      &>div{
 
-    & > img {
+        padding: .5rem 0;
+      }
+    }
+
+    & >span> img {
       position: absolute;
       left: .8rem;
       top: 1.4rem;
+      z-index: 100;
     }
   }
-
+  
   @media (max-width: 500px) {
     display: block;
   }

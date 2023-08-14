@@ -5,6 +5,7 @@ import PurchasedItem from "@/components/purchased_item";
 import axios from "@/pages/api/axios";
 import {useEffect, useState} from "react";
 import {Toast} from "@/components/toast";
+import {ToastContainer} from "react-toastify";
 
 function Checkout() {
     let[changes,setChanges]=useState(false)
@@ -45,15 +46,17 @@ function Checkout() {
                 newarray
                 ).then(function (response) {
                     console.log(response.data)
+                Toast(response.data,true)
                 }
             ).catch(function (error) {
                 console.error('Error:', error);
-                alert(error.response.data.message)
+                Toast(error.response.data.message,false)
             });
     }
 
     return (
         <>
+            <ToastContainer />
             <Checkout_wrapper>
                 <Path>
                     <h4>سبد خرید</h4>

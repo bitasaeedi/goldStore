@@ -12,9 +12,8 @@ function MobileMenu(props) {
                 <Link href={'/login'} onClick={props.handleShowMenu}>ورود</Link>
                 <Link href={'/signup'} onClick={props.handleShowMenu}>ثبت نام</Link>
                 <Link href={'/verification'} onClick={props.handleShowMenu}>کد تاییدیه</Link>
-                <Link href={'/category'} onClick={props.handleShowMenu}>کتگوری</Link>
+                <Link href={'/category/categories'} onClick={props.handleShowMenu}>کتگوری</Link>
                 <Link href={'/product'} onClick={props.handleShowMenu}>محصول</Link>
-                <Link href={'/profile/info'} onClick={props.handleShowMenu}>پروقایل</Link>
             </Menu_container>
         </>
     );

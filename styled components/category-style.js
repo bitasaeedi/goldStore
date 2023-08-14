@@ -130,7 +130,7 @@ export const Category_menu_bottom = styled.div`
     z-index: 4;
     box-shadow: 0 0 20px 4px #2c2b2b;
     border-bottom: none;
-    height: 40%;
+    height: 60%;
     overflow: scroll;
     border-bottom-left-radius: unset;
     border-bottom-right-radius: unset;
@@ -187,7 +187,7 @@ export const Category_filters_item = styled.div`
   }
 
   @media (max-width: 500px) {
-    padding-bottom: .5rem;
+    padding-bottom: 1rem;
     &:not(:last-child) {
       margin-bottom: 1.4rem;
       border-bottom: 1px solid ${colors.texts.category.border1};
@@ -221,11 +221,14 @@ export const Category_main_filters = styled.div`
   }
 
   @media (max-width: 500px) {
-    width: 98%;
+    width: 93%;
     margin: 0 auto 2.5rem;
-    font-size: 1.05rem;
+    font-size: 1rem;
     display: ${(props) => (props.Display)};
-
+    & > div:hover {
+      border-bottom: .2px solid rgba(255, 255, 255, 0.91);
+      padding-bottom: .5rem;
+    }
   }
 `
 export const Category_items = styled.div`
@@ -284,14 +287,15 @@ export const Category_item = styled.div`
 
   @media (max-width: 500px) {
     height: auto;
-    padding: 1.1rem 1rem .5rem;
+    padding: 1rem 1rem .5rem;
     & > img {
-      height: 160px;
+      height: 150px;
     }
 
     & > h6.title {
       font-size: .8rem;
       font-weight: 600;
+      margin-top: .4rem;
     }
 
     & > div.price2 {
@@ -317,4 +321,3 @@ export const Category_responsive_menu = styled.div`
     display: flex;
   }
 `
-// @media(max-width:500px){}

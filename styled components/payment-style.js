@@ -29,21 +29,17 @@ export const Card_container = styled.div`
   border-radius: 15px;
   z-index: 3;
   display: ${(props) => props.isopen === false ? "none" : 'block'};
+  @media (max-width: 500px){
+    width: 90%;
+  }
 `
 export const Card_header = styled.div`
   & > div {
-    display: inline-block;
-    position: absolute;
     text-align: center;
-    cursor: pointer;
+   padding: .55rem 0;
     width: 100%;
     background-color:#51493D ;
-
-    & > span {
- 
-      position: absolute;
-    }
-
+    font-weight: 600;
   }
 
   & > div.right {
@@ -123,11 +119,17 @@ export const Installment_Btn = styled.div`
 export const Payment_container = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 6rem 3rem 1rem;
+  margin: 3rem 3rem 1rem;
 
   & > img {
     width: 43%;
     height: auto;
+  }
+  @media (max-width: 500px){
+    & > img {
+    display: none;
+    }
+    margin: 2rem auto 1rem;
   }
 
 `
@@ -236,5 +238,9 @@ export const Payment_info = styled.div`
       left: 5.8rem;
       padding-top: .2rem;
     }
+  }
+  @media (max-width: 500px){
+    width: 100%;
+    padding: 0;
   }
 `

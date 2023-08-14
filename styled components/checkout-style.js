@@ -84,12 +84,18 @@ export const Purchased_item = styled.div`
   @media(max-width: 500px){
     & > div > div.title{
       font-weight: 500;
-      font-size: .7rem;
+      font-size: .96rem;
     }
     &>div.info{
-      width: 40%;
-      padding-right: 1rem;
+      width: 70%;
+      padding-right: 0rem;
       text-align: center;
+    }
+    & > div > div.price {
+      font-size: .9rem;
+    }
+    & > div > div.delete_btn{
+      font-size: .6rem;
     }
     &>img{
       height: 130px;
@@ -118,7 +124,8 @@ export const Amount = styled.div`
     color: white;
   }
 @media(max-width: 500px){
-  width: 42px;
+  width: 48px;
+  margin-right: 2.5rem;
 font-weight: 600;
 }
 `
@@ -170,7 +177,7 @@ export const Buy_btn = styled.div`
   @media (max-width: 500px) {
     padding-top: 2rem;
     & > button {
-      display: none;
+      
 
       &.responsive_btn {
         width: 82%;

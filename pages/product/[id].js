@@ -106,14 +106,27 @@ function Id() {
                             edit={false}/>
                         <span className='number'>222</span><span> نظر</span></div>
                     <p className='description'>{item.description}</p>
-                    <Responsive_info>
-                        <h5>قیمت : 2,290,000 تومان</h5>
+                    <Responsive_info display={weightIsOpen}>
+                        <h5>قیمت : {varient.totalPrice} تومان</h5>
                         <h6>رنگ <span></span></h6>
-                        <div className='input'><input placeholder='زرد'/>
-                            <Image src={require('@/public/more.svg')} alt="icon" width="" height=""/></div>
-                        <h6>عیار</h6>
-                        <div className='input'><input placeholder='123456'/>
-                            <Image src={require('@/public/more.svg')} alt="icon" width="" height=""/></div>
+                        <div className='input'><input placeholder='زرد' readOnly/>
+                            <span> <Image src={require('@/public/more.svg')} alt="icon" width="" height=""/></span></div>
+                        <h6>وزن</h6>
+                        <div className='input'>
+                            <input placeholder='123456' value={varient.weight} readOnly/>
+                            <span onClick={() => {
+                                setWeightIsOpen(true)
+                            }}><Image src={require('@/public/more.svg')} alt="icon" width="" height=""/></span>
+                            <div>
+                                {item.variants.map((v, index) => {
+                                    return <div key={index} onClick={() => {
+                                        setVarient(v);
+                                        setWeightIsOpen(false);
+                                        console.log(weightIsOpen)
+                                    }}>{v.weight}</div>
+                                })}
+                            </div>
+                        </div>
                         <Amount>
                             <div>تعداد :</div>
                             <div><span className='left' onClick={() => {
@@ -150,10 +163,10 @@ function Id() {
                         </div>
                     </Middle_product_info>
                     <Responsive_btn>
-                        <Button1>خرید مستقیم</Button1>
+                        <Button1 onClick={addToUserCart}>افزودن به سبد خرید</Button1>
                         <Button2>
-                            <div onClick={handlePayment}>خرید مستقیم</div>
-                            <div>خرید مستقیم</div>
+                            <div onClick={handleDirectPurchase}>خرید مستقیم</div>
+                            <div onClick={handlePayment}>خرید قسطی</div>
                         </Button2>
                     </Responsive_btn>
                 </Middle_section>

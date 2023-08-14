@@ -20,7 +20,7 @@ export const Home_video_container = styled.div`
     height: 100%;
   }
   @media(max-width: 500px){
-    height: 410px;
+    height: 396px;
   }
 `
 export const Home_video = styled.div`
@@ -68,14 +68,14 @@ export const Home_video = styled.div`
     font-size: .95rem;
   }
   @media (max-width: 500px) {
-    padding-top: 6rem;
+    padding-top: 5.5rem;
     &>h6{
       padding-top: 0;
-      font-size: 1.5rem;
+      font-size: 1.45rem;
     }
     &>div{
       width: 70%;
-      font-size: .9rem;
+      font-size: .8rem;
     }
     &>button{
       margin: 1rem auto .4rem;
@@ -103,12 +103,12 @@ export const Play_icon = styled.span`
     left: 38%;
   }
   @media(max-width: 500px){
-    width: 80px;
-    height: 80px;
+    width: 75px;
+    height: 75px;
     & > img {
       top: 28%;
       left: 38%;
-      width: 25px;
+      width: 22px;
     }
   }
   
@@ -293,12 +293,11 @@ export const Assortment_title = styled.div`
     }
   }
   @media (max-width: 500px) {
-    width:80%;
-    
+    width:75%;
     &>div{
       font-size: .8rem;
       &.active{
-        padding: .2rem 1rem;
+        padding: .2rem .6rem;
         margin-top: .3rem;
       }
     }
@@ -387,6 +386,7 @@ export const Compliment_container = styled.div`
       margin: 1rem auto 0;
       width: 95%;
       font-size: .9rem;
+      padding: 1.6rem 2.3rem;
     }
   }
 `
@@ -397,7 +397,7 @@ export const Worthiness_container = styled.div`
   margin: 10rem auto 15rem;
   width: 100%;
   @media (max-width: 500px) {
-    margin: 6rem auto 10rem;
+    margin: 6rem auto 8rem;
   }
   & > h6 {
     color: ${colors.texts.home.worthiness_title};
