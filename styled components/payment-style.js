@@ -242,5 +242,11 @@ export const Payment_info = styled.div`
   @media (max-width: 500px){
     width: 100%;
     padding: 0;
+    & > div.info_text{
+      & > div {
+        font-size: .95rem;
+      }
+    }
+    
   }
 `

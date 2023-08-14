@@ -18,10 +18,10 @@ export const Background=styled.div`
 `
 export const Menu_container=styled.div`
   display: none;
-  background-color: black;
+  background-color: #1b1a1a;
   width: 63%;
   position: fixed;
-  border-left: .8px solid #727269;
+  //border-left: .8px solid #727269;
   right: 0;
   top: 0;
   z-index: 2000;
@@ -29,16 +29,19 @@ export const Menu_container=styled.div`
   overflow: scroll;
   transition: transform 0.8s ease-out;
   transform: ${(props) => (props.showmenu === true ? 'translateX(0%)' : 'translateX(200%)')};
-  padding: 3rem 0rem;
+  padding: 1rem 0rem;
 
   & > a {
     color: #b3b3a6;
-    padding: 1.4rem 2.5rem;
+    padding: 1rem 2.2rem;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 500;
     display: none;
-
+  }
+  &>a.active{
+    background-color: #95856a;
+    color: black;
   }
 
   @media (max-width: 500px) {

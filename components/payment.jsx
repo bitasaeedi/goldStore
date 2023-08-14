@@ -62,7 +62,7 @@ function PAYMENT(props){
     };
     async function handlePay(){
 
-        await axios.post(`/installmentPurchase/64ca1e70c8461c610487b392/1`,
+        await axios.post(`/installmentPurchase/${props.item.id}/${props.variant.variantId}`,
             {
                 type:'buy-weight',
                 value:rangeValue
