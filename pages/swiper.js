@@ -26,18 +26,13 @@ function Swiper(props) {
     //    Toast('done')
     // }
     let [rangeValue,setRangeValue]=useState({min:8.41 , max:15});
+    const inputNumber = 123456789;
+    const formattedNumber = inputNumber.toLocaleString('en-US');
+    alert(formattedNumber);
     return (
        <> <div style={{color:"white"}}>2</div>
     {/*<ToastContainer />*/}
-           <InputRange
-               draggableTrack
-               maxValue={20}
-               minValue={0}
-               onChange={(value)=>{setRangeValue(value)}}
-               onChangeComplete={value => console.log(value)}
-               value={rangeValue}
-               formatLabel={value => value.toFixed(2)}
-               step={.01}/>
+
 
        </>
     );

@@ -53,7 +53,8 @@ function Header() {
                     </Search_bar>
                 </Header_icon>
 
-                {  isLoggedIn? <Header_items><Link href={'http://user.talayto.com'}>ورود به پروفایل</Link></Header_items>:
+                {  isLoggedIn? <Header_items><Link
+                        href={{ pathname: 'http://user.talayto.com', query: { accessToken:localStorage.getItem("access-token") } }}>ورود به پروفایل</Link></Header_items>:
                     <Header_items><Link href={'http://talayto.com/login'}>ورود به حساب</Link></Header_items>}
                 {/*<Header_items><Link href={'http://talayto.com/login'}>ورود به حساب</Link></Header_items>*/}
                 <Header_items><Link href={'http://talayto.com/category/categories'}>محصولات</Link></Header_items>

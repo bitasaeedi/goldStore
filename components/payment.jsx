@@ -98,7 +98,7 @@ function PAYMENT(props){
             <Payment_info>
                 <div className="info_text">
                     <div>{props.item.title}</div>
-                    <h6>قیمت : {props.item.finalPrice} تومان</h6>
+                    <h6>قیمت : {(props.item.finalPrice).toLocaleString('en-US')} تومان</h6>
                     <div>اجرت: %{props.item.wage*100} </div>
                 </div>
                 <p>حداقل گرم برای قست را تعیین کنید</p>

@@ -148,8 +148,8 @@ function CategoryItem({list,price}) {
                 return <Category_item key={index} onClick={()=>handleClick(item.id)}>
                     <Image src={ require('@/public/c4.png')} alt='item' width='' height=''/>
                     <h6 className='title'>{item.title}</h6>
-                    <s className='price1'>{item.totalPrice}</s>
-                    <div className='price2'>{item.finalPrice}</div>
+                    <s className='price1'>{(item.totalPrice).toLocaleString('en-US')}</s>
+                    <div className='price2'>{(item.finalPrice).toLocaleString('en-US')}</div>
                     <div className='info'><span className='material-icons'>star</span>
                     <div>3.2</div> <div>(222نظر)</div>
                     </div>
