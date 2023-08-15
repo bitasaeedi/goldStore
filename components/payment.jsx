@@ -101,7 +101,7 @@ function PAYMENT(props){
                     <h6>قیمت : {props.item.finalPrice} تومان</h6>
                     <div>اجرت: %{props.item.wage*100} </div>
                 </div>
-                <p>حداقل گرم برای قست را تعیین کنید</p>
+                <p>حداقل گرم برای قسط را تعیین کنید</p>
                 <div className='range_input'>
                     <span className='range-value-r'>10</span>
                     <ReactSlider
@@ -120,7 +120,7 @@ function PAYMENT(props){
                         <input  placeholder={rangeValue} onChange={handleChange} value={rangeValue}/>
                     </div>
                 </div>
-                <div className={"price"} onClick={()=>{}}>قیمت قست: {price?rangeValue*price.buyQuotation:null} تومان </div>
+                <div className={"price"} onClick={()=>{}}>قیمت قسط: {price?rangeValue*price.buyQuotation:null} تومان </div>
                 <Installment_Btn><div onClick={handlePay}>پرداخت قسط</div></Installment_Btn>
             </Payment_info>
         </Payment_container>
