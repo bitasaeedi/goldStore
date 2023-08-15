@@ -9,8 +9,10 @@ import { useTimer } from 'react-timer-hook';
 import { useRouter } from 'next/router';
 import {Toast} from "@/components/toast";
 import {ToastContainer} from "react-toastify";
-function Login() {
+import { useAppContext } from '@/components/context';
 
+function Login() {
+    const { setIsLogged } = useAppContext();
     const router = useRouter();
 //timer
     const expiryTimestamp = new Date();
@@ -33,6 +35,7 @@ function Login() {
                 ).then(function (response) {
                 if(response.status===200){
                     Toast('حساب شما ساخته شد',true)
+                    setIsLogged(true);
                     localStorage.setItem('access-token', response.data.accessToken);
                     localStorage.setItem('refresh-token', response.data.refreshToken);
                     router.push('http://talayto.com');

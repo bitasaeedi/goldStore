@@ -36,6 +36,7 @@ function Signup() {
                 ).then(function (response) {
                     console.log(response)
                     if (response.status === 200) {
+                        Toast('کد تایید برای شما ارسال شد',true)
                         router.push({
                             pathname: 'http://talayto.com/verification',
                             query: {
