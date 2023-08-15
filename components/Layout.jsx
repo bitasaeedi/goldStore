@@ -6,7 +6,7 @@ import MobileMenu from "@/components/mobile_Menu";
 import {ToastContainer} from "react-toastify";
 import {useState} from "react";
 
-function Layout({children,...pageProps}) {
+function Layout({children}) {
 
     let [isLoggedin,setIsLoggedin]=useState();
     return (
