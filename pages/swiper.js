@@ -25,16 +25,9 @@ function Swiper(props) {
     // function notify(){
     //    Toast('done')
     // }
-    let [rangeValue,setRangeValue]=useState({min:8.41 , max:15});
-    const inputNumber = 123456789;
-    const formattedNumber = inputNumber.toLocaleString('en-US');
-    alert(formattedNumber);
+
     return (
-       <> <div style={{color:"white"}}>2</div>
-    {/*<ToastContainer />*/}
-
-
-       </>
+      <></>
     );
 }
 
