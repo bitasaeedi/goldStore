@@ -9,9 +9,9 @@ function MobileMenu(props) {
             <GlobalStyle showmenu={props.showmenu}/>
             <Background showmenu={props.showmenu} onClick={props.handleShowMenu}></Background>
             <Menu_container showmenu={props.showmenu}>
-                <Link href={'/'} className={router.pathname === '/' ? 'active' : ''} onClick={props.handleShowMenu}>صحفه اصلی</Link>
-                <Link href={'/login'} className={router.pathname === '/login' ? 'active' : ''} onClick={props.handleShowMenu}>ورود به حساب</Link>
-                <Link href={'/category/categories'} className={router.pathname === '/category/categories' ? 'active' : ''} onClick={props.handleShowMenu}>محصولات</Link>
+                <Link href={'http://talayto.com'} className={router.pathname === '/' ? 'active' : ''} onClick={props.handleShowMenu}>صحفه اصلی</Link>
+                <Link href={'http://talayto.com/login'} className={router.pathname === '/login' ? 'active' : ''} onClick={props.handleShowMenu}>ورود به حساب</Link>
+                <Link href={'http://talayto.com/category/categories'} className={router.pathname === '/category/categories' ? 'active' : ''} onClick={props.handleShowMenu}>محصولات</Link>
             </Menu_container>
         </>
     );

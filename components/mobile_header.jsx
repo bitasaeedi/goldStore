@@ -21,11 +21,11 @@ function MobileHeader() {
     function handleEnter(event){
         if(event.code==='Enter'){
             router.push({
-                pathname: '/category/categories',
+                pathname: 'http://talayto.com/category/categories',
                 query: {
                     searchItem:text
                 }
-            }, '/category/categories');
+            }, 'http://talayto.com/category/categories');
             setShowSearchBar(false);
         }
     }
@@ -48,7 +48,7 @@ function MobileHeader() {
                             <span className="material-icons-outlined" onClick={()=>{setShowSearchBar(false)}}>close</span>
                         </Search_bar>
                     </Header_icon>
-                    <Header_icon margin={'right'}><Link href={'/checkout'} >
+                    <Header_icon margin={'right'}><Link href={'http://talayto.com/checkout'} >
                         <Image src={require('@/public/header-Buy-icon.svg')} alt="buy" width="" height=""/></Link></Header_icon>
                 </div>
 

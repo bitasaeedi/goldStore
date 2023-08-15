@@ -35,7 +35,7 @@ function Login() {
                     Toast('حساب شما ساخته شد',true)
                     localStorage.setItem('access-token', response.data.accessToken);
                     localStorage.setItem('refresh-token', response.data.refreshToken);
-                    router.push('/');
+                    router.push('http://talayto.com');
                 }
             }).catch(function (error) {
               console.error('Error:', error.message);

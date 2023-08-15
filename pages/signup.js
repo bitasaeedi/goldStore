@@ -42,7 +42,7 @@ function Signup() {
                                 phoneNumber: PhoneNumber
                                 , password: password
                             }
-                        }, '/user/verification');
+                        }, 'http://talayto.com/verification');
                     }
 
                 }).catch(function (error) {

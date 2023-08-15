@@ -13,7 +13,7 @@ function Payments(props) {
     return (
         <>
             <GlobalStyle  isopen={props.isopen}/>
-            <Ba isopen={props.isopen}></Ba>
+            <Ba isopen={props.isopen} onClick={props.handleisopen}></Ba>
             <Card_container isopen={props.isopen}>
                 <Card_header type={type}>
                     <div onClick={()=>{setType('payment')}}>پرداخت</div>
@@ -75,6 +75,7 @@ function PAYMENT(props){
         ).catch(function (error) {
             if (error.response) {
                 Toast(error.response.data.message, false)
+                props.handleIsOpen();
             }
         });
     }

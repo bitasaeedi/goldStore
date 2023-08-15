@@ -56,9 +56,9 @@ function Header() {
                 {  isLoggedIn? <Header_items><Link href={'http://user.talayto.com'}>ورود به پروفایل</Link></Header_items>:
                     <Header_items><Link href={'http://talayto.com/login'}>ورود به حساب</Link></Header_items>}
                 {/*<Header_items><Link href={'http://talayto.com/login'}>ورود به حساب</Link></Header_items>*/}
-                <Header_items><Link href={'/category/categories'}>محصولات</Link></Header_items>
-                <Header_items><Link href={'http://talayto.com/category'}>قسطی</Link></Header_items>
-                <Header_items><Link href={'/user/verification'}>ایتم چهارم</Link></Header_items>
+                <Header_items><Link href={'http://talayto.com/category/categories'}>محصولات</Link></Header_items>
+                <Header_items><Link href={'http://talayto.com/category/categories'}>قسطی</Link></Header_items>
+                <Header_items><Link href={'http://talayto.com'}>ایتم چهارم</Link></Header_items>
 
                 <div onClick={()=>{
                     router.push({
@@ -71,27 +71,27 @@ function Header() {
 
                 <Header_items onClick={()=>{
                     router.push({
-                        pathname: '/category/earring',
+                        pathname: 'http://talayto.com/category/earring',
                     });
                 }}>گوشواره</Header_items>
                 <Header_items
                     onClick={()=>{
                         router.push({
-                            pathname: '/category/Necklace',
-                        }, '/category/Necklace');
+                            pathname: 'http://talayto.com/category/Necklace',
+                        }, 'http://talayto.com/category/Necklace');
                     }}
                 >گردنبند</Header_items>
                 <Header_items
                     onClick={()=>{
                         router.push({
-                            pathname: '/category/wristband',
-                        }, '/category/wristband');
+                            pathname: 'http://talayto.com/category/wristband',
+                        }, 'http://talayto.com/category/wristband');
                     }}>دستبند</Header_items>
                 <Header_items
                     onClick={()=>{
                         router.push({
-                            pathname: '/category/ring',
-                        }, '/category/ring');
+                            pathname: 'http://talayto.com/category/ring',
+                        }, 'http://talayto.com/category/ring');
                     }}>انگشتر</Header_items>
 
                 <Header_icon margin={'right'}><Link href={'http://talayto.com/checkout'}><Image
