@@ -35,16 +35,14 @@ function HomeAssortmentItems({type}) {
     function handleClick(item){
         console.log(item)
         router.push({
-            pathname: `/product/${item._id.$oid}`,
-            query: {
-                product:JSON.stringify(item)
-            }
-        }, `/product/${item._id.$oid}`);
+            pathname: `/product/${item.id}`,
+
+        }, `/product/${item.id}`);
     }
 
     return <>
         {items?items.map((item,index)=>{
-            return <Assortment_item key={index}>
+            return <Assortment_item key={index} onClick={()=>handleClick(item)}>
                 <Image src={require('@/public/b5.png')} width='' height='184' alt='انگشتر'/>
                 <div>{item.title}</div>
                 <s>{item.totalPrice?(item.totalPrice).toLocaleString('en-US'):0}</s>
