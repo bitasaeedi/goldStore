@@ -45,8 +45,8 @@ function HomeAssortmentItems({type}) {
             return <Assortment_item key={index} onClick={()=>handleClick(item)}>
                 <Image src={require('@/public/b5.png')} width='' height='184' alt='انگشتر'/>
                 <div>{item.title}</div>
-                <s>{item.totalPrice?(item.totalPrice).toLocaleString('en-US'):0}</s>
-                <div className='price'>{item.finalPrice?(item.finalPrice).toLocaleString('en-US'):0}</div>
+                <s>{(item.totalPrice)}</s>
+                <div className='price'>{(item.finalPrice)}</div>
               <div className='buy_icon' onClick={()=>handleClick(item)}><Image src={require('@/public/Buyicon.svg')} width='' height='15' alt='Buy'/></div>
             </Assortment_item>
         }):null}
