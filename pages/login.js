@@ -8,9 +8,10 @@ import axios from "@/pages/api/axios";
 import {useRouter} from "next/router";
 import {Toast} from "@/components/toast";
 import {ToastContainer} from "react-toastify";
-
+import { useAppContext } from '@/components/context';
 
 function Login() {
+    const { setIsLogged } = useAppContext();
     const router = useRouter();
     let[PhoneNumber,setPhoneNumber]=useState('');
     let[password,setpassword]=useState('');
@@ -28,7 +29,7 @@ function Login() {
             setpassword(event.target.value)
     }
 
-    async function handleSignBtn(){
+   function handleSignBtn(){
         if (password.length < 8) {
             Toast('رمز باید حدقل 8 کاراکتر داشته باشد',false)
         } else {
@@ -40,6 +41,7 @@ function Login() {
             ).then(function (response) {
                 console.log("response: ", response)
                 if(response.status===200){
+                    setIsLogged(true);
                     localStorage.setItem('access-token', response.data.accessToken);
                     localStorage.setItem('refresh-token', response.data.refreshToken);
                     router.push('/');
@@ -50,6 +52,12 @@ function Login() {
             })}
     }
 
+    function handleEnterInput (event){
+        if(event.code==='Enter'){
+
+            handleSignBtn();
+        }
+    }
     return <>
         <ToastContainer />
 
@@ -64,7 +72,9 @@ function Login() {
 
                     <div>
                         <Login_input_title>رمز ورود</Login_input_title>
-                        <Login_input><input type={visibility?'text':'password'} placeholder='رمز را وارد کنید' onChange={setValue} name={'password'}/>
+                        <Login_input><input type={visibility?'text':'password'} placeholder='رمز را وارد کنید'
+                                            onChange={setValue} name={'password'}
+                                            onKeyDown={handleEnterInput}/>
                             <span className="material-icons-outlined" onClick={handlePassword}>{visibility?'visibility_off':'visibility'}</span></Login_input>
 
 

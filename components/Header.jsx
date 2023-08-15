@@ -5,14 +5,18 @@ import 'material-icons/iconfont/material-icons.css';
 import {useEffect, useState} from "react";
 import axios from "axios";
 import {useRouter} from "next/router";
+import {useAppContext} from "@/components/context";
 
 function Header() {
     let [showSearchBar,setShowSearchBar]=useState(false);
     let [text,setText]=useState();
     const router = useRouter();
+    const { isLogged } = useAppContext();
+
     function handleText(event){
         setText(event.target.value)
     }
+
      function handleEnter(event){
         if(event.code==='Enter'){
             router.push({
@@ -27,16 +31,16 @@ function Header() {
     function handleCategory(value){
 
     }
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-    useEffect(() => {
-        try {
-            const accessToken = localStorage.getItem("access-token");
-            setIsLoggedIn(accessToken !== null && accessToken !== undefined);
-        } catch (error) {
-            console.error("Error accessing localStorage:", error);
-        }
-    }, []);
+    // useEffect(() => {
+    //     try {
+    //         const accessToken = localStorage.getItem("access-token");
+    //         setIsLoggedIn(accessToken !== null && accessToken !== undefined);
+    //     } catch (error) {
+    //         console.error("Error accessing localStorage:", error);
+    //     }
+    // }, []);
+
     return (
         <>
             <Header_container>
@@ -53,8 +57,8 @@ function Header() {
                     </Search_bar>
                 </Header_icon>
 
-                {  isLoggedIn? <Header_items><Link
-                        href={{ pathname: 'http://user.talayto.com', query: { accessToken:localStorage.getItem("access-token") } }}>ورود به پروفایل</Link></Header_items>:
+                {  isLogged? <Header_items>
+                    <Link href={{ pathname: 'http://user.talayto.com', query: { accessToken:localStorage.getItem("access-token") } }}>ورود به پروفایل</Link></Header_items>:
                     <Header_items><Link href={'http://talayto.com/login'}>ورود به حساب</Link></Header_items>}
                 {/*<Header_items><Link href={'http://talayto.com/login'}>ورود به حساب</Link></Header_items>*/}
                 <Header_items><Link href={'http://talayto.com/category/categories'}>محصولات</Link></Header_items>

@@ -7,8 +7,7 @@ import {ToastContainer} from "react-toastify";
 import {useState} from "react";
 
 function Layout({children}) {
-
-    let [isLoggedin,setIsLoggedin]=useState();
+    let [isLoggedin,setIsLoggedin]=useState('4');
     return (
         <>
             <Wrapper>

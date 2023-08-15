@@ -26,12 +26,12 @@ function Signup() {
             setpassword(event.target.value)
     }
 
-    async function handleSignupBtn() {
+    function handleSignupBtn() {
 
         if (password.length < 8) {
             Toast('رمز باید حدقل 8 کاراکتر داشته باشد',false)
         } else {
-               await axios.post('/user/signup',
+               axios.post('/user/signup',
                     {phoneNumber: PhoneNumber},
                 ).then(function (response) {
                     console.log(response)
@@ -56,6 +56,13 @@ function Signup() {
 
     }
 
+    function handleEnterInput (event){
+        if(event.code==='Enter'){
+
+            handleSignupBtn();
+        }
+    }
+
     return <>
         <ToastContainer />
         <Login_container>
@@ -73,14 +80,16 @@ function Signup() {
                     <Login_input>
                         <input type={visibility ? 'text' : 'password'} placeholder='رمز را وارد کنید'
                                onChange={setValue}
-                               name={'password'}/>
+                               name={'password'}
+                               onKeyDown={handleEnterInput}
+                        />
                         <span className="material-icons-outlined"
                               onClick={handlePassword}>{visibility ? 'visibility_off' : 'visibility'}</span></Login_input>
 
                 </div>
 
                 <div>
-                    <Login_btn onClick={handleSignupBtn}>ورود</Login_btn>
+                    <Login_btn onClick={handleSignupBtn}>ثبت نام</Login_btn>
                     <Btn_detail>حساب کاربری دارید؟<span onClick={() => {
                         router.push('http://talayto.com/login')
                     }}>ورود</span></Btn_detail>
