@@ -104,6 +104,7 @@ export const Login_btn = styled.div`
   color: #95856A;
   width: fit-content;
   margin: 4rem auto;
+  margin-top: ${(props) => (props.type2?"0rem": '0')};
   padding: .6rem 5.5rem;
   border: 2px solid #37332D;
   border-radius: 40px;
@@ -185,6 +186,8 @@ export const Varification_form = styled.div`
   }
 `
 export const Squares_container = styled.div`
+  margin-bottom: ${(props) => (props.type2?"3rem": '0')};
+  direction:ltr;
   &>div{
     display: flex;
     justify-content: center;

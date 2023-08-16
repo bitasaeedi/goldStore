@@ -27,23 +27,23 @@ function Login() {
     //check code
 
     async function handleSubmit(){
-
-          await axios.post('/user/signup/verification',
-                {phoneNumber:router.query.phoneNumber,
-                    code:Code,
-                    password:router.query.password}
-                ).then(function (response) {
-                if(response.status===200){
-                    Toast('حساب شما ساخته شد',true)
-                    setIsLogged(true);
-                    localStorage.setItem('access-token', response.data.accessToken);
-                    localStorage.setItem('refresh-token', response.data.refreshToken);
-                    router.push('http://talayto.com');
-                }
-            }).catch(function (error) {
-              console.error('Error:', error.message);
-              Toast(error.response.data.message,false);
-          });
+        console.log(router.query.phoneNumber,Code,router.query.password)
+          // await axios.post('/user/signup/verification',
+          //       {phoneNumber:router.query.phoneNumber,
+          //           code:Code,
+          //           password:router.query.password}
+          //       ).then(function (response) {
+          //       if(response.status===200){
+          //           Toast('حساب شما ساخته شد',true)
+          //           setIsLogged(true);
+          //           localStorage.setItem('access-token', response.data.accessToken);
+          //           localStorage.setItem('refresh-token', response.data.refreshToken);
+          //           router.push('http://talayto.com');
+          //       }
+          //   }).catch(function (error) {
+          //     console.error('Error:', error.message);
+          //     Toast(error.response.data.message,false);
+          // });
 
     }
     async function HandleResendCode(){

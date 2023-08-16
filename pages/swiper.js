@@ -5,6 +5,7 @@ import {Toast} from "@/components/toast";
 import 'react-toastify/dist/ReactToastify.css';
 import InputRange from "react-input-range";
 import 'react-input-range/lib/css/index.css'
+import {checkPattern} from "@/components/checkPatern";
 function Swiper(props) {
 
     // const expiryTimestamp = new Date();
@@ -25,7 +26,7 @@ function Swiper(props) {
     // function notify(){
     //    Toast('done')
     // }
-
+    console.log(checkPattern('bitasaeedi'))
     return (
       <></>
     );

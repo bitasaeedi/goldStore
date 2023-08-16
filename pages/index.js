@@ -10,10 +10,21 @@ import Home_assortment_items from "@/components/Home_assortment_items";
 import Home_worthiness_item from "@/components/Home_worthiness_item";
 import Home_Comments from "@/components/Home_Comments";
 import CommentSlider from "@/components/comment-slider";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import {useRouter} from "next/router";
+import { useAppContext } from '@/components/context';
 
 export default function Home() {
     let[assortmentType,setAssortmentType]=useState('newest');
+    const router = useRouter();
+    const { setIsLogged } = useAppContext();
+    useEffect(()=>{
+        if( router.query.loggedOut){
+            localStorage.removeItem("access-token");
+            localStorage.removeItem("refresh-token");
+            setIsLogged(false);
+        }
+    },[])
     return (
         <>
             {/* Head */}

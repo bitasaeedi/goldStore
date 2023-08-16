@@ -41,12 +41,11 @@ function Checkout() {
     })):[];
 
     async function buyProducts(){
-
             await axios.post(`/buyProduct`,
                 newarray
                 ).then(function (response) {
                     console.log(response.data)
-                Toast(response.data,true)
+                Toast('خرید با موفقیت انجام شد',true)
                 }
             ).catch(function (error) {
                 Toast(error.response.data.message,false)

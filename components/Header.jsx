@@ -62,7 +62,7 @@ function Header() {
                     <Header_items><Link href={'http://talayto.com/login'}>ورود به حساب</Link></Header_items>}
                 <Header_items><Link href={'http://talayto.com/category/categories'}>محصولات</Link></Header_items>
                 <Header_items><Link href={'http://talayto.com/category/categories'}>قسطی</Link></Header_items>
-                <Header_items><Link href={'http://talayto.com'}>ایتم چهارم</Link></Header_items>
+                <Header_items><Link href={'/changePassword'}>ایتم چهارم</Link></Header_items>
 
                 <div onClick={()=>{
                     router.push({
