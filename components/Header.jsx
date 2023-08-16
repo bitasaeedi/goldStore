@@ -75,21 +75,21 @@ function Header() {
 
                 <Header_items onClick={()=>{
                     router.push({
-                        pathname: 'http://talayto.com/category/earring',
+                        pathname: '/category/earring',
                     });
                 }}>گوشواره</Header_items>
                 <Header_items
                     onClick={()=>{
                         router.push({
-                            pathname: 'http://talayto.com/category/Necklace',
-                        }, 'http://talayto.com/category/Necklace');
+                            pathname: '/category/Necklace',
+                        }, '/category/Necklace');
                     }}
                 >گردنبند</Header_items>
                 <Header_items
                     onClick={()=>{
                         router.push({
-                            pathname: 'http://talayto.com/category/wristband',
-                        }, 'http://talayto.com/category/wristband');
+                            pathname: '/category/wristband',
+                        }, '/category/wristband');
                     }}>دستبند</Header_items>
                 <Header_items
                     onClick={()=>{

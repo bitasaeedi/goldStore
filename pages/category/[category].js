@@ -15,14 +15,16 @@ import 'react-toggle/style.css'
 import Toggle from "react-toggle";
 import InputRange from "react-input-range";
 import 'react-input-range/lib/css/index.css'
+
 function Category() {
     const router = useRouter();
+    let {query}=useRouter()
     let [showFilters, setShowFilters] = useState(false);
     let [showRelated, setShowRelated] = useState(false);
     let [products, setProducts] = useState();
     let [currentPage, setCurrentPage] = useState(1);
     let [pageCount, setPageCount] = useState(0)
-    let [cat, setCat] = useState(router.query.category&&router.query.category!=='categories'?`&cat=${router.query.category}`:'');
+    let [cat, setCat] = useState(query.category&&query.category!=='categories'?`&cat=${query.category}`:'');
     let [assortmentType, setAssortmentType] = useState('');
     let [rangeValue,setRangeValue]=useState({value:{min:1 , max:5},text:''});
     let [finalRangeValue,setFinalRangeValue]=useState({value:{min:1 , max:5},text:''});
@@ -33,14 +35,15 @@ function Category() {
     let [url, setUrl] = useState(`/filter/?size=20&page=${currentPage}${cat}${assortmentType}${installment}${finalRangeValue.text}${color}`);
     let[change,setchange]=useState('');
 
-    useEffect(() => {
 
+    useEffect(() => {
+        console.log(query.category)
         // setCat(router.query.category&&router.query.category!=='categories'?`&cat=${router.query.category}`:'');
         if (router.query.searchItem) {
             setUrl(`/search/${router.query.searchItem}?size=20&page=${currentPage}`)
         }
         else {
-            setUrl(`/filter/?size=20&page=${currentPage}${cat}${assortmentType}${installment}${finalRangeValue.text}${color}`)
+            setUrl(`/filter/?size=20&page=${currentPage}&cat=${query.category}${assortmentType}${installment}${finalRangeValue.text}${color}`)
         }
         //get all product
         try {
@@ -55,7 +58,7 @@ function Category() {
         } catch (error) {
             console.error('Error:', error.message);
         }
-    }, [currentPage,cat ,url, assortmentType, installment,finalRangeValue])
+    }, [currentPage,cat ,url, assortmentType, installment,finalRangeValue,query])
 
     function handlePaginate({selected}) {
         console.log(selected)
@@ -99,7 +102,6 @@ function Category() {
 
 //handle filter by category
     async function handleCategory(type) {
-       setCat(`&cat=${type}`)
         router.push({
             pathname: `${type}`
         },  `${type}`);
@@ -233,3 +235,9 @@ function Category() {
 }
 
 export default Category;
+// Category.getInitialProps = async ({ query }) => {
+//     const {category} = query
+//     const {name}=query
+//
+//     return {category,name}
+// }
