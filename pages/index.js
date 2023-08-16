@@ -24,6 +24,9 @@ export default function Home() {
             localStorage.removeItem("refresh-token");
             setIsLogged(false);
         }
+        else {
+            setIsLogged(true);
+        }
     },[])
     return (
         <>
