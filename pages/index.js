@@ -19,12 +19,12 @@ export default function Home() {
     const router = useRouter();
     const { setIsLogged } = useAppContext();
     useEffect(()=>{
-        if( router.query.loggedOut){
+        if( router.query.loggedOut==="true"){
             localStorage.removeItem("access-token");
             localStorage.removeItem("refresh-token");
             setIsLogged(false);
         }
-        else {
+        else if(router.query.loggedOut==="false") {
             setIsLogged(true);
         }
     },[])
