@@ -19,9 +19,10 @@ export default function Home({loggedOut}) {
     let[assortmentType,setAssortmentType]=useState('newest');
     const { setIsLogged,isLogged } = useAppContext();
     const router = useRouter();
+    console.log(isLogged)
 
     useEffect(()=>{
-        if(loggedOut){
+        if(loggedOut==='true'){
             localStorage.removeItem("access-token");
             localStorage.removeItem("refresh-token");
             setIsLogged(false);
