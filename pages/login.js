@@ -55,7 +55,6 @@ function Login() {
 
     function handleEnterInput (event){
         if(event.code==='Enter'){
-
             handleSignBtn();
         }
     }

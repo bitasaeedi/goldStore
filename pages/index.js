@@ -17,15 +17,16 @@ import { useAppContext } from '@/components/context';
 export default function Home() {
     let[assortmentType,setAssortmentType]=useState('newest');
     const router = useRouter();
-    const { setIsLogged } = useAppContext();
+    const { setIsLogged,isLogged } = useAppContext();
     useEffect(()=>{
+        console.log( !!localStorage.getItem('access-token'))
+        console.log('logged',isLogged)
         if( router.query.loggedOut==="true"){
             localStorage.removeItem("access-token");
             localStorage.removeItem("refresh-token");
             setIsLogged(false);
         }
         else if(router.query.loggedOut==="false") {
-            setIsLogged(true);
         }
     },[])
     return (

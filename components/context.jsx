@@ -1,12 +1,22 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, {createContext, useContext, useEffect, useState} from 'react';
 
 
 const AppContext = createContext();
 
 // Create a provider
 function AppProvider({ children }) {
+    let [isLogged, setIsLogged] = useState(false);
 
-    const [isLogged, setIsLogged] = useState(false);
+    useEffect(() => {
+        try {
+            const accessToken = localStorage.getItem("access-token");
+            setIsLogged(accessToken !== null && accessToken !== undefined);
+        } catch (error) {
+            console.error("Error accessing localStorage:", error);
+        }
+    }, []);
+
+
 
     return (
         <AppContext.Provider value={{ isLogged, setIsLogged}}>

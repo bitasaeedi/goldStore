@@ -9,7 +9,7 @@ import {ToastContainer} from "react-toastify";
 
 function Checkout() {
     let[changes,setChanges]=useState(false)
-
+    let [buy,setBuy]=useState(false);
     const [products,setProducts]=useState();
 
     function handleChanges(){
@@ -23,7 +23,6 @@ function Checkout() {
             ).then(function (response ) {
                     console.log(response)
                     setProducts(response.data)
-
                 }
             ).catch(function (error) {
                 console.error('Error:', error.message);
@@ -31,7 +30,7 @@ function Checkout() {
             });
 
 
-    },[changes])
+    },[changes,buy])
 
 
      newarray = products?products.products.map(item => ({
@@ -46,6 +45,7 @@ function Checkout() {
                 ).then(function (response) {
                     console.log(response.data)
                 Toast('خرید با موفقیت انجام شد',true)
+                setBuy(!buy)
                 }
             ).catch(function (error) {
                 Toast(error.response.data.message,false)
