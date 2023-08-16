@@ -14,14 +14,14 @@ import {useEffect, useState} from "react";
 import {useRouter} from "next/router";
 import { useAppContext } from '@/components/context';
 
-export default function Home() {
+export default function Home({loggedOut}) {
+
     let[assortmentType,setAssortmentType]=useState('newest');
-    const router = useRouter();
     const { setIsLogged,isLogged } = useAppContext();
+    const router = useRouter();
+
     useEffect(()=>{
-        console.log( !!localStorage.getItem('access-token'))
-        console.log('logged',isLogged)
-        if( router.query.loggedOut==="true"){
+        if(loggedOut){
             localStorage.removeItem("access-token");
             localStorage.removeItem("refresh-token");
             setIsLogged(false);
@@ -29,6 +29,7 @@ export default function Home() {
         else if(router.query.loggedOut==="false") {
         }
     },[])
+
     return (
         <>
             {/* Head */}
@@ -174,4 +175,9 @@ export default function Home() {
                 </Comments_container>
         </>
     )
+}
+Home.getInitialProps = async ({ query }) => {
+    const {loggedOut} = query
+
+    return {loggedOut}
 }
