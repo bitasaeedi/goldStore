@@ -43,7 +43,7 @@ function Category() {
             setUrl(`/search/${router.query.searchItem}?size=20&page=${currentPage}`)
         }
         else {
-            setUrl(`/filter/?size=20&page=${currentPage}&cat=${query.category}${assortmentType}${installment}${finalRangeValue.text}${color}`)
+            setUrl(`/filter/?size=20&page=${currentPage}${query.category&&query.category!=='categories'?`&cat=${query.category}`:''}${assortmentType}${query.installment?'&installment=true':installment}${finalRangeValue.text}${color}`)
         }
         //get all product
         try {

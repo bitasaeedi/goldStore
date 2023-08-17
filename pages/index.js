@@ -24,9 +24,9 @@ export default function Home({loggedOut}) {
 
     useEffect(()=>{
         if(loggedOut==='true'){
-            // localStorage.removeItem("access-token");
-            // localStorage.removeItem("refresh-token");
-            // setIsLogged(false);
+            localStorage.removeItem("access-token");
+            localStorage.removeItem("refresh-token");
+            setIsLogged(false);
             console.log('now')
         }
         else if(router.query.loggedOut==="false") {

@@ -60,9 +60,32 @@ function Header() {
                 {  isLogged? <Header_items>
                     <Link href={{ pathname: 'http://user.talayto.com', query: { accessToken:localStorage.getItem("access-token") } }}>ورود به پروفایل</Link></Header_items>:
                     <Header_items><Link href={'http://talayto.com/login'}>ورود به حساب</Link></Header_items>}
-                <Header_items><Link href={'http://talayto.com/category/categories'}>محصولات</Link></Header_items>
-                <Header_items><Link href={'http://talayto.com/category/categories'}>قسطی</Link></Header_items>
-                <Header_items><Link href={'/changePassword'}>ایتم چهارم</Link></Header_items>
+                <Header_items
+                    onClick={()=>{
+                        router.push({
+                            pathname: '/category/categories',
+                        }, '/category/categories');
+                    }}
+                >محصولات</Header_items>
+
+                <Header_items
+                    onClick={()=>{
+                        router.push({
+                            pathname: '/category/categories',
+                            query: {
+                                installment:'true'
+                            }
+                        }, '/category/categories');
+                    }}
+                >قسطی</Header_items>
+
+                <Header_items
+                    onClick={()=>{
+                        router.push({
+                            pathname: '/category/categories',
+                        }, '/category/categories');
+                    }}
+                >ایتم چهارم</Header_items>
 
                 <div onClick={()=>{
                     router.push({
