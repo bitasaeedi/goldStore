@@ -43,10 +43,25 @@ export const Menu_container=styled.div`
     background-color: #95856a;
     color: black;
   }
+  & > div {
+    color: #b3b3a6;
+    padding: 1rem 2.2rem;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: none;
+  }
+  &>div.active{
+    background-color: #95856a;
+    color: black;
+  }
 
   @media (max-width: 500px) {
     display: unset;
     & > a {
+      display: block;
+    }
+    & > div {
       display: block;
     }
   }

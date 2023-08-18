@@ -58,7 +58,7 @@ position: relative;
  
 `
 export const Search_bar=styled.div`
- 
+ background-color: black;
   width: 200px;
   height: 46px;
   position: absolute;
