@@ -27,33 +27,37 @@ function Login() {
     //check code
 
     async function handleSubmit(){
-        console.log(router.query.phoneNumber,Code,router.query.password)
-          // await axios.post('/user/signup/verification',
-          //       {phoneNumber:router.query.phoneNumber,
-          //           code:Code,
-          //           password:router.query.password}
-          //       ).then(function (response) {
-          //       if(response.status===200){
-          //           Toast('حساب شما ساخته شد',true)
-          //           setIsLogged(true);
-          //           localStorage.setItem('access-token', response.data.accessToken);
-          //           localStorage.setItem('refresh-token', response.data.refreshToken);
-          //           router.push('http://talayto.com');
-          //       }
-          //   }).catch(function (error) {
-          //     console.error('Error:', error.message);
-          //     Toast(error.response.data.message,false);
-          // });
+
+          await axios.post('/user/signup/verification',
+                {phoneNumber:router.query.phoneNumber,
+                    code:Code,
+                    password:router.query.password}
+                ).then(function (response) {
+                if(response.status===200){
+                    Toast('حساب شما ساخته شد',true)
+                    setIsLogged(true);
+                    localStorage.setItem('access-token', response.data.accessToken);
+                    localStorage.setItem('refresh-token', response.data.refreshToken);
+                    router.push('http://talayto.com');
+                }
+            }).catch(function (error) {
+              console.error('Error:', error.message);
+              Toast(error.response.data.message,false);
+          });
 
     }
     async function HandleResendCode(){
-        try {
-            await axios.post('/user/signup',
-                {phoneNumber:router.query.phoneNumber});
-
-        } catch (error) {
-            console.log('Error:', error.message,error);
-        }
+        axios.post('/user/signup',
+            {phoneNumber:router.query.phoneNumber}
+        ).then(function (response) {
+            console.log(response)
+                Toast('کد تایید برای شما ارسال شد',true)
+        }).catch(function (error) {
+            console.log('Error:', error);
+            if(error.response){
+                Toast(error.response.data.message,false)
+            }
+        });
         const time = new Date();
         time.setSeconds(time.getSeconds() + 120);
         restart(time)
