@@ -9,12 +9,12 @@ import {
 import Image from "next/image";
 
 let items = [
-    [{title: 'اتاق خبر دایموند', link: '/otaghkhabar'},
+    [{title: 'اتاق خبر دایموند', link: ''},
         {title: 'فروش در دایموند', link: ''},
         {title: 'فرصت های شغلی', link: ''},
-        {title: 'گرارش تخلف در دایموند', link: ''},
-        {title: 'تماس با دایموند', link: ''},
-        {title: 'درباره دایموند', link: ''}
+        {title: 'گرارش تخلف در طلای تو', link: ''},
+        {title: 'تماس با طلای تو', link: ''},
+        {title: 'درباره طلای تو', link: ''}
     ],
     [{title: 'پاسخ به سوالات متداول', link: ''},
         {title: 'رویه های بازگرداندن کالا', link: ''},
