@@ -3,3 +3,9 @@ export function checkPattern(inputString) {
 
     return pattern.test(inputString);
 }
+
+export function checkPhoneNumber(inputString) {
+    const pattern = /^09\d{9}$/;
+
+    return pattern.test(inputString);
+}

@@ -200,12 +200,18 @@ function Category() {
 
             <Category_main dis={showFilters === true ? ".3" : "1"}>
                 <Category_main_filters Display={showRelated === false ? 'none' : 'flex'}>
-                    <div onClick={() => setAssortmentType('&cheapest=true')}>ارزان ترین ها</div>
-                    <div onClick={() => setAssortmentType('&newest=true')}>جدیدترین ها</div>
-                    <div onClick={() => setAssortmentType('&sell=true')}>پرفروش ترین ها</div>
+                    <div onClick={() => setAssortmentType('&cheapest=true')}
+                    className={assortmentType==='&cheapest=true'?'active':''}>ارزان ترین ها</div>
+                    <div onClick={() => setAssortmentType('&newest=true')}
+                         className={assortmentType==='&newest=true'?'active':''}>جدیدترین ها</div>
+                    <div onClick={() => setAssortmentType('&sell=true')}
+                         className={assortmentType==='&sell=true'?'active':''}>پرفروش ترین ها</div>
                 </Category_main_filters>
                 <Category_items>
-                    {products ? <CategoryItem list={products}/> : null}
+                    {products ? <CategoryItem list={products}/> :
+                        <div className={"empty"}>
+                            <Image src={require('@/public/no-product.svg')} width='' height='' />
+                           کالایی پیدا نشد</div>}
                 </Category_items>
                 <ReactPaginate
                     nextLabel=">"

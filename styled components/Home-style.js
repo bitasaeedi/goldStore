@@ -178,6 +178,7 @@ export const Bottom_section = styled.div`
   position: relative;
   grid-row: 2;
   grid-column: 1/3;
+ 
   @media (max-width: 500px) {
     grid-row: 2;
     grid-column: 1/2;
@@ -188,6 +189,7 @@ export const Bottom_section = styled.div`
    border-radius: 10px;
     width: 100%;
     height: 100%;
+    object-fit: cover;
   }
 
   & > div {
@@ -323,7 +325,7 @@ export const Assortment_item = styled.div`
   line-height: 1.35rem;
   position: relative;
   word-spacing: .1rem;
-
+  cursor: pointer;
   & > img {
     width: 100%;
   }

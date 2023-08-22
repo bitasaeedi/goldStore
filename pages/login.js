@@ -9,6 +9,7 @@ import {useRouter} from "next/router";
 import {Toast} from "@/components/toast";
 import {ToastContainer} from "react-toastify";
 import { useAppContext } from '@/components/context';
+import {checkPhoneNumber} from "@/components/checkPatern";
 
 function Login() {
     const { setIsLogged } = useAppContext();
@@ -30,7 +31,10 @@ function Login() {
     }
 
    function handleSignBtn(){
-        if (password.length < 8) {
+       if(!checkPhoneNumber(PhoneNumber)){
+           Toast('شماره وارد شده صحیح نیست',false)
+       }
+        else if (password.length < 8) {
             Toast('رمز باید حدقل 8 کاراکتر داشته باشد',false)
         } else {
              axios.post('/user/login',

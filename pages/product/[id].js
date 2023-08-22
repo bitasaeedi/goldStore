@@ -15,6 +15,7 @@ import AXI from "axios";
 function Id() {
 
     const router = useRouter();
+    let{query}=useRouter();
     let [item, setItem] = useState();
     let [isOpen, setIsOpen] = useState(false);
     let [weightIsOpen, setWeightIsOpen] = useState(false);
@@ -23,7 +24,7 @@ function Id() {
 
     console.log(router.query.id)
     useEffect(() => {
-            axios.get(`/product/${router.query.id}`
+            axios.get(`/product/${query.id}`
             ).then(function (response) {
                     console.log(response.data)
                     setItem(response.data)
@@ -155,11 +156,11 @@ function Id() {
                         </div>
                         <div>
                             <div className="info_title">مدت زمان اقسات :</div>
-                            <div className="info">{item.installment.available ? item.installment.deadLine : '-'}</div>
+                            <div className="info">{varient.installment.available ? varient.installment.deadLine : '-'}</div>
                         </div>
                         <div>
-                            <div className="info_title">گرم قسط اول :</div>
-                            <div className="info">{item.installment.available ? item.installment.minWeight : '-'}</div>
+                            <div className="info_title">حدقل گرم قسط اول :</div>
+                            <div className="info">{varient.installment.available ? varient.installment.minWeight : '-'}</div>
                         </div>
                     </Middle_product_info>
                     <Responsive_btn>
@@ -178,11 +179,11 @@ function Id() {
                     <div className='input'><input placeholder='زرد' readOnly/>
                         <span> <Image src={require('@/public/more.svg')} alt="icon" width="" height=""/></span></div>
                     <h6>وزن</h6>
-                    <div className='input'>
+                    <div className='input'  onClick={() => {
+                        setWeightIsOpen(true)
+                    }}>
                         <input placeholder='123456' value={varient.weight} readOnly/>
-                        <span onClick={() => {
-                            setWeightIsOpen(true)
-                        }}><Image src={require('@/public/more.svg')} alt="icon" width="" height=""/></span>
+                        <span><Image src={require('@/public/more.svg')} alt="icon" width="" height=""/></span>
                         <div>
                             {item.variants.map((v, index) => {
                                 return <div key={index} onClick={() => {

@@ -9,7 +9,9 @@ export const Header_container = styled.header`
   align-items: center;
   padding-top: .5rem;
   margin: 1rem 0 2.5rem;
-  
+  &>div.icon{
+    cursor:pointer;
+  }
 
   @media (max-width: 768px) {
     display: none;
@@ -67,8 +69,10 @@ export const Search_bar=styled.div`
   border-radius: 10px;
   display: flex;
   padding: 0 .7rem;
-  transition: transform 0.5s ease-out;
-  transform:  ${(props) => (props.showSearchBar===true ? 'translateX(0%)' : 'translateX(200%)')};
+  transition: transform .4s ease-out;
+  // display: ${(props) => (props.showSearchBar===true ? 'flex' : 'none')};
+  transform: ${(props) => (props.showSearchBar===true ? 'translateX(0%)' : 'translateX(700%)')};
+ 
   z-index: 5;
   & > span {
     color: #928a80;

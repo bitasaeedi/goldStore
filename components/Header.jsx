@@ -2,8 +2,7 @@ import Image from "next/image";
 import {Header_container, Header_icon, Header_items, Search_bar} from '@/styled components/header-style'
 import Link from "next/link";
 import 'material-icons/iconfont/material-icons.css';
-import {useEffect, useState} from "react";
-import axios from "axios";
+import {useState} from "react";
 import {useRouter} from "next/router";
 import {useAppContext} from "@/components/context";
 
@@ -28,18 +27,6 @@ function Header() {
             setShowSearchBar(false);
         }
     }
-    function handleCategory(value){
-
-    }
-
-    // useEffect(() => {
-    //     try {
-    //         const accessToken = localStorage.getItem("access-token");
-    //         setIsLoggedIn(accessToken !== null && accessToken !== undefined);
-    //     } catch (error) {
-    //         console.error("Error accessing localStorage:", error);
-    //     }
-    // }, []);
 
     return (
         <>
@@ -90,9 +77,6 @@ function Header() {
                 <div onClick={()=>{
                     router.push({
                         pathname: 'http://talayto.com',
-                        query: {
-                            searchItem:text
-                        }
                     }, 'http://talayto.com');
                 }} className={'icon'}><Image src={require('@/public/header-icon.svg')} alt="logo" width="178" height="65"/></div>
 

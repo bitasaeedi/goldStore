@@ -41,7 +41,22 @@ export const Checkout_right_section = styled.div`
   border: 1px solid ${colors.texts.checkout.border};
   padding: 3rem 3rem 1rem;
   height: auto;
-  @media(max-width: 500px){
+  position: relative;
+
+  & > div.empty {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(149, 139, 122, 0.94);
+    text-align: center;
+
+    & > img {
+      display: block;
+    }
+  }
+
+  @media (max-width: 500px) {
     width: 92%;
     margin: 0 auto 3rem;
     padding: 2rem 2rem 1rem;
@@ -73,7 +88,7 @@ export const Purchased_item = styled.div`
   }
 
   & > div > div.delete_btn {
-    color: ${colors.texts.checkout.white2};
+    color: red;
     font-size: .5rem;
     border-bottom: 1px solid ${colors.texts.checkout.white2};
     padding-bottom: .02rem;

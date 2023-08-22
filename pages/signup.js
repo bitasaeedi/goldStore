@@ -8,7 +8,7 @@ import {useState} from "react";
 import axios from "@/pages/api/axios";
 import {Toast} from "@/components/toast";
 import {ToastContainer} from "react-toastify";
-import {checkPattern} from "@/components/checkPatern";
+import {checkPattern, checkPhoneNumber} from "@/components/checkPatern";
 
 function Signup() {
     const router = useRouter();
@@ -28,8 +28,10 @@ function Signup() {
     }
 
     function handleSignupBtn() {
-
-        if (password.length < 8) {
+        if(!checkPhoneNumber(PhoneNumber)){
+            Toast('شماره وارد شده صحیح نیست',false)
+        }
+        else if (password.length < 8) {
             Toast('رمز باید حدقل 8 کاراکتر داشته باشد',false)
         }
         else if(!checkPattern(password)){

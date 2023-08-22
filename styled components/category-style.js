@@ -220,6 +220,12 @@ export const Category_main_filters = styled.div`
     cursor: pointer;
   }
 
+  & > div.active {
+    border-bottom: .2px solid rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 0.85);
+    padding-bottom: .5rem;
+  }
+
   @media (max-width: 500px) {
     width: 93%;
     margin: 0 auto 2.5rem;
@@ -232,10 +238,22 @@ export const Category_main_filters = styled.div`
   }
 `
 export const Category_items = styled.div`
-  border-right: 0;
-  border-bottom: 0;
   display: grid;
+  position: relative;
+  min-height: 80vh;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  & > div.empty {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(149, 139, 122, 0.94);
+    text-align: center;
+
+    & > img {
+      display: block;
+    }
+  }
   @media (max-width: 500px) {
     grid-template-columns: 1fr 1fr ;
   }

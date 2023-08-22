@@ -17,17 +17,15 @@ import { useAppContext } from '@/components/context';
 export default function Home({loggedOut}) {
 
     let[assortmentType,setAssortmentType]=useState('newest');
-    const { setIsLogged,isLogged } = useAppContext();
+    const { setIsLogged } = useAppContext();
     const router = useRouter();
 
-    console.log(isLogged)
 
     useEffect(()=>{
         if(loggedOut==='true'){
             localStorage.removeItem("access-token");
             localStorage.removeItem("refresh-token");
             setIsLogged(false);
-            console.log('now')
         }
         else if(router.query.loggedOut==="false") {
         }
@@ -44,30 +42,62 @@ export default function Home({loggedOut}) {
                         <div> طلای تو اولین فروشگاه انلاین حوزه طلا می باشد که به شما اجازه می دهد در لحظه طلای مورد نظر
                             رابرای خود سفارش دهید
                         </div>
-                        <button>شروع خرید جواهرات</button>
-                        <span> خرید طلای اب شده</span>
+                        <button  onClick={()=>{
+                            router.push({
+                                pathname: '/category/categories',
+                            }, '/category/categories');
+                        }}>شروع خرید جواهرات</button>
+                        <span      onClick={()=>{
+                            router.push({
+                                pathname: 'http://user.talayto.com',
+                                query: {
+                                    accessToken:localStorage.getItem("access-token")
+                                }
+                            }, 'http://user.talayto.com');
+                        }}> خرید طلای اب شده</span>
                     </Home_video>
                 </Home_video_container>
 
                 {/*collection*/}
                 <Home_collection_container>
 
-                    <Top_section_items dir={'right'}> <Image src={require('@/public/home2.png')} alt={'play'} width=""  height=""/>
+                    <Top_section_items dir={'right'} onClick={()=>{
+                        router.push({
+                            pathname: '/category/ring',
+                        }, '/category/ring');
+                    }}>
+                        <Image src={require('@/public/home2.png')} alt={'play'} width=""  height=""/>
                         <div>انگشتر های زنانه</div>
                         <See_more_btn dir={'right'}>{'مشاهده >'}</See_more_btn>
                     </Top_section_items>
 
-                    <Top_section_items dir={'left'}>
+                    <Top_section_items dir={'left'}
+                                       onClick={()=>{
+                        router.push({
+                            pathname: 'http://user.talayto.com',
+                            query: {
+                                accessToken:localStorage.getItem("access-token")
+                            }
+                        }, 'http://user.talayto.com');
+                    }}>
                         <div>خرید طلای آب شده</div>
                         <See_more_btn dir={'right'}>{'مشاهده >'}</See_more_btn>
                     </Top_section_items>
 
 
-                    <Bottom_section>
+                    <Bottom_section onClick={()=>{
+                        router.push({
+                            pathname: '/category/Necklace',
+                        }, '/category/Necklace');
+                    }}>
                         <Image src={require('@/public/home4.png')} alt={'play'} width="" height=""/>
                     </Bottom_section>
 
-                    <Collection_section_L>
+                    <Collection_section_L onClick={()=>{
+                        router.push({
+                            pathname: '/category/ring',
+                        }, '/category/ring');
+                    }}>
                         <Image src={require('@/public/home3.png')} alt={'play'} width="" height=""/>
                         <div>
                             <span>کالکشن </span>
