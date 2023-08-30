@@ -2,6 +2,7 @@ import {Amount, Purchased_item} from "@/styled components/checkout-style";
 import Image from "next/image";
 import {useState} from "react";
 import axios from "@/pages/api/axios";
+import {formatNumber} from "@/components/checkPatern";
 
 function PurchasedItem({products,handleChanges}) {
     console.log("p",products)
@@ -30,7 +31,7 @@ function PurchasedItem({products,handleChanges}) {
                 <Image src={item.image} alt={'image'} width='1000' height='1000'/>
                 <div className='info'>
                     <div className="title">{item.title}</div>
-                    <div className='price'>{item.totalPrice} تومان</div>
+                    <div className='price'>{formatNumber(item.totalPrice)} تومان</div>
                     <div className='delete_btn' onClick={()=>handleDeleteProduct(item)}>حذف از سبد خرید</div>
                 </div>
                 <AMOUNT item={item} changes={handleChanges}/>

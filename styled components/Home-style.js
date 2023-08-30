@@ -333,6 +333,7 @@ export const Assortment_item = styled.div`
   & > img {
     width: 100%;
     min-height: 184px;
+    max-height: 184px;
     
   }
 

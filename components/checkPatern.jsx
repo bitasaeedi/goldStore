@@ -9,3 +9,8 @@ export function checkPhoneNumber(inputString) {
 
     return pattern.test(inputString);
 }
+
+export function formatNumber(number) {
+    const numStr = String(number).split('').reverse().join('');
+    return numStr.match(/.{1,3}/g).join(',').split('').reverse().join('');
+}

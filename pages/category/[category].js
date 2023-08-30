@@ -76,10 +76,6 @@ function Category() {
         setShowFilters(false);
     }
 
-    function handleToggle() {
-        console.log(4)
-    }
-
     function handleCheckbox(target) {
         if(target.target.id==='golden'){
             setGolden(true);
@@ -117,7 +113,11 @@ function Category() {
         }}>
         </Category_menu_bottom_container>
         <Path>
-            <span>فروشگاه دایموند {' > '}</span>
+            <span onClick={()=>{
+                router.push({
+                    pathname: '/',
+                }, '/');
+            }}>فروشگاه دایموند {' > '}</span>
             <span>دسته بندی {' > '}</span>
             <span className={'white2'}>گوشواره</span>
         </Path>

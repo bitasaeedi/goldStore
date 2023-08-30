@@ -13,6 +13,7 @@ import {Toast} from "@/components/toast";
 import {ToastContainer} from "react-toastify";
 import {useRouter} from "next/router";
 import Image from "next/image";
+import {formatNumber} from "@/components/checkPatern";
 
 function Checkout() {
     let [changes, setChanges] = useState(false)
@@ -87,20 +88,20 @@ function Checkout() {
                         <>
                             <div className="item">
                                 <div>قیمت کالاها :</div>
-                                {products ? <div>{products.totalPriceOfCart}</div> : 0}
+                                {products ? <div>{formatNumber(products.totalPriceOfCart)}</div> : 0}
                             </div>
                             <div className="item">
                                 <div>مقدار تخفیف :</div>
-                                {products ? <div>{(products.discountPrice)}</div> : 0}
+                                {products ? <div>{formatNumber(products.discountPrice)}</div> : 0}
                             </div>
                             <div className="item">
                                 <div>هزینه ارسال :</div>
-                                {products ? <div>{(products.postPrice)}</div> : null}
+                                {products ? <div>{formatNumber(products.postPrice)}</div> : null}
                             </div>
                             <Buy_btn>
                                 <div>
                                     <div>جمع سبد خرید :</div>
-                                    {products ? <div>{(products.paymentPrice)}</div> : null}
+                                    {products ? <div>{formatNumber(products.paymentPrice)}</div> : null}
                                 </div>
                                 <button onClick={buyProducts}>ادامه</button>
                             </Buy_btn></>

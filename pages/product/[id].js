@@ -11,6 +11,7 @@ import axios from "@/pages/api/axios";
 import {Toast} from "@/components/toast";
 import {ToastContainer} from "react-toastify";
 import AXI from "axios";
+import {formatNumber} from "@/components/checkPatern";
 
 function Id() {
 
@@ -92,7 +93,19 @@ function Id() {
         <ToastContainer/>
         {item && varient ? <Products>
             <Payment isopen={isOpen} handleisopen={handlePayment} item={item} variant={varient}/>
-            <Product_title>{'خانه > زیورآلات'}</Product_title>
+            <Product_title>
+                <span onClick={()=>{
+                    router.push({
+                        pathname: '/',
+                    }, '/');
+                }}>{'خانه > '}</span>
+
+                <span onClick={()=>{
+                    router.push({
+                        pathname: '/category/categories',
+                    }, '/category/categories');
+                }}>{' زیورآلات'}</span>
+            </Product_title>
 
             <Product_container>
                 {/*right*/}
@@ -179,7 +192,7 @@ function Id() {
 
                 {/*left*/}
                 <Left_section display={weightIsOpen}>
-                    <h5>قیمت : {varient.totalPrice} تومان</h5>
+                    <h5>قیمت : {formatNumber(varient.totalPrice)} تومان</h5>
                     <h6>رنگ <span></span></h6>
                     <div className='input'><input placeholder='زرد' readOnly/>
                         <span> <Image src={require('@/public/more.svg')} alt="icon" width="" height=""/></span></div>

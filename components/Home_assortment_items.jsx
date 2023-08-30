@@ -3,6 +3,7 @@ import Image from "next/image";
 import axios from "@/pages/api/axios";
 import {useEffect, useState} from "react";
 import {useRouter} from "next/router";
+import {formatNumber} from "@/components/checkPatern";
 function HomeAssortmentItems({type}) {
     let[items,setItems]=useState();
     const router = useRouter();
@@ -43,10 +44,10 @@ function HomeAssortmentItems({type}) {
     return <>
         {items?items.map((item,index)=>{
             return <Assortment_item key={index} onClick={()=>handleClick(item)}>
-                <Image src={item.thumbnailImage} width='208' height='184' alt='انگشتر'/>
+                <Image src={item.thumbnailImage} width='1000' height='1000' alt='انگشتر'/>
                 <div>{item.title}</div>
-                <s>{(item.totalPrice)}</s>
-                <div className='price'>{(item.finalPrice)}</div>
+                <s>{formatNumber(item.totalPrice)}</s>
+                <div className='price'>{formatNumber(item.finalPrice)}</div>
               <div className='buy_icon' onClick={()=>handleClick(item)}><Image src={require('@/public/Buyicon.svg')} width='' height='15' alt='Buy'/></div>
             </Assortment_item>
         }):null}
