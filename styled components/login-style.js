@@ -95,6 +95,7 @@ export const Forget_password = styled.div`
   left: 0;
   position: absolute;
   cursor: pointer;
+  z-index: 100;
   @media(max-width: 500px){
     bottom: .3rem;
     font-size: .75rem;

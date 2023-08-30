@@ -93,7 +93,8 @@ export default function Home({loggedOut}) {
                         <Image src={require('@/public/home4.png')} alt={'play'} width="" height=""/>
                     </Bottom_section>
 
-                    <Collection_section_L onClick={()=>{
+                    <Collection_section_L
+                        onClick={()=>{
                         router.push({
                             pathname: '/category/ring',
                         }, '/category/ring');

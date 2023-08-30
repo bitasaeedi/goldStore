@@ -43,7 +43,7 @@ function HomeAssortmentItems({type}) {
     return <>
         {items?items.map((item,index)=>{
             return <Assortment_item key={index} onClick={()=>handleClick(item)}>
-                <Image src={require('@/public/b5.png')} width='' height='184' alt='انگشتر'/>
+                <Image src={item.thumbnailImage} width='208' height='184' alt='انگشتر'/>
                 <div>{item.title}</div>
                 <s>{(item.totalPrice)}</s>
                 <div className='price'>{(item.finalPrice)}</div>

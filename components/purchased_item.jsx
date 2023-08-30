@@ -15,7 +15,7 @@ function PurchasedItem({products,handleChanges}) {
                }
            ).then(function (response) {
                    console.log(response.data)
-               handleChanges();
+                   handleChanges();
                }
            ).catch(function (error) {
               console.error('Error:', error.message);
@@ -23,17 +23,17 @@ function PurchasedItem({products,handleChanges}) {
           });
    }
 
-    console.log(products)
+    console.log('p',products)
     return <>
         {products?products.products.map((item, index) => {
             return <Purchased_item key={index}>
-                <Image src={require('@/public/c7.png')} alt={'image'} width='' height=''/>
+                <Image src={item.image} alt={'image'} width='1000' height='1000'/>
                 <div className='info'>
                     <div className="title">{item.title}</div>
                     <div className='price'>{item.totalPrice} تومان</div>
                     <div className='delete_btn' onClick={()=>handleDeleteProduct(item)}>حذف از سبد خرید</div>
                 </div>
-                <AMOUNT item={item} setItems={handleChanges}/>
+                <AMOUNT item={item} changes={handleChanges}/>
             </Purchased_item>
         }):null}
 
@@ -42,7 +42,7 @@ function PurchasedItem({products,handleChanges}) {
 
 export default PurchasedItem;
 
-function AMOUNT({item,setItems}) {
+function AMOUNT({item,changes}) {
 
     let [amount, setAmount] = useState(item.count);
 
@@ -54,7 +54,7 @@ function AMOUNT({item,setItems}) {
                     count: 1
                 }
             ).then(function (response) {
-                    console.log(response)
+                    changes();
                 setAmount(amount +1)
                 }
             ).catch(function (error) {
@@ -75,7 +75,7 @@ function AMOUNT({item,setItems}) {
                 }
             ).then(function (response) {
                     console.log(response.data)
-                    // setItems(response.data)
+                     changes();
                     setAmount(amount - 1)
                 }
             ).catch(function (error) {

@@ -10,7 +10,7 @@ import Image from "next/image";
 
 export default function SWIPER({image}) {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
-    console.log(image.thumbnailImage)
+    console.log(image)
     return (
         <>
             <Swiper
@@ -24,41 +24,46 @@ export default function SWIPER({image}) {
                 thumbs={{ swiper: thumbsSwiper }}
                 modules={[FreeMode, Navigation, Thumbs]}
                 className={styles.mySwiper2}
-                // onSwiper={(w)=>{
-                //     console.log("swiper",w)
-                //     w.slideTo(4);
-                // }}
             >
                 <SwiperSlide>
-                    <Image src={'http://91.107.160.88:3001/11ede8cb-a150-44d9-951d-c5a38819cd05_home2.png'} alt={'play'} width="40" height="416"/>
+                    <Image src={image.thumbnailImage} alt={'play'} width="4000" height="4106"/>
                 </SwiperSlide>
-                <SwiperSlide>
-                    <Image src={require('@/public/p1.png')} alt={'play'} width="100" height="100"/>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Image src={require('@/public/pro4.jpg')} alt={'play'} width="100" height="100"/>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Image src={require('@/public/p3.png')} alt={'play'} width="" height=""/>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Image src={require('@/public/p4.png')} alt={'play'} width="" height=""/>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Image src={require('@/public/home2.png')} alt={'play'} width="" height=""/>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Image src={require('@/public/home2.png')} alt={'play'} width="" height=""/>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Image src={require('@/public/home2.png')} alt={'play'} width="" height=""/>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Image src={require('@/public/home2.png')} alt={'play'} width="" height=""/>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Image src={require('@/public/home2.png')} alt={'play'} width="" height=""/>
-                </SwiperSlide>
+                {image.image?image.image.map((img,index)=>{
+                    return  <SwiperSlide key={index}>
+                        <Image src={img} alt={'play'} width="4000" height="4106"/>
+                    </SwiperSlide>
+                }):<SwiperSlide>
+                </SwiperSlide>}
+                {/*<SwiperSlide>*/}
+                {/*    <Image src={require('@/public/p1.png')} alt={'play'} width="40" height="416"/>*/}
+                {/*</SwiperSlide>*/}
+                {/*<SwiperSlide>*/}
+                {/*    <Image src={require('@/public/p1.png')} alt={'play'} width="100" height="100"/>*/}
+                {/*</SwiperSlide>*/}
+                {/*<SwiperSlide>*/}
+                {/*    <Image src={require('@/public/pro4.jpg')} alt={'play'} width="100" height="100"/>*/}
+                {/*</SwiperSlide>*/}
+                {/*<SwiperSlide>*/}
+                {/*    <Image src={require('@/public/p3.png')} alt={'play'} width="" height=""/>*/}
+                {/*</SwiperSlide>*/}
+                {/*<SwiperSlide>*/}
+                {/*    <Image src={require('@/public/p4.png')} alt={'play'} width="" height=""/>*/}
+                {/*</SwiperSlide>*/}
+                {/*<SwiperSlide>*/}
+                {/*    <Image src={require('@/public/home2.png')} alt={'play'} width="" height=""/>*/}
+                {/*</SwiperSlide>*/}
+                {/*<SwiperSlide>*/}
+                {/*    <Image src={require('@/public/home2.png')} alt={'play'} width="" height=""/>*/}
+                {/*</SwiperSlide>*/}
+                {/*<SwiperSlide>*/}
+                {/*    <Image src={require('@/public/home2.png')} alt={'play'} width="" height=""/>*/}
+                {/*</SwiperSlide>*/}
+                {/*<SwiperSlide>*/}
+                {/*    <Image src={require('@/public/home2.png')} alt={'play'} width="" height=""/>*/}
+                {/*</SwiperSlide>*/}
+                {/*<SwiperSlide>*/}
+                {/*    <Image src={require('@/public/home2.png')} alt={'play'} width="" height=""/>*/}
+                {/*</SwiperSlide>*/}
             </Swiper>
             <Swiper
                 style={{
@@ -75,35 +80,43 @@ export default function SWIPER({image}) {
                 className={styles.mySwiper}
             >
                 <SwiperSlide>
-                    <Image src={require('@/public/product.png')} alt={'play'} width="" height=""/>
+                    <Image src={image.thumbnailImage} alt={'play'} width="4000" height="4106"/>
                 </SwiperSlide>
-                <SwiperSlide>
-                    <Image src={require('@/public/p1.png')} alt={'play'} width="" height=""/>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Image src={require('@/public/pro4.jpg')} alt={'play'} width="" height=""/>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Image src={require('@/public/p3.png')} alt={'play'} width="" height=""/>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Image src={require('@/public/p4.png')} alt={'play'} width="" height=""/>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Image src={require('@/public/home2.png')} alt={'play'} width="" height=""/>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Image src={require('@/public/home2.png')} alt={'play'} width="" height=""/>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Image src={require('@/public/home2.png')} alt={'play'} width="" height=""/>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Image src={require('@/public/home2.png')} alt={'play'} width="" height=""/>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Image src={require('@/public/home2.png')} alt={'play'} width="" height=""/>
-                </SwiperSlide>
+                {image.image?image.image.map((img,index)=>{
+                    return  <SwiperSlide key={index}>
+                        <Image src={img} alt={'play'} width="4000" height="4106"/>
+                    </SwiperSlide>
+                }):null}
+                {/*<SwiperSlide>*/}
+                {/*    <Image src={require('@/public/product.png')} alt={'play'} width="" height=""/>*/}
+                {/*</SwiperSlide>*/}
+                {/*<SwiperSlide>*/}
+                {/*    <Image src={require('@/public/p1.png')} alt={'play'} width="" height=""/>*/}
+                {/*</SwiperSlide>*/}
+                {/*<SwiperSlide>*/}
+                {/*    <Image src={require('@/public/pro4.jpg')} alt={'play'} width="" height=""/>*/}
+                {/*</SwiperSlide>*/}
+                {/*<SwiperSlide>*/}
+                {/*    <Image src={require('@/public/p3.png')} alt={'play'} width="" height=""/>*/}
+                {/*</SwiperSlide>*/}
+                {/*<SwiperSlide>*/}
+                {/*    <Image src={require('@/public/p4.png')} alt={'play'} width="" height=""/>*/}
+                {/*</SwiperSlide>*/}
+                {/*<SwiperSlide>*/}
+                {/*    <Image src={require('@/public/home2.png')} alt={'play'} width="" height=""/>*/}
+                {/*</SwiperSlide>*/}
+                {/*<SwiperSlide>*/}
+                {/*    <Image src={require('@/public/home2.png')} alt={'play'} width="" height=""/>*/}
+                {/*</SwiperSlide>*/}
+                {/*<SwiperSlide>*/}
+                {/*    <Image src={require('@/public/home2.png')} alt={'play'} width="" height=""/>*/}
+                {/*</SwiperSlide>*/}
+                {/*<SwiperSlide>*/}
+                {/*    <Image src={require('@/public/home2.png')} alt={'play'} width="" height=""/>*/}
+                {/*</SwiperSlide>*/}
+                {/*<SwiperSlide>*/}
+                {/*    <Image src={require('@/public/home2.png')} alt={'play'} width="" height=""/>*/}
+                {/*</SwiperSlide>*/}
             </Swiper>
         </>
     );

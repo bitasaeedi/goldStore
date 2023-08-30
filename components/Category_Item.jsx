@@ -11,20 +11,18 @@ function CategoryItem({list,price}) {
     function handleClick(id){
         console.log(id)
         router.push({
-            pathname: `http://talayto.com/product/${id}`,
+            pathname: `/product/${id}`,
             query: {
                productId:id
             }
-        }, `http://talayto.com/product/${id}`);
+        }, `/product/${id}`);
     }
 
     return (
         <>
             {list.map((item, index) => {
-                let amount=price*item.weight*(1+item.wage);
-                let amountWithDiscount=amount*(1-item.discount)
                 return <Category_item key={index} onClick={()=>handleClick(item.id)}>
-                    <Image src={ require('@/public/c4.png')} alt='item' width='' height=''/>
+                    <Image src={item.thumbnailImage} alt='item' width='1000' height='100'/>
                     <h6 className='title'>{item.title}</h6>
                     <s className='price1'>{item.totalPrice}</s>
                     <div className='price2'>{item.finalPrice}</div>

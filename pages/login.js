@@ -10,6 +10,7 @@ import {Toast} from "@/components/toast";
 import {ToastContainer} from "react-toastify";
 import { useAppContext } from '@/components/context';
 import {checkPhoneNumber} from "@/components/checkPatern";
+import {log} from "next/dist/server/typescript/utils";
 
 function Login() {
     const { setIsLogged } = useAppContext();
@@ -49,12 +50,16 @@ function Login() {
                     setIsLogged(true);
                     localStorage.setItem('access-token', response.data.accessToken);
                     localStorage.setItem('refresh-token', response.data.refreshToken);
-                    router.push('http://talayto.com');
+                    router.push('/');
                 }
             }).catch(function (error) {
                     console.error('Error:',error);
                         Toast(error.response.data.message,false);
             })}
+    }
+
+    function handleChangePassword(){
+        console.log(10)
     }
 
     function handleEnterInput (event){
@@ -82,9 +87,7 @@ function Login() {
                             <span className="material-icons-outlined" onClick={handlePassword}>{visibility?'visibility_off':'visibility'}</span></Login_input>
 
 
-                        <Forget_password onCLick={()=>{
-                            router.push('http://talayto.com/changePassword');
-                        }}>فراموشی رمز عبور</Forget_password>
+                        <Forget_password onCLick={handleChangePassword}>فراموشی رمز عبور</Forget_password>
                     </div>
 
                     <div>

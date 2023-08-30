@@ -105,7 +105,7 @@ function Header() {
                         }, 'http://talayto.com/category/ring');
                     }}>انگشتر</Header_items>
 
-                <Header_icon margin={'right'}><Link href={'http://talayto.com/checkout'}><Image
+                <Header_icon margin={'right'}><Link href={'/checkout'}><Image
                     src={require('@/public/header-Buy-icon.svg')} alt="buy" width="" height=""/></Link></Header_icon>
 
             </Header_container>

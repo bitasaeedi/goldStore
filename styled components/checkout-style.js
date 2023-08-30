@@ -81,40 +81,45 @@ export const Purchased_item = styled.div`
   }
 
   & > div > div.price {
-    color: rgba(149, 133, 106, 0.72);
-    font-size: .8rem;
+    color: rgba(149, 133, 106, 0.89);
+    font-size: .81rem;
     padding: .2rem 0;
     font-weight: 500;
   }
 
   & > div > div.delete_btn {
-    color: red;
-    font-size: .5rem;
-    border-bottom: 1px solid ${colors.texts.checkout.white2};
+    color: #fb6565;
+    font-size: .52rem;
+    border-bottom: .5px solid rgba(250, 51, 51, 0.62);
     padding-bottom: .02rem;
     margin: 0 auto;
     width: fit-content;
     cursor: pointer;
   }
-  @media(max-width: 500px){
-    & > div > div.title{
+
+  @media (max-width: 500px) {
+    & > div > div.title {
       font-weight: 500;
       font-size: .96rem;
     }
-    &>div.info{
+
+    & > div.info {
       width: 70%;
       padding-right: 0rem;
       text-align: center;
     }
+
     & > div > div.price {
       font-size: .9rem;
     }
-    & > div > div.delete_btn{
+
+    & > div > div.delete_btn {
       font-size: .6rem;
     }
-    &>img{
+
+    & > img {
       height: 130px;
-     padding-left: 1rem;
+      padding-left: 1rem;
       padding-top: 1.5rem;
     }
   }

@@ -37,7 +37,12 @@ function Id() {
     }, [])
 
     function handlePayment() {
-        setIsOpen(!isOpen);
+        if(varient.installment.available){
+            setIsOpen(!isOpen);
+        }
+        else{
+            Toast('این محصول قسطی نیست',false)
+        }
     }
 
     //خرید در سبد خرید
@@ -85,7 +90,7 @@ function Id() {
 
     return <>
         <ToastContainer/>
-        {item ? <Products>
+        {item && varient ? <Products>
             <Payment isopen={isOpen} handleisopen={handlePayment} item={item} variant={varient}/>
             <Product_title>{'خانه > زیورآلات'}</Product_title>
 
@@ -179,11 +184,11 @@ function Id() {
                     <div className='input'><input placeholder='زرد' readOnly/>
                         <span> <Image src={require('@/public/more.svg')} alt="icon" width="" height=""/></span></div>
                     <h6>وزن</h6>
-                    <div className='input'  onClick={() => {
-                        setWeightIsOpen(true)
-                    }}>
+                    <div className='input'  >
                         <input placeholder='123456' value={varient.weight} readOnly/>
-                        <span><Image src={require('@/public/more.svg')} alt="icon" width="" height=""/></span>
+                        <span onClick={() => {
+                            setWeightIsOpen(true)
+                        }}><Image src={require('@/public/more.svg')} alt="icon" width="" height=""/></span>
                         <div>
                             {item.variants.map((v, index) => {
                                 return <div key={index} onClick={() => {

@@ -60,12 +60,14 @@ export const Home_video = styled.div`
     padding: .4rem .5rem;
     font-family: estedad, serif;
     margin: 2.5rem auto 1.7rem;
+    cursor:pointer;
   }
 
   & > span {
     color: ${colors.texts.home.video_golden};
     font-weight: 700;
     font-size: .95rem;
+    cursor:pointer;
   }
   @media (max-width: 500px) {
     padding-top: 5.5rem;
@@ -96,7 +98,7 @@ export const Play_icon = styled.span`
   display: inline-block;
   border-radius: 50%;
   position: relative;
-
+  cursor:pointer;
   & > img {
     position: absolute;
     top: 35%;
@@ -146,6 +148,7 @@ export const Top_section_items = styled.div`
   background-color: ${colors.background.home.items};
   border-radius: 10px;
   position: relative;
+  cursor: pointer;
 &.left{
   direction: ltr;
 }
@@ -178,7 +181,7 @@ export const Bottom_section = styled.div`
   position: relative;
   grid-row: 2;
   grid-column: 1/3;
- 
+  cursor:pointer;
   @media (max-width: 500px) {
     grid-row: 2;
     grid-column: 1/2;
@@ -202,6 +205,7 @@ export const Bottom_section = styled.div`
   }
 `
 export const Collection_section_L = styled.div`
+  cursor:pointer;
   width: 100%;
   position: relative;
   grid-row: 1/3;
@@ -307,7 +311,7 @@ export const Assortment_title = styled.div`
 `
 export const Assortment_items_container = styled.div`
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 50px 30px;
   margin: 0 1.7rem 2rem;
   @media (max-width: 500px) {
@@ -328,6 +332,8 @@ export const Assortment_item = styled.div`
   cursor: pointer;
   & > img {
     width: 100%;
+    min-height: 184px;
+    
   }
 
   & > div {

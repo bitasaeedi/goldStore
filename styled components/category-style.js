@@ -266,9 +266,9 @@ export const Category_item = styled.div`
   cursor: pointer;
 
   & > img {
-    width: 100%;
-    height: 180px;
-    max-height: 180px;
+    width: 100% !important;
+    height: 180px !important;
+    min-height: 180px;
   }
 
   & > h6.title {
