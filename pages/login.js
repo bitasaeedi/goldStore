@@ -44,7 +44,7 @@ function Login() {
                     password:password
                 }
             ).then(function (response) {
-                console.log("response: ", response)
+
                 if(response.status===200){
                     Toast('به حساب خود وارد شدید',true)
                     setIsLogged(true);
@@ -59,7 +59,8 @@ function Login() {
     }
 
     function handleChangePassword(){
-        console.log(10)
+        router.push('/changePassword',
+            '/changePassword');
     }
 
     function handleEnterInput (event){
@@ -87,7 +88,9 @@ function Login() {
                             <span className="material-icons-outlined" onClick={handlePassword}>{visibility?'visibility_off':'visibility'}</span></Login_input>
 
 
-                        <Forget_password onCLick={handleChangePassword}>فراموشی رمز عبور</Forget_password>
+                        <Forget_password onClick={handleChangePassword}>
+                            <div>فراموشی رمز عبور</div>
+                        </Forget_password>
                     </div>
 
                     <div>
