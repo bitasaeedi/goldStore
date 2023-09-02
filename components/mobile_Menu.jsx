@@ -17,7 +17,7 @@ function MobileMenu(props) {
                          router.push({
                              pathname: '/',
                          }, '/');
-                     }}>صحفه اصلی</div>
+                     }}>صفحه اصلی</div>
 
                 {isLogged?<Link href={{ pathname: 'http://user.talayto.com', query: { accessToken:localStorage.getItem("access-token") } }}  onClick={props.handleShowMenu}>ورود به پروفایل</Link>:
                     <Link href={'http://talayto.com/login'} className={router.pathname === '/login' ? 'active' : ''} onClick={props.handleShowMenu}>ورود به حساب</Link>}

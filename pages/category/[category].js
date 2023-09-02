@@ -34,6 +34,7 @@ function Category() {
     let [golden,setGolden]=useState(false);
     let [url, setUrl] = useState(`/filter/?size=20&page=${currentPage}${cat}${assortmentType}${installment}${finalRangeValue.text}${color}`);
     let[change,setchange]=useState('');
+    let [isFetched,setIsFetched]=useState(false)
 
 
     useEffect(() => {
@@ -53,6 +54,7 @@ function Category() {
                     setProducts(response.data)
                  console.log(response.data)
                     setPageCount(response.headers.count)
+                 setIsFetched(true)
                 }
             );
         } catch (error) {
@@ -208,10 +210,10 @@ function Category() {
                          className={assortmentType==='&sell=true'?'active':''}>پرفروش ترین ها</div>
                 </Category_main_filters>
                 <Category_items>
-                    {products ? <CategoryItem list={products}/> :
+                    {isFetched?(products ? <CategoryItem list={products}/> :
                         <div className={"empty"}>
                             <Image src={require('@/public/no-product.svg')} width='' height='' />
-                           کالایی پیدا نشد</div>}
+                           کالایی پیدا نشد</div>):null}
                 </Category_items>
                 <ReactPaginate
                     nextLabel=">"
