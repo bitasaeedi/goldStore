@@ -9,6 +9,6 @@ module.exports = {
     webpack5: true,
   },
   images: {
-    domains: ['91.107.160.88'],
+    domains: ['api.talayto.com'],
   },
 }
