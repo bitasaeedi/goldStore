@@ -46,7 +46,7 @@ function Category() {
         else {
             setUrl(`/filter/?size=20&page=${currentPage}${query.category&&query.category!=='categories'?`&cat=${query.category}`:''}${assortmentType}${query.installment?'&installment=true':installment}${finalRangeValue.text}${color}`)
         }
-        //get all product
+        //get all product,
         try {
             console.log('cat :',cat,url)
              axios.get(url
