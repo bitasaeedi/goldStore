@@ -14,6 +14,7 @@ export const Path = styled.span`
   & > span {
     padding-left: .3rem;
     color: ${colors.texts.category.white3};
+    cursor: pointer;
 
     &.white2 {
       color: ${colors.texts.category.white1};
