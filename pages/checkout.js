@@ -35,7 +35,9 @@ function Checkout() {
             }
         ).catch(function (error) {
             console.error('Error:', error.message);
+            if(error.response.data.message){
             Toast(error.response.data.message, false);
+            }
         });
 
 
